@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_19_093931) do
+ActiveRecord::Schema.define(version: 2019_12_19_110334) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(version: 2019_12_19_093931) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.string "name_first_kanji", default: "", null: false
+    t.string "name_last_kanji", default: "", null: false
+    t.string "name_first_kana", default: "", null: false
+    t.string "name_last_kana", default: "", null: false
+    t.integer "phone_number"
+    t.index ["deleted_at"], name: "index_customers_on_deleted_at"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
