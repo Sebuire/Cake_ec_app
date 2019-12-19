@@ -1,5 +1,15 @@
 # frozen_string_literal: true
 
+
+
+
+# 注意！！！！！！！！！！！！！！！！！！！！
+# deviseのadminsに関するコントローラです。
+# 注意！！！！！！！！！！！！！！！！！！！！
+
+
+
+
 class Admins::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new
   # def new

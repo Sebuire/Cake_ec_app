@@ -1,5 +1,14 @@
 # frozen_string_literal: true
 
+
+
+# 注意！！！！！！！！！！！！！！！！！！！！
+# deviseのcustomersに関するコントローラです。
+# 注意！！！！！！！！！！！！！！！！！！！！
+
+
+
+
 class Customers::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new
   # def new

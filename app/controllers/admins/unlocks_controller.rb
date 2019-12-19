@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+
+
+# 注意！！！！！！！！！！！！！！！！！！！！
+# deviseのadminsに関するコントローラです。
+# 注意！！！！！！！！！！！！！！！！！！！！
+
+
+
 class Admins::UnlocksController < Devise::UnlocksController
   # GET /resource/unlock/new
   # def new

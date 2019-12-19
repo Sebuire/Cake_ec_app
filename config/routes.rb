@@ -1,43 +1,48 @@
 Rails.application.routes.draw do
-  # devise_for :customers
+  # customers用のdeviseルーティング
   devise_for :customers, controllers: {
   sessions: 'customers/sessions',
   :registrations => 'customers/registrations'
   }
-  # devise_for :admins
+  # admins用のdeviseルーティング
   devise_for :admins, controllers: {
   sessions: 'admins/sessions',
   :registrations => 'admins/registrations'
   }
   # adminのnamespace
   namespace :admin do
+    # adminのcustomersルーティング
     resources :customers, only: [:index, :show, :edit, :update, :destroy]
+    # adminのitemsルーティング
     resources :items
+    # adminのgenresルーティング
     resources :genres, only: [:new, :create, :edit, :update, :destroy]
+    # adminのordersルーティング
     resources :orders, only: [:index, :show, :edit, :update]
+    # adminのorder_itemsルーティング
     resources :order_items, only: [:show, :edit, :update]
   end
 
-  # top
+  # topルーティング
   root to: 'top#top'
   get '/about' => 'top#about'
   get '/guide' => 'top#guide'
-  # customers
+  # customersルーティング
   resources :customers, only: [:show, :edit, :update, :destroy]
-  # items
+  # itemsルーティング
   resources :items, only: [:index, :show]
-  # genres
+  # genresルーティング
   resources :genres, only: [:show]
-  # carts
+  # cartsルーティング
   resources :carts, only: [:index, :create]
-  # orders
+  # ordersルーティング
   resources :orders, only: [:new, :create, :index]
-  # order_items
+  # order_itemsルーティング
   resources :order_items, only: [:show]
-  # addresses
+  # addressesルーティング
   resources :addresses, only: [:edit, :update, :index]
 
-  # admins
+  # adminsルーティング
   resources :admins, only: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

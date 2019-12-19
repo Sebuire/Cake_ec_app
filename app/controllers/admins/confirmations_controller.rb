@@ -1,5 +1,12 @@
 # frozen_string_literal: true
 
+
+
+# 注意！！！！！！！！！！！！！！！！！！！！
+# deviseのadminsに関するコントローラです。
+# 注意！！！！！！！！！！！！！！！！！！！！
+
+
 class Admins::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new
   # def new

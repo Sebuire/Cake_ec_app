@@ -1,5 +1,14 @@
 # frozen_string_literal: true
 
+
+
+# 注意！！！！！！！！！！！！！！！！！！！！
+# deviseのcustomersに関するコントローラです。
+# 注意！！！！！！！！！！！！！！！！！！！！
+
+
+
+
 class Customers::UnlocksController < Devise::UnlocksController
   # GET /resource/unlock/new
   # def new

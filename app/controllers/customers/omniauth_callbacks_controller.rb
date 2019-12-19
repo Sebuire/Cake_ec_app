@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+
+
+# 注意！！！！！！！！！！！！！！！！！！！！
+# deviseのcustomersに関するコントローラです。
+# 注意！！！！！！！！！！！！！！！！！！！！
+
+
+
 class Customers::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]

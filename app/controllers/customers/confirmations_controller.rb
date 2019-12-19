@@ -1,5 +1,12 @@
 # frozen_string_literal: true
 
+
+# 注意！！！！！！！！！！！！！！！！！！！！
+# deviseのcustomersに関するコントローラです。
+# 注意！！！！！！！！！！！！！！！！！！！！
+
+
+
 class Customers::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new
   # def new

@@ -1,5 +1,14 @@
 # frozen_string_literal: true
 
+
+
+# 注意！！！！！！！！！！！！！！！！！！！！
+# deviseのcustomersに関するコントローラです。
+# 注意！！！！！！！！！！！！！！！！！！！！
+
+
+
+
 class Customers::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
