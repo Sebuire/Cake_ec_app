@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_19_110334) do
+ActiveRecord::Schema.define(version: 2019_12_19_145112) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_12_19_110334) do
   create_table "carts", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "item_id"
-    t.integer "quantity"
+    t.integer "quantity", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2019_12_19_110334) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2019_12_19_110334) do
     t.text "body"
     t.text "image_id"
     t.integer "price"
-    t.integer "sales_status"
+    t.integer "sales_status", default: 0, null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2019_12_19_110334) do
     t.integer "item_id"
     t.integer "price"
     t.integer "quantity"
-    t.integer "making_status"
+    t.integer "making_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 2019_12_19_110334) do
     t.integer "customer_id"
     t.integer "postage"
     t.integer "total_price"
-    t.integer "payment"
-    t.integer "order_status"
+    t.integer "payment", default: 0, null: false
+    t.integer "order_status", default: 0, null: false
     t.string "order_name"
     t.text "order_address"
     t.integer "order_postal_code"
