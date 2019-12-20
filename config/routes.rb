@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :orders, only: [:index, :show, :edit, :update]
+  end
+  namespace :admin do
+    resources :order_items, only: [:index, :show, :edit, :update]
+  end
+  namespace :admin do
+    resources :items
+  end
+  namespace :admin do
+    resources :genres, only: [:new, :create, :edit, :update, :destroy]
+  end
+  namespace :admin do
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
+  end
   # customers用のdeviseルーティング
   devise_for :customers, controllers: {
   sessions: 'customers/sessions',
@@ -10,18 +25,18 @@ Rails.application.routes.draw do
   :registrations => 'admins/registrations'
   }
   # adminのnamespace
-  namespace :admin do
-    # adminのcustomersルーティング
-    resources :customers, only: [:index, :show, :edit, :update, :destroy]
-    # adminのitemsルーティング
-    resources :items
-    # adminのgenresルーティング
-    resources :genres, only: [:new, :create, :edit, :update, :destroy]
-    # adminのordersルーティング
-    resources :orders, only: [:index, :show, :edit, :update]
-    # adminのorder_itemsルーティング
-    resources :order_items, only: [:show, :edit, :update]
-  end
+  # namespace :admin do
+  #   # adminのcustomersルーティング
+  #   resources :customers, only: [:index, :show, :edit, :update, :destroy]
+  #   # adminのitemsルーティング
+  #   resources :items
+  #   # adminのgenresルーティング
+  #   resources :genres, only: [:new, :create, :edit, :update, :destroy]
+  #   # adminのordersルーティング
+  #   resources :orders, only: [:index, :show, :edit, :update]
+  #   # adminのorder_itemsルーティング
+  #   resources :order_items, only: [:show, :edit, :update]
+  # end
 
   # topルーティング
   root to: 'top#top'
