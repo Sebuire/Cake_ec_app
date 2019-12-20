@@ -1,1 +1,30 @@
-<h1>管理者側のジャンル一覧です</h1>
+<%= render 'layouts/admin_header' %>
+	<div class="container">
+		<h1>ジャンル一覧画面</h1>
+		<table class="table">
+			<th>ジャンル名</th>
+			<th>取り扱い状況</th>
+			<th>編集</th>
+			<% @genres.each do |f| %>
+				<tr>
+					<td>
+						<%= f.name %>
+					</td>
+					<td>
+						<% if f.is_active == true %>
+							<span>取り扱い中</span>
+						<% else %>
+							<span>取り扱い中止</span>
+						<% end %>
+					</td>
+					<td>
+						<%= link_to "編集", edit_admin_genre_path(f.id) %>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+		<div>
+			<button style="padding: 5px 15px; margin: 5px;"><%= link_to "ジャンル追加", new_admin_genre_path %></button>
+		</div>
+	</div>
+<%= render 'layouts/admin_footer' %>
