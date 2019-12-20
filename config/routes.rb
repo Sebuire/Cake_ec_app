@@ -1,38 +1,18 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get 'orders/index'
-    get 'orders/show'
-    get 'orders/edit'
-    get 'orders/update'
+    resources :orders, only: [:index, :show, :edit, :update]
   end
   namespace :admin do
-    get 'order_items/index'
-    get 'order_items/show'
-    get 'order_items/edit'
-    get 'order_items/update'
+    resources :order_items, only: [:index, :show, :edit, :update]
   end
   namespace :admin do
-    get 'items/index'
-    get 'items/show'
-    get 'items/new'
-    get 'items/create'
-    get 'items/edit'
-    get 'items/update'
-    get 'items/destroy'
+    resources :items
   end
   namespace :admin do
-    get 'genres/new'
-    get 'genres/create'
-    get 'genres/edit'
-    get 'genres/update'
-    get 'genres/destroy'
+    resources :genres, only: [:new, :create, :edit, :update, :destroy]
   end
   namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/update'
-    get 'customers/destroy'
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
   end
   # customers用のdeviseルーティング
   devise_for :customers, controllers: {
