@@ -1,0 +1,7 @@
+<header class="admin_header">
+	<% if admin_signed_in? %>
+		<p class="login">管理者ログイン中</p>
+		<%= link_to "Log out", destroy_admin_session_path, method: :delete %>
+	<% end %>
+	<%= link_to "index items", admin_items_path %>
+</header>
