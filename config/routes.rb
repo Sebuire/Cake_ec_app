@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :items
   end
   namespace :admin do
-    resources :genres, only: [:new, :create, :edit, :update, :destroy]
+    resources :genres, only: [:new, :create, :edit, :update, :destroy, :index]
   end
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update, :destroy]
