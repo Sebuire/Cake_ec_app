@@ -4,22 +4,22 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
     <label>名前(姓)</label><br>
-    <%= f.text_field :name_first_kanji, autofocus: true %>
+    <%= f.text_field :name_last_kanji, autofocus: true %>
   </div>
 
   <div class="field">
     <label>名前(名)</label><br>
-    <%= f.text_field :name_last_kanji %>
+    <%= f.text_field :name_first_kanji %>
   </div>
 
   <div class="field">
     <label>フリガナ(姓)</label><br>
-    <%= f.text_field :name_first_kana %>
+    <%= f.text_field :name_last_kana %>
   </div>
 
   <div class="field">
     <label>フリガナ(名)</label><br>
-    <%= f.text_field :name_last_kana %>
+    <%= f.text_field :name_first_kana %>
   </div>
 
   <div class="field">
