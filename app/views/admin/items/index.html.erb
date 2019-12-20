@@ -1,3 +1,4 @@
+<%= render 'layouts/admin_header' %>
 <div class="container">
 
 	<h1>商品一覧</h1>
@@ -24,7 +25,9 @@
 		</tbody>
 	</table>
 
-	<a href="/admins">機能一覧</a>
-
+	<a href="/admin/items/new">商品追加</a>
+	<br>
+    <a href="/admins">機能一覧</a>
 
 </div>
+<%= render 'layouts/admin_footer' %>
