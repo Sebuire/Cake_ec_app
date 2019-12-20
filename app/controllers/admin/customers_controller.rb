@@ -1,21 +1,16 @@
-class admin::CustomersController < ApplicationController
-	def index
+class Admin::CustomersController < ApplicationController
+  def index
+  end
 
-	end
+  def show
+  end
 
-	def show
+  def edit
+  end
 
-	end
+  def update
+  end
 
-	def edit
-
-	end
-
-	def update
-
-	end
-
-	def destroy
-
-	end
+  def destroy
+  end
 end
