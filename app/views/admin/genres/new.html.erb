@@ -1,2 +1,27 @@
-<h1>Admin::Genres#new</h1>
-<p>Find me in app/views/admin/genres/new.html.erb</p>
+<%= render 'layouts/admin_header' %>
+	<div class="container">
+		<h1>ジャンル追加画面</h1>
+		<table class="table">
+			<th>ジャンル名</th>
+			<th>取り扱い状況</th>
+			<th></th>
+			<%= form_for @genre, url:admin_genres_path do |f| %>
+				<tr>
+					<td>
+						<%= f.text_field :name %>
+					</td>
+					<td>
+						<%= f.check_box :is_active %>
+					</td>
+					<td>
+						<%= f.submit "ジャンル追加" %>
+						<!-- リダイレクトがおかしい -->
+					</td>
+				</tr>
+			<% end %>
+		</table>
+		<div>
+			<button style="padding: 5px 15px; margin: 5px;"><%= link_to "ジャンル一覧へ", admin_genres_path %></button>
+		</div>
+	</div>
+<%= render 'layouts/admin_footer' %>

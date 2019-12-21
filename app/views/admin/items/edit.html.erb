@@ -1,2 +1,26 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<%= render 'layouts/admin_header' %>
+
+<div class="container">
+	<h1>商品編集</h1>
+	<%= form_for(@item,url:admin_item_path) do |f| %>
+	    <h4>商品名</h4>
+	    <%= f.text_field :name, autofocus: true, placeholder: "name", class: "form-control" %><br>
+
+	    <h4>商品説明</h4>
+	    <%= f.text_area :body, placeholder: "body", class: "form-control" %>
+
+	    <h4>商品画像</h4>
+	    <%= f.attachment_field :image, placeholder: "image" %>
+
+	    <h4>価格</h4>
+	    <%= f.text_field :price, placeholder: "price" %>
+	    <br><br>
+
+	    <%= f.submit '更新', class: "btn btn-primary btn-block" %>
+	<% end %>
+
+	<a href="/admins">機能一覧</a><br>
+	<a href="/admin/items">商品一覧</a>
+</div>
+
+<%= render 'layouts/admin_footer' %>

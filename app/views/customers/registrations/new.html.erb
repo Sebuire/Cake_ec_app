@@ -32,6 +32,16 @@
     <%= f.text_field :phone_number %>
   </div>
 
+  <div class="field">
+
+    <%= f.fields_for :address do |addresses_form| %>
+      <%= addresses_form.label :address, "住所" %><br />
+      <%= addresses_form.text_field :address %><br />
+      <%= addresses_form.label :postal_code, "郵便番号" %><br />
+      <%= addresses_form.text_field :postal_code %><br />
+    <% end %>
+  </div>
+
 
   <br><br>
   <div class="field">

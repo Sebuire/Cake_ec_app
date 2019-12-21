@@ -1,2 +1,60 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+
+
+<%= render 'layouts/admin_header' %>
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+
+
+			<table class="table col-lg-9">
+				<caption>顧客詳細</caption>
+				<thead>
+					<tr>
+						<th>氏名(漢字)</th>
+						<th>氏名(カナ)</th>
+						<th>email</th>
+						<th>電話番号</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					
+					<tr>
+						<td>
+							<%= @customer.name_last_kanji %>
+							<%= @customer.name_first_kanji %>
+						</td>
+						<td>
+							<%= @customer.name_last_kana %>
+							<%= @customer.name_first_kana %>
+						</td>
+						<td>
+							<%= @customer.email %>
+						</td>
+						<td>
+							<%= @customer.phone_number %>
+						</td>
+						<td>
+							<%= link_to "編集", edit_admin_customer_path(@customer) %>
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+			<% @customer.addresses.each do |a| %>
+				<table class="table">
+					<caption>配送先</caption>
+					<th>配送先<%= a.id %></th>
+					<tr>
+						<td>
+							<%= a.address %>
+						</td>
+					</tr>
+				</table>
+			<% end %>
+		</div>
+	</div>
+</div>
+<%= render 'layouts/admin_footer' %>
+

@@ -1,0 +1,13 @@
+<header class="admin_header" style="width: 100%; height: 100px; background-color: lightgrey;">
+	<% if admin_signed_in? %>
+		<%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+		<%= link_to "商品一覧", admin_items_path %>
+		<%= link_to "注文履歴一覧", admin_orders_path %>
+		<%= link_to "ジャンル一覧", admin_genres_path %>
+		<%= link_to "顧客一覧", admin_customers_path %>
+	<% end %>
+</header>
+<% if admin_signed_in? %>
+	<p>管理者ログイン中</p>
+<% end %>
+
