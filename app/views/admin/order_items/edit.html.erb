@@ -1,2 +1,24 @@
-<h1>Admin::OrderItems#edit</h1>
-<p>Find me in app/views/admin/order_items/edit.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h2 class="headline">製作ステータス変更</h2>
+
+			<div class="">
+				<h3>注文情報</h3>
+				<p>注文番号：<%= @order_item.id %></p>
+				<p>注文日時：<%= @order_item.order.created_at.strftime('%Y/%m/%d') %></p>
+				<p>注文者：<%= @order_item.order.customer.name_last_kanji %><%=@order_item.order.customer.name_first_kanji %></p>
+			</div>
+
+			<br>
+			<br>
+			<p>商品名：<%= @order_item.item.name %>
+
+			<%= form_for @order_item, url:admin_order_item_path do |f| %>
+				<%= f.select :making_status, OrderItem.making_statuses.keys.to_a, {} %>
+				<%= f.submit "更新", class:"btn" %>
+			<% end %>
+
+		</div>
+	</div>
+</div>

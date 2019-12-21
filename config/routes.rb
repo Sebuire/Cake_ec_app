@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :edit, :update]
   end
   namespace :admin do
-    resources :order_items, only: [:index, :show, :edit, :update]
+    resources :order_items, only: [:edit, :update]
   end
   namespace :admin do
     resources :items
