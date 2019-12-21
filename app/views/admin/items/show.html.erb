@@ -14,7 +14,7 @@
 			</tr>
 			<tr>
 				<th><h4>商品画像</h4></th>
-				<td><%= @item.image_id %></td>
+				<td><%= attachment_image_tag @item, :image %></td>
 			</tr>
 			<tr>
 				<th><h4>商品説明</h4></th>
