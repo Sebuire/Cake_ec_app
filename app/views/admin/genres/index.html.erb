@@ -2,11 +2,15 @@
 	<div class="container">
 		<h1>ジャンル一覧画面</h1>
 		<table class="table">
+			<th>ジャンルID</th>
 			<th>ジャンル名</th>
 			<th>取り扱い状況</th>
 			<th></th>
 			<% @genres.each do |f| %>
 				<tr>
+					<td>
+						<%= f.id %>
+					</td>
 					<td>
 						<%= f.name %>
 					</td>

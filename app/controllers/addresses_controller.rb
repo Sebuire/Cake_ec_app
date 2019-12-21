@@ -7,4 +7,8 @@ class AddressesController < ApplicationController
 
   def index
   end
+
+  def address_params
+      params.require(:address).permit(:address, :postal_code])
+  end
 end
