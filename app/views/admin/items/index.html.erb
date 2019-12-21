@@ -6,9 +6,10 @@
 			<tr>
 				<th>ジャンル</th>
 				<th>商品名</th>
-				<th>商品説明</th>
 				<th>価格</th>
 				<th>販売ステータス</th>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -16,10 +17,11 @@
 				<% if item.genre.is_active == true %>
 					<tr>
 						<td><%= item.genre.name %></td>
-						<td><%= link_to item.name, admin_item_path(item.id) %></td>
-						<td><%= item.body %></td>
-						<td><%= item.price %></td>
+						<td><%= item.name %></td>
+						<td><%= item.price %>円</td>
 						<td><%= item.sales_status %></td>
+						<td><%= link_to "詳細", admin_item_path(item.id) %></td>
+						<td><%= link_to "編集", edit_admin_item_path(item.id) %></td>
 					</tr>
 				<% end %>
 	        <% end %>
