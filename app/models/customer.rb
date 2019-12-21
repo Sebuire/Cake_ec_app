@@ -7,4 +7,5 @@ class Customer < ApplicationRecord
   has_many :orders
   has_many :carts
   acts_as_paranoid
+  accepts_nested_attributes_for :addresses
 end
