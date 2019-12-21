@@ -1,33 +1,45 @@
-<div class="container">
-	<div class="row">
-		<div class="col">
-			<h2>注文履歴</h2>
-			<table class="table">
-				<thead>
-					<tr>
-						<th class="">注文ID</th>
-						<th class="">注文日</th>
-						<th class="">名前</th>
-						<th class="">合計金額</th>
-						<th class="">注文ステータス</th>
-						<th class=""></th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @orders.each do |order| %>
-					<tr>
-						<td class=""><%= order.id %></td>
-						<td class=""><%= order.created_at.strftime('%Y/%m/%d') %></td>
-						<td class=""><%=order.customer.name_last_kanji %>　<%=order.customer.name_first_kanji %></td>
-						<td class=""><%= order.total_price%>円</td>
-						<td class=""><%= order.order_status %>　<%= link_to '編集', edit_admin_order_path(order) %></td>
-						<td class=""><%= link_to '詳細',admin_order_path(order) %></td>
-					</tr>
-					<% end %>
-				</tbody>
-			</table>
+<header>
+	<%= render "layouts/admin_header" %>
+</header>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h2>注文履歴</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th class="">注文ID</th>
+							<th class="">注文日</th>
+							<th class="">名前</th>
+							<th class="">合計金額</th>
+							<th class="">注文ステータス</th>
+							<th class=""></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @orders.each do |order| %>
+						<tr>
+							<td class=""><%= order.id %></td>
+							<td class=""><%= order.created_at.strftime('%Y/%m/%d') %></td>
+							<td class=""><%=order.customer.name_last_kanji %>　<%=order.customer.name_first_kanji %></td>
+							<td class=""><%= order.total_price%>円</td>
+							<td class=""><%= order.order_status %>　<%= link_to '編集', edit_admin_order_path(order), class:"btn btn-default" %></td>
+							<td class=""><%= link_to '詳細',admin_order_path(order), class:"btn btn-default" %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+
+				<%= link_to 'トップ', admins_path %>
+
+			</div>
 		</div>
 	</div>
-</div>
+</body>
 
+<footer>
+	<%= render "layouts/admin_footer" %>
+</footer>
 

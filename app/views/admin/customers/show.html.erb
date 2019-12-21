@@ -19,7 +19,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					
+
 					<tr>
 						<td>
 							<%= @customer.name_last_kanji %>
@@ -53,8 +53,12 @@
 					</tr>
 				</table>
 			<% end %>
+
+			<%= link_to 'トップ', admins_path %>
+			<%= link_to '顧客一覧', admin_customers_path %>
 		</div>
 	</div>
 </div>
+
 <%= render 'layouts/admin_footer' %>
 
