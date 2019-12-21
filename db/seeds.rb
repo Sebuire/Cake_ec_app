@@ -21,3 +21,4 @@
 # Item.create(genre_id: "4", name: "ペロペロキャンディ", body: "大きいです。", price: "200", sales_status: 0)
 # Cart.create(customer_id: "1", item_id: "1", quantity: "2")
 # Cart.create(customer_id: "1", item_id: "2", quantity: "1")
+
