@@ -1,5 +1,5 @@
 class Admin::OrderItemsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_admin!
 
     def edit
     @order_item = OrderItem.find(params[:id])
