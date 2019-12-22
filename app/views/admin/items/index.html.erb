@@ -20,8 +20,8 @@
 						<td><%= item.name %></td>
 						<td><%= item.price %>円</td>
 						<td><%= item.sales_status %></td>
-						<td><%= link_to "詳細", admin_item_path(item.id) %></td>
-						<td><%= link_to "編集", edit_admin_item_path(item.id) %></td>
+						<td><%= link_to "詳細", admin_item_path(item.id), class: "btn btn-default" %></td>
+						<td><%= link_to "編集", edit_admin_item_path(item.id), class: "btn btn-default" %></td>
 					</tr>
 				<% end %>
 	        <% end %>
@@ -30,7 +30,7 @@
 
 	<a href="/admin/items/new" class="btn btn-default"style="margin-bottom: 15px;" >商品追加</a>
 	<br>
-    <a href="/admins" class="btn btn-default" style="margin-bottom: 15px;">トップ</a>
+    <a href="/admins" class="btn btn-default" style="margin-bottom: 15px;">管理者 TOP</a>
 
 </div>
 <%= render 'layouts/admin_footer' %>
