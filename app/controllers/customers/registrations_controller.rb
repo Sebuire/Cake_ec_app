@@ -100,4 +100,8 @@ class Customers::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name_last_kana])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:phone_number])
   end
+
+  def after_sign_up_path_for(resource)
+    root_path
+  end
 end
