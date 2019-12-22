@@ -1,3 +1,10 @@
-<<header id="header" class="">
-	
-</header><!-- /header -->
+<header style="width: 100%; height: 150px; border-bottom: 1px solid black;">
+	<% if customer_signed_in? %>
+		<%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+	<% else %>
+		<%= link_to "ABOUT","#" %>
+		<%= link_to "会社概要", "#" %>
+		<%= link_to "Log in", "#" %>
+		<%= link_to "Sign up", "#" %>
+	<% end %>
+</header>
