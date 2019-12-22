@@ -1,32 +1,30 @@
 <%= render 'layouts/admin_header' %>
 
 <div class="container">
-	<h1>商品追加</h1>
+	<h1 class="title">商品追加</h1>
 	<%= form_for(@item) do |f| %>
-
 	    <h4>ジャンル</h4>
 	    <% @genres.each do |g| %>
-	    <%= f.radio_button :genre_id, g.id %>
-	    <%= g.name %>
+		    <%= f.radio_button :genre_id, g.id %>
+		    <%= g.name %>
 	    <% end %>
 	    <h4>商品名</h4>
-	    <%= f.text_field :name, autofocus: true, placeholder: "name", class: "form-control" %><br>
+	    <%= f.text_field :name, autofocus: true, placeholder: "ケーキ", class: "col-sm-2" %><br>
 
 	    <h4>商品説明</h4>
-	    <%= f.text_area :body, placeholder: "body", class: "form-control" %>
+	    <%= f.text_area :body, placeholder: "この商品は〇〇です。", class: "form-control" %>
 
 	    <h4>商品画像</h4>
 	    <%= f.attachment_field :image, placeholder: "image" %>
 
 	    <h4>価格</h4>
-	    <%= f.text_field :price, placeholder: "price" %>
+	    <%= f.text_field :price, class: "col-sm-1" %>円
 	    <br><br>
 
-	    <%= f.submit '追加', class: "btn btn-primary btn-block" %>
+	    <%= f.submit '追加', class: "btn btn-default" %>
 	<% end %>
-
-	<a href="/admins">トップ</a><br>
-	<a href="/admin/items">商品一覧</a>
+	<%= link_to "商品一覧に戻る", admin_items_path, class: "btn btn-default", style: "margin: 15px 0px;" %><br>
+	<%= link_to "管理者TOP", admins_path, class: "btn btn-default", style: "margin-bottom: 15px;" %>
 </div>
 
 <%= render 'layouts/admin_footer' %>

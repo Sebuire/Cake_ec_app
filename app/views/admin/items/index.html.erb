@@ -1,33 +1,41 @@
 <%= render 'layouts/admin_header' %>
 <div class="container">
-
-	<h1>商品一覧</h1>
+	<h1 class="title">商品一覧</h1>
 	<table class="table">
 		<thead>
 			<tr>
-				<th><h4>ジャンル</h4></th>
-				<th><h4>商品名</h4></th>
-				<th><h4>商品説明</h4></th>
-				<th><h4>価格</h4></th>
-				<th><h4>販売ステータス</h4></th>
+				<th>ジャンル</th>
+				<th>商品名</th>
+				<th>価格</th>
+				<th>販売ステータス</th>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @items.each do |item| %>
-			<tr>
-				<td><%= item.genre.name %></td>
-				<td><%= link_to item.name, admin_item_path(item.id) %></td>
-				<td><%= item.body %></td>
-				<td><%= item.price %></td>
-				<td><%= item.sales_status %></td>
-			</tr>
+				<% if item.genre.is_active == true %>
+					<tr>
+						<td><%= item.genre.name %></td>
+						<td><%= item.name %></td>
+						<td><%= item.price %>円</td>
+						<td><%= item.sales_status %></td>
+						<td><%= link_to "詳細", admin_item_path(item.id), class: "btn btn-default" %></td>
+						<td><%= link_to "編集", edit_admin_item_path(item.id), class: "btn btn-default" %></td>
+					</tr>
+				<% else %>
+					<tr>
+						<td><%= item.genre.name %>(取り扱い中止)</td>
+						<td><%= item.name %></td>
+						<td><%= item.price %>円</td>
+						<td>販売停止</td>
+						<td><%= link_to "詳細", admin_item_path(item.id), class: "btn btn-default" %></td>
+						<td><%= link_to "編集", edit_admin_item_path(item.id), class: "btn btn-default" %></td>
+					</tr>
+				<% end %>
 	        <% end %>
 		</tbody>
 	</table>
-
-	<a href="/admin/items/new">商品追加</a>
-	<br>
-    <a href="/admins">トップ</a>
-
+	<%= link_to "管理者TOP", admins_path, class: "btn btn-default", style: "margin-bottom: 15px;" %>
 </div>
 <%= render 'layouts/admin_footer' %>

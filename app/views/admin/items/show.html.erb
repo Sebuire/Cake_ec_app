@@ -1,41 +1,28 @@
 <%= render 'layouts/admin_header' %>
 
 <div class="container">
-	<h1>商品詳細</h1>
+	<h1 class="title">商品詳細</h1>
 	<table class="table">
-		<thead>
+			<th>ジャンル</th>
+			<th>商品名</th>
+			<th>商品画像</th>
+			<th>商品説明</th>
+			<th>値段</th>
+			<th>販売ステータス</th>
+			<th></th>
+			<th></th>
 			<tr>
-				<th><h4>ジャンル</h4></th>
 				<td><%= @item.genre.name %></td>
-			</tr>
-			<tr>
-				<th><h4>商品名</h4></th>
 				<td><%= @item.name %></td>
-			</tr>
-			<tr>
-				<th><h4>商品画像</h4></th>
 				<td><%= attachment_image_tag @item, :image %></td>
-			</tr>
-			<tr>
-				<th><h4>商品説明</h4></th>
 				<td><%= @item.body %></td>
-			</tr>
-			<tr>
-				<th><h4>値段</h4></th>
 				<td><%= @item.price %></td>
-			</tr>
-			<tr>
-				<th><h4>販売ステータス</h4></th>
 				<td><%= @item.sales_status %></td>
+				<td><%= link_to "編集", edit_admin_item_path, class: "btn btn-default" %></td>
+				<td><%= link_to "削除", admin_item_path, method: :delete, class: "btn btn-default" %></td>
 			</tr>
-		</thead>
 	</table>
-
-	<%= link_to "編集", edit_admin_item_path, class: "btn btn-success" %>
-	<%= link_to "削除", admin_item_path, method: :delete, class: "btn btn-danger" %>
-
-	<br><a href="/admins">トップ</a><br>
-	<a href="/admin/items">商品一覧</a>
+	<%= link_to "商品一覧に戻る", admin_items_path, class: "btn btn-default", style: "margin: 15px 0px;" %><br>
 </div>
 
 <%= render 'layouts/admin_footer' %>

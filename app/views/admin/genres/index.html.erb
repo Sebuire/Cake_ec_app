@@ -1,6 +1,6 @@
 <%= render 'layouts/admin_header' %>
 	<div class="container">
-		<h1>ジャンル一覧画面</h1>
+		<h1 class="title">ジャンル一覧画面</h1>
 		<table class="table">
 			<th>ジャンルID</th>
 			<th>ジャンル名</th>
@@ -22,16 +22,13 @@
 						<% end %>
 					</td>
 					<td>
-						<%= link_to "編集", edit_admin_genre_path(f.id) %>
+						<%= link_to "編集", edit_admin_genre_path(f.id), class: "btn btn-default" %>
 					</td>
 				</tr>
 			<% end %>
 		</table>
-		<div>
-			<button style="padding: 5px 15px; margin: 5px;"><%= link_to "ジャンル追加", new_admin_genre_path %></button>
-		</div>
-		<div>
-			<button style="padding: 5px 15px; margin: 5px;"><%= link_to "トップ", admins_path %></button>
+		<%= link_to "ジャンル追加", new_admin_genre_path, class: "btn btn-default", style: "margin: 15px 0;" %><br>
+		<%= link_to "管理者TOP", admins_path, class: "btn btn-default", style: "margin-bottom: 15px;" %>
 		</div>
 	</div>
 <%= render 'layouts/admin_footer' %>
