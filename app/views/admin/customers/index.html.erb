@@ -5,30 +5,27 @@
 <div class="container">
 	<div class="row">
 		<div class="col">
-
 			<table class="table col-lg-9">
-				<caption>顧客一覧</caption>
+				<h1 class="title">顧客一覧</h1>
 				<thead>
-					<tr>
-						<th>氏名</th>
-					</tr>
+					<th>顧客ID</th>
+					<th>顧客名</th>
+					<th></th>
 				</thead>
 				<tbody>
 					<% @customers.each do |customer| %>
 						<tr>
+							<td><%= customer.id %></td>
 							<td>
-								<%=link_to admin_customer_path(customer.id) do %>
-									<%= customer.name_last_kanji %>
-									<%= customer.name_first_kanji %>
-								<% end %>
+								<%= customer.name_last_kanji %>
+								<%= customer.name_first_kanji %>
 							</td>
+							<td><%= link_to "詳細",admin_customer_path(customer.id), class: "btn btn-default" %> </td>
 						</tr>
 					<% end %>
 				</tbody>
 			</table>
-
-			<%= link_to 'トップ', admins_path %>
-
+			<%= link_to 'トップ', admins_path, class: "btn btn-default", style: "margin: 15px 0;" %>
 		</div>
 	</div>
 </div>

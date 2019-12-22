@@ -1,6 +1,6 @@
 <%= render 'layouts/admin_header' %>
 	<div class="container">
-		<h1>ジャンル編集画面</h1>
+		<h1 class="title">ジャンル編集画面</h1>
 		<%= form_for @genre, url:admin_genre_path do |f| %>
 			<table class="table">
 				<th>ジャンル名</th>
@@ -14,13 +14,11 @@
 							<%= f.check_box :is_active %>
 						</td>
 						<td>
-							<%= f.submit "変更保存",{style: "padding: 5px 15px; margin: 5px;"} %>
+							<%= f.submit "変更保存", class: "btn btn-default" %>
 						</td>
 					</tr>
 			</table>
 		<% end %>
-		<div>
-			<button style="padding: 5px 15px; margin: 5px;"><%= link_to "戻る", admin_genres_path %></button>
-		</div>
+		<%= link_to "戻る", admin_genres_path, class: "btn btn-default", style: "margin: 15px 0;" %>
 	</div>
 <%= render 'layouts/admin_footer' %>
