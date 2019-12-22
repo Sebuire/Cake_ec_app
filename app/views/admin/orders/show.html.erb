@@ -2,56 +2,75 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h2>注文内容詳細</h2>
-				<div class="">
-					<h3>注文情報</h3>
-					<p>注文番号：<%= @order.id %></p>
-					<p>注文日時：<%= @order.created_at.strftime('%Y/%m/%d') %></p>
-					<p>購入者：<%= @order.customer.name_last_kanji %><%=@order.customer.name_first_kanji %></p>
-				</div>
-				<h3>注文内容</h3>
-				<table class="table">
-					<thead>
+				<h1 class="title">注文内容詳細</h1>
+				<table class="table table-bordered" style="width: 60%; margin: 0 auto;">
+					<h3 class="title">注文情報</h3>
 					<tr>
-						<th class="">商品名</th>
-						<th class="">価格</th>
-						<th class="">個数</th>
-						<th class="">消費税</th>
-						<th class="">合計</th>
-						<th class="">製作ステータス</th>
+						<th>注文ID</th><td><%= @order.id %></td><th>注文日時：</th><td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+						<th>購入者</th><td><%= @order.customer.name_last_kanji %><%=@order.customer.name_first_kanji %></td>
 					</tr>
-					</thead>
-					<tbody>
-						<% @order.order_items.each do |o| %>
+				</table>
+				<h3 class="title">注文内容</h3>
+				<% @order.order_items.each do |o| %>
+					<table class="table table-bordered" style="width: 60%; margin: 0 auto;">
 						<tr>
-							<td class=""><%= o.item.name %></td>
-							<td class=""><%= o.item.price %>円</td>
-							<td class=""><%= o.quantity %>個</td>
-							<td class=""><%= o.item.price * o.quantity / 10 %>円</td>
-							<td class=""><%= o.price %>円</td>
-							<td class=""><%= o.making_status %>　<%= link_to '編集', edit_admin_order_item_path(o), class:"btn btn-default" %></td>
+							<th>商品名</th><td><%= o.item.name %></td>
 						</tr>
-						<% end %>
-					</tbody>
+						<tr>
+							<th>価格</th><td><%= o.item.price %>円</td>
+						</tr>
+						<tr>
+							<th>個数</th><td><%= o.quantity %>個</td>
+						</tr>
+						<tr>
+							<th>消費税</th><td><%= o.item.price * o.quantity / 10 %>円</td>
+						</tr>
+						<tr>
+							<th>小計</th><td><%= o.price + o.item.price * o.quantity / 10 %>円</td>
+						</tr>
+						<tr>
+							<th>製作ステータス</th><td><%= o.making_status %></td>
+						</tr>
+					</table>
+					<div style="text-align: center; margin-top: 10px; ">
+						<%= link_to '編集', edit_admin_order_item_path(o), class:"btn btn-default" %>
+					</div>
+				<% end %>
 				</table>
 				<div>
-					<h3>配送先</h3>
-					<p>名前：<%= @order.order_name %></p>
-					<p>郵便番号：〒<%= @order.order_postal_code %></p>
-					<p>住所：<%= @order.order_address %></p>
+					<h3 class="title">配送先</h3>
+					<table class="table table-bordered" style="width: 60%; margin: 0 auto;">
+						<tr>
+							<th>氏名</th><td><%= @order.order_name %></td>
+						</tr>
+						<tr>
+							<th>郵便番号</th><td>〒<%= @order.order_postal_code %></td>
+						</tr>
+						<tr>
+							<th>住所</th><td><%= @order.order_address %></td>
+						</tr>
+					</table>
 				</div>
-
 				<div>
-					<h3>お支払情報</h3>
-					<p>支払い方法：<%= @order.payment %></p>
+					<h3 class="title">お支払情報</h3>
+					<table class="table table-bordered" style="width: 60%; margin: 0 auto;">
+						<tr>
+							<th>支払い方法</th><td><%= @order.payment %></td>
+						</tr>
+						<tr>
+							<th>商品金額</th><td><%= @total %>円(税抜)</td>
+						</tr>
+						<tr>
+							<th>送料</th><td><%= @order.postage %>円</td>
+						</tr>
+						<tr>
+							<th>お支払い金額</th><td><%= @order.total_price %>円</td>
+						</tr>
+					</table>
 				</div>
-				<br>
-				<div>
-					<p>商品金額：<%= @total %>円</p>
-					<P>送料：<%= @order.postage %>円</P>
-					<p>合計金額：<%= @order.total_price %>円</p>
+				<div style="text-align: center;">
+					<%= link_to '注文履歴一覧に戻る', admin_orders_path, class: "btn btn-default", style: "margin: 15px 0;" %>
 				</div>
-				<%= link_to '注文履歴一覧に戻る', admin_orders_path, class: "btn btn-default", style: "margin: 15px 0;" %>
 			</div>
 		</div>
 	</div>
