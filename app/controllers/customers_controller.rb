@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
-    before_action :authenticate_customer!
+  before_action :authenticate_customer!
+  before_action :correct_customer, only: [:show, :edit, :update]
 
   def index
   end
@@ -29,6 +30,12 @@ class CustomersController < ApplicationController
   end
 
   def destroy
+    @customer = Customer.find(params[:id])
+    if @customer == current_customer
+      if @customer.destroy
+         redirect_to root_path
+      end
+    end
   end
 
   private
@@ -37,9 +44,11 @@ class CustomersController < ApplicationController
       addresses_attributes: [:postal_code, :address, :_destroy, :id])
   end
   def correct_customer
-    cusotmer = Customer.find(params[:id])
-    if current_coustomer.id != customer
-    redirect_to customer_path
+    @customer = Customer.find(params[:id])
+    if current_customer != @customer
+    redirect_to current_customer
+    else
+      current_customer
     end
   end
 end
