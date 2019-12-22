@@ -23,14 +23,20 @@
 						<td><%= link_to "詳細", admin_item_path(item.id), class: "btn btn-default" %></td>
 						<td><%= link_to "編集", edit_admin_item_path(item.id), class: "btn btn-default" %></td>
 					</tr>
+				<% else %>
+					<tr>
+						<td><%= item.genre.name %>(取り扱い中止)</td>
+						<td><%= item.name %></td>
+						<td><%= item.price %>円</td>
+						<td>販売停止</td>
+						<td><%= link_to "詳細", admin_item_path(item.id), class: "btn btn-default" %></td>
+						<td><%= link_to "編集", edit_admin_item_path(item.id), class: "btn btn-default" %></td>
+					</tr>
 				<% end %>
 	        <% end %>
 		</tbody>
 	</table>
-
-	<a href="/admin/items/new" class="btn btn-default"style="margin-bottom: 15px;" >商品追加</a>
-	<br>
-    <a href="/admins" class="btn btn-default" style="margin-bottom: 15px;">管理者 TOP</a>
-
+	<%= link_to "商品一覧に戻る", admin_items_path, class: "btn btn-default", style: "margin: 15px 0px;" %><br>
+	<%= link_to "管理者TOP", admins_path, class: "btn btn-default", style: "margin-bottom: 15px;" %>
 </div>
 <%= render 'layouts/admin_footer' %>
