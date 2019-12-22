@@ -1,8 +1,4 @@
-<header>
-	<%= render "layouts/admin_header" %>
-</header>
-
-<body>
+<%= render "layouts/admin_header" %>
 	<div class="container">
 		<div class="row">
 			<div class="col">
@@ -25,14 +21,11 @@
 							<td><%= link_to '詳細',admin_order_path(order), class:"btn btn-default" %></td>
 							<td><%= link_to '編集', edit_admin_order_path(order), class:"btn btn-default" %></td>
 						</tr>
+					<% end %>
 				</table>
 				<%= link_to '管理者TOP', admins_path, class: "btn btn-default", style: "margin-bottom: 15px;" %>
 			</div>
 		</div>
 	</div>
-</body>
-
-<footer>
-	<%= render "layouts/admin_footer" %>
-</footer>
+<%= render "layouts/admin_footer" %>
 
