@@ -74,7 +74,7 @@
 			<% end %>
 			<%= link_to "パスワード変更の方", new_customer_password_path %>
 			<br>
-			<%= link_to customer_path method: :delete do %>
+			<%= link_to customer_path(current_customer.id), method: :delete do %>
 				<button class="btn btn-primary btn-block">退会する</button>
 			<% end %>
 		</div>
