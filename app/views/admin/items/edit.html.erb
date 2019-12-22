@@ -4,20 +4,24 @@
 	<h1 class="title">商品情報編集</h1>
 	<%= form_for(@item,url:admin_item_path) do |f| %>
 	    <h4>商品名</h4>
-	    <%= f.text_field :name, autofocus: true, placeholder: "name", class: "form-control" %><br>
+	    <%= f.text_field :name, autofocus: true, placeholder: "name", class: "" %>
 
 	    <h4>商品説明</h4>
-	    <%= f.text_area :body, placeholder: "body", class: "form-control" %>
+	    <%= f.text_area :body, placeholder: "body", class: "" %>
 
 	    <h4>商品画像</h4>
 	    <%= f.attachment_field :image, placeholder: "image" %>
 
 	    <h4>価格</h4>
 	    <%= f.text_field :price, placeholder: "price" %>
-	    <br><br>
+
+	    <h4>取り扱い状況</h4>
+			<span>販売中　</span>
+			<%= f.check_box :sales_status %><br>
 
 	    <%= f.submit '更新', class: "btn btn-default", style: "margin: 15px 0;" %>
 	<% end %>
+
 	<%= link_to "戻る", admin_item_path, class: "btn btn-default", style: "margin-bottom: 15px;" %>
 </div>
 

@@ -23,6 +23,8 @@
 						</tr>
 					<% end %>
 				</table>
+				<%= paginate @orders, class: "paginate" %><br>
+
 				<%= link_to '管理者TOP', admins_path, class: "btn btn-default", style: "margin-bottom: 15px;" %>
 			</div>
 		</div>

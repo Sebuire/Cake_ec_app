@@ -2,14 +2,13 @@ class Admin::OrdersController < ApplicationController
 	before_action :authenticate_admin!
 
 	def index
-	  	@orders = Order.all
+	  	@orders = Order.page(params[:page]).reverse_order
 	end
 
 	def show
 		@order = Order.find(params[:id])
 		@order.order_items
 		@order_item = OrderItem.find(params[:id])
-
 
 		@total = 0
 		@order.order_items.each do |f|

@@ -9,10 +9,21 @@
 					<p>注文日時：<%= @order.created_at.strftime('%Y/%m/%d') %></p>
 					<p>購入者：<%= @order.customer.name_last_kanji %><%=@order.customer.name_first_kanji %></p>
 				</div>
+
+				<h3>注文状況</h3>
 				<%= form_for @order, url:admin_order_path do |f| %>
-					<%= f.select :order_status, Order.order_statuses.keys.to_a, {} %><br>
-					<%= f.submit "更新", class:"btn btn-default", style: "margin: 15px 0;" %>
-				<% end %>
+		    		<lavel class="status"><%= f.radio_button :order_status, :入金待ち %>
+		    		入金待ち</lavel>
+		    		<lavel class="status"><%= f.radio_button :order_status, :入金確認 %>
+		    		入金確認</lavel>
+		    		<lavel class="status"><%= f.radio_button :order_status, :製作中 %>
+		    		製作中</lavel>
+		    		<lavel class="status"><%= f.radio_button :order_status, :発送準備中 %>
+		    		発送準備中</lavel>
+		    		<lavel class="status"><%= f.radio_button :order_status, :発送済み %>
+		    		発送済み</lavel><br>
+		    		<%= f.submit '更新', class:"btn btn-default", style: "margin: 15px 0;" %>
+	    		<% end %>
 				<%= link_to '戻る', admin_orders_path, class:"btn btn-default", style: "margin-bottom: 15px;" %>
 			</div>
 		</div>

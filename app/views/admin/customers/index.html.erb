@@ -1,5 +1,3 @@
-
-
 <%= render 'layouts/admin_header' %>
 
 <div class="container">
@@ -10,6 +8,7 @@
 				<thead>
 					<th>顧客ID</th>
 					<th>顧客名</th>
+					<th>会員ステータス</th>
 					<th></th>
 				</thead>
 				<tbody>
@@ -20,11 +19,20 @@
 								<%= customer.name_last_kanji %>
 								<%= customer.name_first_kanji %>
 							</td>
+							<td>
+								<% if customer.deleted_at != nil %>
+									<span>退会済み(<%= customer.deleted_at.strftime('%Y/%m/%d') %>)</span>
+								<% else %>
+									<span>有効</span>
+								<% end %>
+							</td>
 							<td><%= link_to "詳細",admin_customer_path(customer.id), class: "btn btn-default" %> </td>
 						</tr>
 					<% end %>
 				</tbody>
 			</table>
+			<%= paginate @customers, class: "paginate" %><br>
+
 			<%= link_to '管理者TOP', admins_path, class: "btn btn-default", style: "margin: 15px 0;" %>
 		</div>
 	</div>
