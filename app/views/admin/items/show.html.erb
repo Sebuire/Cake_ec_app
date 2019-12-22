@@ -3,49 +3,53 @@
 <div class="container">
 	<h1 class="title">商品詳細</h1>
 	<table class="table">
-		<thead>
+		<% if @item.genre.is_active == true %>
 			<tr>
-				<th>ジャンル</th>
-				<th>商品名</th>
-				<th>商品画像</th>
-				<th>商品説明</th>
-				<th>値段</th>
-				<th>販売ステータス</th>
-				<th></th>
-				<th></th>
+				<th>ジャンル名</th><td><%= @item.genre.name %></td>
 			</tr>
-		</thead>
-		<tbody>
-			<% if @item.genre.is_active == true %>
-				<tr>
-					<td><%= @item.genre.name %></td>
-					<td><%= @item.name %></td>
-					<td><%= @item.image %></td>
-					<td><%= @item.body %></td>
-					<td><%= @item.price %>円</td>
-					<% if @item.sales_status == true %>
-						<td>販売中</td>
-					<% else %>
-						<td>売り切れ</td>
-					<% end %>
-					<td><%= link_to "編集", edit_admin_item_path(@item.id), class: "btn btn-default" %></td>
-					<td><%= link_to "削除", admin_item_path, method: :delete, class: "btn btn-default" %></td>
-				</tr>
+			<tr>
+				<th>商品名</th><td><%= @item.name %></td>
+			</tr>
+			<tr>
+				<th>商品画像</th><td><%= @item.image %></td>
+			</tr>
+			<tr>
+				<th>商品説明</th><td><%= @item.body %></td>
+			</tr>
+			<tr>
+				<th>価格</th><td><%= @item.price %>円</td>
+			</tr>
+			<% if @item.sales_status == true %>
+				<tr><th>販売ステータス</th><td>販売中</td></tr>
 			<% else %>
-				<tr>
-					<td><%= @item.genre.name %>(取り扱い中止)</td>
-					<td><%= @item.name %></td>
-					<td><%= @item.image %></td>
-					<td><%= @item.body %></td>
-					<td><%= @item.price %>円</td>
-					<td>販売停止</td>
-					<td><%= link_to "編集", edit_admin_item_path(@item.id), class: "btn btn-default" %></td>
-					<td><%= link_to "削除", admin_item_path, method: :delete, class: "btn btn-default" %></td>
-				</tr>
+				<tr><th>販売ステータス</th><td>売り切れ</td></tr>
 			<% end %>
-    	</tbody>
+		<% else %>
+			<tr>
+				<th>ジャンル名</th><td><%= @item.genre.name %>(取り扱い中止)</td>
+			</tr>
+			<tr>
+				<th>商品名</th><td><%= @item.name %></td>
+			</tr>
+			<tr>
+				<th>商品画像</th><td><%= @item.image %></td>
+			</tr>
+			<tr>
+				<th>商品説明</th><td><%= @item.body %></td>
+			</tr>
+			<tr>
+				<th>価格</th><td><%= @item.price %>円</td>
+			</tr>
+			<tr>
+				<th>販売ステータス</th><td>販売停止</td>
+			</tr>
+		<% end %>
 	</table>
-	<%= link_to "商品一覧に戻る", admin_items_path, class: "btn btn-default", style: "margin: 15px 0px;" %><br>
+	<div style="text-align: center;">
+		<%= link_to "編集", edit_admin_item_path(@item.id), class: "btn btn-default" %>
+				<%= link_to "削除", admin_item_path, method: :delete, class: "btn btn-default" %><br>
+		<%= link_to "商品一覧に戻る", admin_items_path, class: "btn btn-default", style: "margin: 15px 0px;" %>
+	</div>
 </div>
 
 <%= render 'layouts/admin_footer' %>

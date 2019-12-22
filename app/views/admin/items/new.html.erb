@@ -2,28 +2,34 @@
 
 <div class="container">
 	<h1 class="title">商品追加</h1>
-	<%= form_for(@item) do |f| %>
-	    <h4>ジャンル</h4>
-	    <% @genres.each do |g| %>
-		    <%= f.radio_button :genre_id, g.id %>
-		    <%= g.name %>
-	    <% end %>
-	    <h4>商品名</h4>
-	    <%= f.text_field :name, autofocus: true, placeholder: "ケーキ", class: "col-sm-2" %><br>
-
-	    <h4>商品説明</h4>
-	    <%= f.text_area :body, placeholder: "この商品は〇〇です。", class: "form-control" %>
-
-	    <h4>商品画像</h4>
-	    <%= f.attachment_field :image, placeholder: "image" %>
-
-	    <h4>価格</h4>
-	    <%= f.text_field :price, class: "col-sm-1" %>円
-	    <br><br>
-
-	    <%= f.submit '追加', class: "btn btn-default" %>
-	<% end %>
-	<%= link_to "商品一覧に戻る", admin_items_path, class: "btn btn-default", style: "margin: 15px 0" %>
+	<table class="table">
+		<%= form_for(@item,url:admin_items_path) do |f| %>
+			<tr>
+				<th>ジャンル</th>
+				<td><% @genres.each do |g| %>
+				    <%= f.radio_button :genre_id, g.id %>
+				    <%= g.name %><% end %></td>
+			</tr>
+			<tr>
+				<th>商品名</th><td><%= f.text_field :name, autofocus: true, placeholder: "ケーキ", class: "col-sm-2" %></td>
+			</tr>
+			<tr>
+				<th>商品説明</th><td><%= f.text_area :body, placeholder: "この商品は〇〇です。", class: "form-control" %></td>
+			</tr>
+			<tr>
+				<th>商品画像</th><td><%= f.attachment_field :image, placeholder: "image" %></td>
+			</tr>
+			<tr>
+				<th>価格</th><td><%= f.text_field :price, class: "col-sm-1" %>円</td>
+			</tr>
+			<tr>
+				<th></th><td><%= f.submit '追加', class: "btn btn-default", style: "margin: 15px 0; width: 75%;" %></td>
+			</tr>
+		<% end %>
+	</table>
+	<div style="text-align: center;">
+		<%= link_to "商品一覧に戻る", admin_items_path, class: "btn btn-default", style: "margin: 15px 0" %>
+	</div>
 </div>
 
 <%= render 'layouts/admin_footer' %>
