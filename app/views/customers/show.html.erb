@@ -1,2 +1,85 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+
+
+<h1>マイページ</h1>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>氏名(漢字)</th>
+						<th>氏名(カナ)</th>
+						<th>email</th>
+						<th>電話番号</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+
+						<td>
+							<%= @customer.name_last_kanji %>
+							<%= @customer.name_first_kanji %>
+						</td>
+						<td>
+							<%= @customer.name_last_kana %>
+							<%= @customer.name_first_kana %>
+						</td>
+						<td>
+							<%= @customer.email %>
+						</td>
+						<td>
+							<%= @customer.phone_number %>
+						</td>
+						<td>
+							<%= link_to "編集", edit_customer_path(@customer), class: "btn btn-default" %>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table>
+				<thead>
+					<tr>
+						<th>アカウント登録住所</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<% @customer.addresses.each do |f| %>
+								<%= f.postal_code %>
+								<%= f.address %>
+							<% end %>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<% @customer.orders.each do |f| %>
+				<ul class="list-group" style="max-width: 400px;">注文履歴番号
+					<%= f.id %>
+						<li class="list-group-item">注文日時　｜　<%= f.created_at.strftime("%Y年%m月%d日 %H時%M分") %> </li>
+						<li class="list-group-item">送料　｜　<%= f.postage %>円 </li>
+						<li class="list-group-item">合計　｜　<%= f.total_price %>円</li>
+						<li class="list-group-item">支払い方法　｜　<%= f.payment %></li>
+						<li class="list-group-item">注文ステータス　｜　<%= f.order_status %></li>
+						<li class="list-group-item">配送先名前　｜　<%= f.order_name%></li>
+						<li class="list-group-item">配送先住所　｜　<%= f.order_address %></li>
+						<li class="list-group-item">配送先郵便番号　｜　<%= f.order_postal_code %></li>
+						<%= link_to "注文内容詳細", order_item_path(f.order_items) %>
+				</ul>
+			<% end %>
+			<%= link_to "パスワード変更の方", new_customer_password_path %>
+			<br>
+			<%= link_to customer_path method: :delete do %>
+				<button class="btn btn-primary btn-block">退会する</button>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+
+
