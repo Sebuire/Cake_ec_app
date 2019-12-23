@@ -1,73 +1,64 @@
 <%= render 'layouts/customer_header' %>
-<h2>会員登録</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <label>名前(姓)</label><br>
-    <%= f.text_field :name_last_kanji, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <label>名前(名)</label><br>
-    <%= f.text_field :name_first_kanji %>
-  </div>
-
-  <div class="field">
-    <label>フリガナ(姓)</label><br>
-    <%= f.text_field :name_last_kana %>
-  </div>
-
-  <div class="field">
-    <label>フリガナ(名)</label><br>
-    <%= f.text_field :name_first_kana %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <label>電話番号</label><br>
-    <%= f.text_field :phone_number %>
-  </div>
-
-  <div class="field">
-
-    <%= f.fields_for :address do |addresses_form| %>
-      <%= addresses_form.label :address, "住所" %><br />
-      <%= addresses_form.text_field :address %><br />
-      <%= addresses_form.label :postal_code, "郵便番号" %><br />
-      <%= addresses_form.text_field :postal_code %><br />
-    <% end %>
-  </div>
-
-
-  <br><br>
-  <div class="field">
-    <h5>address postalcodeの入力フォームが入ります</h5>
-    <h5>@address = Address.new をdeviseのコントローラに記載</h5>
-  </div>
-  <br><br>
-
-  <div class="field">
-    <label>パスワード入力</label><br>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %>文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <label>パスワード確認</label><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "customers/shared/links" %>
+<div class="container">
+  <h2 class="title">会員登録</h2>
+  <%= render "customers/shared/links" %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="col-xs-8 col-xs-offset-2 clearfix">
+      <table class="table">
+        <tr>
+          <th>名前(姓)</th>
+          <td><%= f.text_field :name_last_kanji, autofocus: true %></td>
+        </tr>
+        <tr>
+          <th>名前(名)</th>
+          <td><%= f.text_field :name_first_kanji %></td>
+        </tr>
+        <tr>
+          <th>フリガナ(姓)</th>
+          <td><%= f.text_field :name_last_kana %></td>
+        </tr>
+        <tr>
+          <th>フリガナ(名)</th>
+          <td><%= f.text_field :name_first_kana %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= f.email_field :email, autocomplete: "email" %></td>
+        </tr>
+        <tr>
+          <th>電話番号 (ハイフン不要)</th>
+          <td><%= f.text_field :phone_number %></td>
+        </tr>
+        <%= f.fields_for :address do |a| %>
+        <tr>
+          <th>住所</th>
+          <td><%= a.text_field :address %></td>
+        </tr>
+        <tr>
+          <th>郵便番号 (ハイフン不要)</th>
+          <td><%= a.text_field :postal_code %></td>
+        </tr>
+        <% end %>
+        <tr>
+          <th>
+            <% if @minimum_password_length %>
+            <em>パスワード入力 (<%= @minimum_password_length %>文字以上)</em>
+            <% end %>
+          </th>
+          <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+        </tr>
+        <tr>
+          <th>パスワード確認</th>
+          <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td><%= f.submit "会員登録", class: "btn btn-default" %></td>
+        </tr>
+      </table>
+      <%= render "customers/shared/links" %>
+    </div>
+  <% end %>
+</div>
 <%= render 'layouts/customer_footer' %>
