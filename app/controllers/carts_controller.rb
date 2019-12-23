@@ -1,24 +1,20 @@
 class CartsController < ApplicationController
 	before_action :authenticate_customer!
-	before_action :correct_customer
   def index
   	@carts = Cart.all
   	@customer = current_customer
   end
 
   def create
+    @cart = Cart.new(cart_params)
+    if @cart.quantity > 0
+      @cart.save!(cart_params)
+      redirect_to carts_path
+    end
   end
 
   private
   def cart_params
-  	params.require(:cart).permit(:item_id, :quantity)
-  end
-  def correct_customer
-    @customer = Customer.find(params[:id])
-    if current_customer != @customer
-    redirect_to current_customer
-    else
-      current_customer
-    end
+  	params.require(:cart).permit(:customer_id, :item_id, :quantity)
   end
 end
