@@ -7,7 +7,7 @@
 			<%= link_to "ジャンル一覧", admin_genres_path,:style => "color: white; text-decoration: none; border: 3px solid white; padding: 5px 10px; font-weight: 600; line-height: 100px;" %>
 			<%= link_to "顧客一覧", admin_customers_path,:style => "color: white; text-decoration: none; border: 3px solid white; padding: 5px 10px; font-weight: 600; line-height: 100px;" %>
 		<% end %>
-		<h1 style="font-size: 50px; color: #fff;">ながのCAKE</h1>
+		<h1 style="font-size: 50px; color: #fff;"><%= link_to 'ながのCAKE', admins_path, :style=>"color:#fff;" "text-decoration:none;"  %></h1>
 	</div>
 </header>
 <% if admin_signed_in? %>

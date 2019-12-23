@@ -24,8 +24,8 @@
 							<% else %>
 								<td>売り切れ</td>
 							<% end %>
-							<td><%= link_to "詳細", admin_item_path(item.id), class: "btn btn-default" %></td>
 							<td><%= link_to "編集", edit_admin_item_path(item.id), class: "btn btn-default" %></td>
+							<td><%= link_to "詳細", admin_item_path(item.id), class: "btn btn-default" %></td>
 						</tr>
 					<% else %>
 						<tr>
@@ -33,8 +33,8 @@
 							<td><%= item.name %></td>
 							<td><%= item.price %>円</td>
 							<td>販売停止</td>
-							<td><%= link_to "詳細", admin_item_path(item.id), class: "btn btn-default" %></td>
 							<td><%= link_to "編集", edit_admin_item_path(item.id), class: "btn btn-default" %></td>
+							<td><%= link_to "詳細", admin_item_path(item.id), class: "btn btn-default" %></td>
 						</tr>
 					<% end %>
 		        <% end %>
