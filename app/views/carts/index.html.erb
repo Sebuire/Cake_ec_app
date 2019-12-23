@@ -2,7 +2,13 @@
 	<% if @customer.carts.present? %>
 		<% @customer.carts.each do |c| %>
 			<%= c.item.name %>
-			<%= c.quantity %>
+			<%= form_for c do |g| %>
+				<%= g.select :quantity, options_for_select(@quantity, {selected: c.quantity}) %>
+			    <%= g.submit "数量変更" %>
+			<% end %>
+		<% end %>
+		<% if flash[:notice] %>
+			<%= flash[:notice] %><br>
 		<% end %>
 		<%= link_to "カートを空にする", cart_path(@customer.carts), method: :delete %>
 	<% else %>

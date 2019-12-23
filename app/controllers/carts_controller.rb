@@ -3,6 +3,7 @@ class CartsController < ApplicationController
   def index
   	@carts = Cart.all
   	@customer = current_customer
+    @quantity = [*1..10]
   end
 
   def create
@@ -20,6 +21,10 @@ class CartsController < ApplicationController
   end
 
   def update
+    @cart = Cart.find(params[:id])
+    @cart.update(cart_params)
+    redirect_to carts_path
+    flash[:notice] = "数量を変更しました。"
   end
 
   def destroy
