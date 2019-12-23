@@ -3,44 +3,48 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-3">
-			<h1 class="title">顧客詳細</h1>
-			<table class="table col-lg-9">
-				<thead>
-					<tr>
-						<th>氏名(漢字)</th>
-						<td>
-							<%= @customer.name_last_kanji %>
-							<%= @customer.name_first_kanji %>
-						</td>
-					</tr>
-					<tr>
-						<th>氏名(カナ)</th>
-						<td>
-							<%= @customer.name_last_kana %>
-							<%= @customer.name_first_kana %>
-						</td>
-					</tr>
-					<tr>
-						<th>email</th>
-						<td><%= @customer.email %></td>
-					</tr>
-					<tr>
-						<th>電話番号</th>
-						<td><%= @customer.phone_number %></td>
-					</tr>
-					<% @customer.addresses.each do |a| %>
-					<tr>
-						<th>配送先<%= @number += 1 %></th>
-						<td><%= a.address %></td>
-					</tr>
-					<% end %>
-				</thead>
+			<h2 class="title">顧客詳細</h2>
+			<table class="table table-bordered">
+				<tr>
+					<th>氏名(漢字)</th>
+					<td>
+						<%= @customer.name_last_kanji %>
+						<%= @customer.name_first_kanji %>
+					</td>
+				</tr>
+				<tr>
+					<th>氏名(カナ)</th>
+					<td>
+						<%= @customer.name_last_kana %>
+						<%= @customer.name_first_kana %>
+					</td>
+				</tr>
+				<tr>
+					<th>email</th>
+					<td><%= @customer.email %></td>
+				</tr>
+				<tr>
+					<th>電話番号</th>
+					<td><%= @customer.phone_number %></td>
+				</tr>
 			</table>
 
-			<div style="text-align: center">
-				<%= link_to "退会", admin_customer_path(@customer), class: "btn btn-default" %><br>
+			<h4 style="margin-top: 20px; text-align: center;">配送先一覧</h4>
+			<% @customer.addresses.each do |a| %>
+			<table class="table table-bordered customer_address_table" style="margin-bottom: 10px;">
+				<tr>
+					<th class="col-xs-2">配送先<%= @number += 1 %></th>
+					<td>〒<%= a.postal_code %></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td><%= a.address %></td>
+			</table>
+			<% end %>
 
-			    <%= link_to '顧客一覧に戻る', admin_customers_path, class: "btn btn-default", style: "margin: 15px 0;" %>
+			<div style="text-align: center">
+				<%= link_to "退会", admin_customer_path(@customer), method: :delete, class: "btn btn-default", style: "margin-top: 20px;"%><br>
+				<%= link_to '顧客一覧に戻る', admin_customers_path, class: "btn btn-default", style: "margin: 15px 0;" %>
 			</div>
 		</div>
 	</div>

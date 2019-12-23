@@ -1,52 +1,49 @@
 <%= render 'layouts/admin_header' %>
 
-<% if flash[:notice] %>
-  <p style="color: lime"><%= flash[:notice] %></p>
-<% end %>
+<div class="container genre_container">
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+			<h2 class="title">ジャンル一覧画面</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ジャンルID</th>
+						<th>ジャンル名</th>
+						<th>取り扱い状況</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
 
-	<div class="container genre_container">
-		<div class="row">
-			<div class="col-xs-6 col-xs-offset-3">
-				<h2 class="title">ジャンル一覧画面</h2>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>ジャンルID</th>
-							<th>ジャンル名</th>
-							<th>取り扱い状況</th>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
-
-					<tbody>
-					<% @genres.each do |f| %>
-						<tr>
-							<td><%= f.id %></td>
-							<td><%= f.name %></td>
-							<td>
-								<% if f.is_active == true %>
-									<span>取り扱い中</span>
-								<% else %>
-									<span>取り扱い中止</span>
-								<% end %>
-							</td>
-							<%= form_for f, url:admin_genre_path(f.id) do |g| %>
-								<td><%= g.check_box :is_active %></td>
-								<td><%= g.submit '更新', class: "btn btn-default" %></td>
+				<tbody>
+				<% @genres.each do |f| %>
+					<tr>
+						<td><%= f.id %></td>
+						<td><%= f.name %></td>
+						<td>
+							<% if f.is_active == true %>
+								<span>取り扱い中</span>
+							<% else %>
+								<span>取り扱い中止</span>
 							<% end %>
-						</tr>
-					<% end %>
-					</tbody>
-				</table>
-				<div style="text-align: center;">
-					<%= paginate @genres, class: "paginate" %>
-				</div>
-				<div style="text-align: center;">
-					<%= link_to "ジャンル追加", new_admin_genre_path, class: "btn btn-default", style: "margin: 15px 0;" %><br>
-					<%= link_to "管理者TOP", admins_path, class: "btn btn-default", style: "margin-bottom: 15px;" %>
-				</div>
+						</td>
+						<%= form_for f, url:admin_genre_path(f.id) do |g| %>
+							<td><%= g.check_box :is_active %></td>
+							<td><%= g.submit '更新', class: "btn btn-default" %></td>
+						<% end %>
+					</tr>
+				<% end %>
+				</tbody>
+			</table>
+			<div style="text-align: center;">
+				<%= paginate @genres, class: "paginate" %>
+			</div>
+			<div style="text-align: center;">
+				<%= link_to "ジャンル追加", new_admin_genre_path, class: "btn btn-default", style: "margin: 15px 0;" %><br>
+				<%= link_to "管理者TOP", admins_path, class: "btn btn-default", style: "margin-bottom: 15px;" %>
 			</div>
 		</div>
 	</div>
+</div>
+
 <%= render 'layouts/admin_footer' %>
