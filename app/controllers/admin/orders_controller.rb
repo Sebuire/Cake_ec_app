@@ -10,6 +10,8 @@ class Admin::OrdersController < ApplicationController
 		@order.order_items
 		@order_item = OrderItem.find(params[:id])
 
+		@count = 0
+
 		@total = 0
 		@order.order_items.each do |f|
 			@total += f.price
