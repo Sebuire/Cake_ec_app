@@ -1,9 +1,5 @@
 <%= render 'layouts/admin_header' %>
 
-<% if flash[:notice] %>
-  <p style="color: lime"><%= flash[:notice] %></p>
-<% end %>
-
 <div class="container">
 	<div class="row">
 		<div class="col-xs-8 col-xs-offset-2">
@@ -27,19 +23,19 @@
 								<td><%= item.name %></td>
 								<td><%= item.price %>円</td>
 								<% if item.sales_status == true %>
-									<td>販売中</td>
+									<td><span style="color: lime;">販売中</span></td>
 								<% else %>
-									<td>売り切れ</td>
+									<td><span style="color: red;">売り切れ</span></td>
 								<% end %>
 								<td><%= link_to "編集", edit_admin_item_path(item.id), class: "btn btn-default" %></td>
 								<td><%= link_to "詳細", admin_item_path(item.id), class: "btn btn-default" %></td>
 							</tr>
 						<% else %>
 							<tr>
-								<td><%= item.genre.name %>(取り扱い中止)</td>
+								<td><%= item.genre.name %><span style="color: red;">(取り扱い中止)</span></td>
 								<td><%= item.name %></td>
 								<td><%= item.price %>円</td>
-								<td>販売停止</td>
+								<td><span style="color: red;">販売停止</span></td>
 								<td><%= link_to "編集", edit_admin_item_path(item.id), class: "btn btn-default" %></td>
 								<td><%= link_to "詳細", admin_item_path(item.id), class: "btn btn-default" %></td>
 							</tr>

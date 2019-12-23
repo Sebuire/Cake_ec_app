@@ -28,10 +28,10 @@
 						<th>個数</th><td><%= o.quantity %>個</td>
 					</tr>
 					<tr>
-						<th>消費税</th><td><%= o.item.price * o.quantity / 10 %>円</td>
+						<th>消費税 (<%= @tax %>%)</th><td><%= o.item.price * o.quantity / 10 %>円</td>
 					</tr>
 					<tr>
-						<th>小計</th><td><%= o.price + o.item.price * o.quantity / 10 %>円</td>
+						<th>小計</th><td><%= o.price + @tax_price %>円</td>
 					</tr>
 					<tr>
 						<th>製作ステータス</th><td><%= o.making_status %>
@@ -67,13 +67,13 @@
 					<th>支払い方法</th><td><%= @order.payment %></td>
 				</tr>
 				<tr>
-					<th>商品金額</th><td><%= @total %>円(税抜)</td>
+					<th>商品金額</th><td><%= @total + @tax_price_all %>円(税込)</td>
 				</tr>
 				<tr>
 					<th>送料</th><td><%= @order.postage %>円</td>
 				</tr>
 				<tr>
-					<th>お支払い金額</th><td><%= @order.total_price %>円</td>
+					<th>お支払い金額</th><td><%= @order.total_price + @order.postage %>円</td>
 				</tr>
 			</table>
 		</div>

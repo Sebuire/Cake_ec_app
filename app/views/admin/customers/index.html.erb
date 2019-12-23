@@ -20,10 +20,10 @@
 								<%= customer.name_first_kanji %>
 							</td>
 							<td>
-								<% if customer.deleted_at != nil %>
-									<span>退会済み(<%= customer.deleted_at.strftime('%Y/%m/%d') %>)</span>
+								<% if customer.deleted_at.nil? %>
+									<span style="color: lime;">有効</span>
 								<% else %>
-									<span>有効</span>
+									<span style="color: red">退会済み</span>
 								<% end %>
 							</td>
 							<td><%= link_to "詳細",admin_customer_path(customer.id), class: "btn btn-default" %> </td>

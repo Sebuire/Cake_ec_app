@@ -7,6 +7,7 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+    @times = 0
   end
 
   def edit

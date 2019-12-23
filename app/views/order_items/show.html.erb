@@ -1,8 +1,8 @@
-
+<%= render 'layouts/customer_header' %>
 <div class="container">
 	<div class="row">
 		<div class="col">
-			<h1>注文内容詳細</h1>
+			<h2 class="title">注文内容詳細</h2>
 
 			<% @order_items.each do |f| %>
 				<ul class="list-group" style="max-width: 400px;">注文履歴番号
@@ -22,3 +22,4 @@
 		</div>
 	</div>
 </div>
+<%= render 'layouts/customer_footer' %>

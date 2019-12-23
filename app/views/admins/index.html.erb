@@ -1,6 +1,9 @@
 <%= render 'layouts/admin_header' %>
+<% if flash[:notice] %>
+  <p style="color: lime; text-align: center;"><%= flash[:notice] %></p>
+<% end %>
 <h1 class="admin-top-title">管理者 TOP</h1>
-<main class="feature-box clearfix">
+<main class="feature-box clearfix" style="margin-bottom: 40px;">
 	<div class="feature-inner inner1">
 		<div style="width: 300px; height: 300px;">
 			<%= link_to "商品一覧", admin_items_path %>
@@ -17,5 +20,5 @@
 			<%= link_to "顧客一覧", admin_customers_path %>
 		</div>
 	</div>
-</div>
+</main>
 <%= render 'layouts/admin_footer' %>

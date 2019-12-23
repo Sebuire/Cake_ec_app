@@ -2,18 +2,25 @@ class Admin::OrdersController < ApplicationController
 	before_action :authenticate_admin!
 
 	def index
-	  	@orders = Order.page(params[:page]).reverse_order
+	  	@orders = Order.page(params[:page]).per(20)
 	end
 
 	def show
 		@order = Order.find(params[:id])
 		@order.order_items
 		@order_item = OrderItem.find(params[:id])
-
 		@count = 0
 
+		@tax = 10
+		@tax_price = 0
+		@tax_price_all = 0
+		@order.order_items.each do |t|
+			@tax_price = t.item.price * t.quantity / @tax
+			@tax_price_all += @tax_price
+		end
+
 		@total = 0
-		@order.order_items.each do |f|
+			@order.order_items.each do |f|
 			@total += f.price
 		end
 	end
