@@ -16,6 +16,10 @@
 	<% else %>
 	<span style="color: red">売り切れ</span>
 	<% end %>
-
-
+	<%= form_for @cart do |c| %>
+		<%= c.hidden_field_tag :item_id, @item.id %>
+		<%= c.text_field :quantity %>
+		<%= c.submit "カートに入れる" %>
+	<% end %>
 </div>
+<%= render 'layouts/customer_footer' %>
