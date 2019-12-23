@@ -19,6 +19,9 @@ class CartsController < ApplicationController
     end
   end
 
+  def update
+  end
+
   def destroy
     current_customer.carts.delete_all
     redirect_to carts_path

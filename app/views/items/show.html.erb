@@ -1,20 +1,28 @@
 <%= render 'layouts/customer_header' %>
-<div class="container">
-	<% if flash[:success] %>
-		<%= flash[:success] %>
-	<% end %>
-	<h1 class="title" style="">- 商品詳細 -</h1>
-	<div style="border: 1px solid black; width: 50%; height: 250px; float: left">
-		<%= attachment_image_tag @item, :image %>
+	<div class="container">
+		<% if flash[:success] %>
+			<%= flash[:success] %>
+		<% end %>
+		<h1 class="title" style="">- 商品詳細 -</h1>
+		<div style="border: 1px solid black; width: 50%; height: 250px; float: left">
+			<%= attachment_image_tag @item, :image %>
+		</div>
+		<h3 style=""><%= @item.name %></h3><br>
+		<p><%= @item.body %></p>
+		<h3>
+			<%= @item.price %>
+		</h3>
+		<% if @item.sales_status == true %>
+		<span style="color: lime">販売中</span>
+		<% else %>
+		<span style="color: red">売り切れ</span>
+		<% end %>
+		<% if @item.sales_status == true %>
+			<%= form_for @cart do |c| %>
+				<%= c.hidden_field :item_id, :value => @item.id %>
+				<%= c.select :quantity, options_for_select(@quantity) %>
+				<%= c.submit "カートに入れる" %>
+			<% end %>
+		<% end %>
 	</div>
-	<h3 style=""><%= @item.name %></h3><br>
-	<p><%= @item.body %></p>
-	<h3>
-		<%= @item.price %>
-	</h3>
-	<% if @item.sales_status == true %>
-	<span style="color: lime">販売中</span>
-	<% else %>
-	<span style="color: red">売り切れ</span>
-	<% end %>
 <%= render 'layouts/customer_footer' %>
