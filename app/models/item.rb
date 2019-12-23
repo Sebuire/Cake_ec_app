@@ -8,6 +8,6 @@ class Item < ApplicationRecord
 	validates :genre_id, presence: true
 	validates :name, presence: true, length: { maximum: 20}
 	validates :body, presence: true, length: { maximum: 300}
-	validates :price, presence: true
+	validates :price, presence: true, numericality: {only_integer: true}
 	validates :sales_status, inclusion: {in: [true, false]}
 end
