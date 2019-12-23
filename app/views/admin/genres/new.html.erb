@@ -1,8 +1,17 @@
 <%= render 'layouts/admin_header' %>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-6 col-xs-offset-3">
 				<h1 class="title">ジャンル追加</h1>
+
+                <% if @item.errors.any? %>
+				  <p style="color: red"><%= @item.errors.count %>件のERRORが発生しました</p>
+				  <% @item.errors.full_messages.each do |message| %>
+				    <p style="color: red"><%= message %></p>
+				  <% end %>
+				<% end %>
+
 				<table class="table">
 					<th>ジャンル名</th>
 					<th>取り扱い状況</th>
