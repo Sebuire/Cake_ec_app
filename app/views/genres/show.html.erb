@@ -1,21 +1,24 @@
 <%= render 'layouts/customer_header' %>
 	<div class="container clearfix">
 		<h1 class="title">-<%= @genre.name %>-</h1>
-		<div style=" width: 100%; margin: 20px auto;">
-			<% @genre.items.each do |g| %>
-				<div style="width: 50%; height: 350px; float: left;">
-					<%= link_to item_path(g.id) do %>
-						<div style="width: 50%; height: 350px; float: left; border: 1px solid black;">
-							<%= g.image %>
-							<p>ここに商品画像が入ります</p>
-						</div>
-						<div style="width: 50%; float: left; height: 350px; border: 1px solid black;">
-							<%= g.name %>
-							<%= g.price %>
-						</div>
-					<% end %>
-				</div>
-			<% end %>
-		</div>
+		<% if @genre.is_active == true %>
+			<div style=" width: 100%; margin: 20px auto;">
+				<% @genre.items.each do |g| %>
+					<div style="width: 50%; height: 350px; float: left;">
+						<%= link_to item_path(g.id) do %>
+							<div style="width: 50%; height: 350px; float: left; border: 1px solid black;">
+								<%= g.image %>
+								<p>ここに商品画像が入ります</p>
+							</div>
+							<div style="width: 50%; float: left; height: 350px; border: 1px solid black;">
+								<%= g.name %>
+								<%= g.price %>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+		<% else %>
+		<% end %>
 	</div>
 <%= render 'layouts/customer_footer' %>
