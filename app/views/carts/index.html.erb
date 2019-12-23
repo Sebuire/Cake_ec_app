@@ -4,6 +4,7 @@
 			<%= c.item.name %>
 			<%= c.quantity %>
 		<% end %>
+		<%= link_to "カートを空にする", cart_path(@customer.carts), method: :delete %>
 	<% else %>
 		<h5 class="title">お客様のカートに商品はありません。</h5>
 	<% end %>
