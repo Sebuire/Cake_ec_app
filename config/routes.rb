@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   # genresルーティング
   resources :genres, only: [:show]
   # cartsルーティング
-  resources :carts, only: [:index, :create]
+  resources :carts, only: [:index, :create, :destroy]
   # ordersルーティング
   resources :orders, only: [:new, :create, :index]
   # order_itemsルーティング
