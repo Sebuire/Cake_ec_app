@@ -18,8 +18,8 @@
 							<td><%= order.customer.name_last_kanji %>　<%= order.customer.name_first_kanji %></td>
 							<td><%= order.total_price%>円</td>
 							<td><%= order.order_status %></td>
+							<td><%= link_to '変更', edit_admin_order_path(order), class:"btn btn-default" %></td>
 							<td><%= link_to '詳細',admin_order_path(order), class:"btn btn-default" %></td>
-							<td><%= link_to '編集', edit_admin_order_path(order), class:"btn btn-default" %></td>
 						</tr>
 					<% end %>
 				</table>
