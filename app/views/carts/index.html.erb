@@ -1,7 +1,10 @@
 <%= render 'layouts/customer_header' %>
 	<% if @customer.carts.present? %>
 		<% @customer.carts.each do |c| %>
-			<%= c.item.name %>
+			<%= link_to item_path(c.item_id) do %>
+				<%= c.item.name %>
+				<%= attachment_image_tag c.item, :image %>
+			<% end %>
 			<%= form_for c do |g| %>
 				<%= g.select :quantity, options_for_select(@quantity, {selected: c.quantity}) %>
 			    <%= g.submit "数量変更" %>

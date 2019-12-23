@@ -7,7 +7,7 @@
 					<div style="width: 50%; height: 350px; float: left;">
 						<%= link_to item_path(g.id) do %>
 							<div style="width: 50%; height: 350px; float: left; border: 1px solid black;">
-								<%= g.image %>
+								<%= attachment_image_tag g, :image %>
 								<p>ここに商品画像が入ります</p>
 							</div>
 							<div style="width: 50%; float: left; height: 350px; border: 1px solid black;">
