@@ -2,7 +2,7 @@ class Admin::ItemsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @items = Item.page(params[:page]).reverse_order
+    @items = Item.page(params[:page]).per(15)
   end
 
   def show
@@ -24,7 +24,6 @@ class Admin::ItemsController < ApplicationController
       render 'new'
     end
   end
-  # error 出る
 
   def edit
     @item = Item.find(params[:id])

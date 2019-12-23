@@ -1,2 +1,26 @@
-<h1>Addresses#edit</h1>
-<p>Find me in app/views/addresses/edit.html.erb</p>
+<%= render 'layouts/customer_header' %>
+	<div class="container">
+		<h2 class="title">配送先編集</h2>
+		<div class="col-xs-6 col-xs-offset-3">
+			<%= form_for @address, url: address_path(@address.id) do |f| %>	<table class="table">
+				<tr>
+					<th>住所</th>
+					<td><%= f.text_field :address %></td>
+				</tr>
+				<tr>
+					<th>郵便番号</th>
+					<td><%= f.text_field :postal_code %></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td><%= f.submit "変更", class: "btn btn-default" %></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td><%= link_to "マイページへ戻る", customer_path(current_customer), class: "btn btn-default" %></td>
+				</tr>
+			</table>
+			<% end %>
+		</div>
+	</div>
+<%= render 'layouts/customer_footer' %>
