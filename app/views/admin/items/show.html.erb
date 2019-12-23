@@ -1,5 +1,9 @@
 <%= render 'layouts/admin_header' %>
 
+<% if flash[:notice] %>
+  <p style="color: lime"><%= flash[:notice] %></p>
+<% end %>
+
 <div class="container">
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-3">
@@ -49,7 +53,7 @@
 			</table>
 			<div style="text-align: center;">
 				<%= link_to "編集", edit_admin_item_path(@item.id), class: "btn btn-default" %>
-						<%= link_to "削除", admin_item_path, method: :delete, class: "btn btn-default" %><br>
+				<%= link_to "削除", admin_item_path, method: :delete, class: "btn btn-default", "data-confirm" => "本当に削除しますか？" %><br>
 				<%= link_to "商品一覧に戻る", admin_items_path, class: "btn btn-default", style: "margin: 15px 0px;" %>
 			</div>
 		</div>

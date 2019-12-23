@@ -17,12 +17,4 @@
 	<% else %>
 	<span style="color: red">売り切れ</span>
 	<% end %>
-	<% if @item.sales_status == true %>
-		<%= form_for @cart do |c| %>
-			<%= c.hidden_field :item_id, :value => @item.id %>
-			<%= c.select :quantity, options_for_select(@quantity) %>
-			<%= c.submit "カートに入れる" %>
-		<% end %>
-	<% end %>
-</div>
 <%= render 'layouts/customer_footer' %>

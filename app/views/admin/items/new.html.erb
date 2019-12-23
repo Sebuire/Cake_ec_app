@@ -4,6 +4,14 @@
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-3">
 			<h1 class="title">商品追加</h1>
+
+            <% if @item.errors.any? %>
+			  <p style="color: red"><%= @item.errors.count %>件のERRORが発生しました</p>
+			  <% @item.errors.full_messages.each do |message| %>
+			    <p style="color: red"><%= message %></p>
+			  <% end %>
+			<% end %>
+
 				<%= form_for(@item,url:admin_items_path) do |f| %>
 				<table class="table" style="margin-bottom: 10px;">
 					<tr>

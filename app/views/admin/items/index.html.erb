@@ -1,4 +1,9 @@
 <%= render 'layouts/admin_header' %>
+
+<% if flash[:notice] %>
+  <p style="color: lime"><%= flash[:notice] %></p>
+<% end %>
+
 	<div class="container">
 		<h1 class="title">商品一覧</h1>
 		<table class="table">
