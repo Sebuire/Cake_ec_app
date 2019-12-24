@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   patch 'orders/new' => 'orders#new'
   post 'orders/show' => 'orders#show'
   # order_itemsルーティング
-  resources :order_items, only: [:show]
+  resources :order_items, only: [:show, :index]
   # addressesルーティング
   resources :addresses, only: [:edit, :update, :index]
 
