@@ -28,6 +28,12 @@ class CartsController < ApplicationController
   end
 
   def destroy
+    @cart = Cart.find(params[:id])
+    @cart.destroy
+    redirect_to carts_path
+  end
+
+  def destroy_all
     current_customer.carts.delete_all
     redirect_to carts_path
   end
