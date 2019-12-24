@@ -1,10 +1,9 @@
 <%= render 'layouts/customer_header' %>
 	<div class="container">
-		<div style="width: 90%; height:
-		400px; border: 1px solid black; margin: 15px auto;">
-			<h1 style="text-align: center; line-height: 350px;">商品画像など</h1>
+		<div style="border: 1px solid black;">
+			<%= image_tag "cake.jpg", style: "width: 100%;" %>
 		</div>
-		<div class="clearfix" style="width: 100%; border-top: 1px solid black; padding: 20px 0; border-bottom: 1px solid black;">
+		<div class="clearfix genre-box" style="width: 100%; padding: 20px 0;">
 				<% @genres.each do |g| %>
 					<% if g.is_active == true %>
 						<div class="col-xs-3" style="height: 200px; display: inline-block; border: 1px solid black; text-align: center; line-height: 200px;">
@@ -14,7 +13,7 @@
 					<% end %>
 				<% end %>
 		</div>
-		<div style="width: 90%; height: 800px; border: 1px solid black; margin: 20px auto;">
+		<div style="border: 1px solid black; margin: 20px auto;"><%= image_tag "cake_menu.jpg" %>
 		</div>
 	</div>
 <%= render 'layouts/customer_footer' %>
