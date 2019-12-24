@@ -1,5 +1,79 @@
 <%= render 'layouts/customer_header'  %>
-<%= session[:postal_code] %>
-<%= session[:address] %>
-<%= session[:payment] %>
-<%=render 'layouts/customer_header' %>
+<div class="container">
+	<div class="col-xs-6 col-xs-offset-3" style="margin-bottom: 30px;">
+		<h1 class="title">購入確認</h1>
+		<table class="table">
+			<h2 class="title">お支払い内容</h2>
+			<tr>
+				<th>合計金額</th>
+				<td><%= @total_all %>円</td>
+			</tr>
+			<tr>
+				<th>送料</th>
+				<td><%= @postage %>円</td>
+			</tr>
+			<tr>
+				<th>お支払い金額</th>
+				<td><%= @paymoney %>円</td>
+			</tr>
+			<tr>
+				<th>お支払い方法</th>
+				<td><%= session[:payment] %></td>
+			</tr>
+		</table>
+		<% current_customer.carts.each do |c| %>
+			<table class="table">
+				<h2 class="title">購入内容</h2>
+				<tr>
+					<th>商品名</th>
+					<td><%= c.item.name %></td>
+				</tr>
+				<tr>
+					<th>商品価格(税込)</th>
+					<td><%= c.item.price + c.item.price / @tax %></td>
+				</tr>
+				<tr>
+					<th>数量</th>
+					<td><%= c.quantity %></td>
+				</tr>
+				<tr>
+					<th>小計</th>
+					<td><%= c.item.price + c.item.price * c.quantity / 10 %></td>
+				</tr>
+			</table>
+			<table class="table">
+				<h2 class="title">配送先</h2>
+				<tr>
+					<th>氏名</th>
+					<td><%= session[:name_kanji] %></td>
+				</tr>
+				<tr>
+					<th>配送先</th>
+					<td><%= session[:address] %></td>
+				</tr>
+				<tr>
+					<th>郵便番号</th>
+					<td><%= session[:postal_code] %></td>
+				</tr>
+			</table>
+			<%= form_with model: @order, url: orders_path do |o| %>
+				<%= o.hidden_field :total_price, :value => @total_all %>
+				<%= o.hidden_field :customer_id, :value => current_customer.id %>
+				<%= o.hidden_field :order_name, :value => session[:name_kanji] %>
+				<%= o.hidden_field :order_address, :value => session[:address] %>
+				<%= o.hidden_field :order_postal_code, :value => session[:postal_code] %>
+				<%= o.hidden_field :payment, :value => session[:payment] %>
+					<%= o.hidden_field :postage, :value => @postage %>
+					<%= o.fields_for :order_item do |i| %>
+						<%= i.hidden_field :item_id, :value => c.item_id %>
+						<%= i.hidden_field :price, :value => c.item.price %>
+						<%= i.hidden_field :quantity, :value => c.quantity %>
+					<% end %>
+				<div style="text-align: center;">
+					<%= o.submit "購入確定", class: "btn btn-default", style: "margin-bottom: 50px;" %>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+<%=render 'layouts/customer_footer' %>
