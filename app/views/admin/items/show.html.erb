@@ -17,7 +17,7 @@
 						<th>商品名</th><td><%= @item.name %></td>
 					</tr>
 					<tr>
-						<th>商品画像</th><td><%= attachment_image_tag @item, :image %></td>
+						<th>商品画像</th><td><%= attachment_image_tag @item, :image,fallback: "noimage.jpg" %></td>
 					</tr>
 					<tr>
 						<th>商品説明</th><td><%= @item.body %></td>
@@ -38,7 +38,7 @@
 						<th>商品名</th><td><%= @item.name %></td>
 					</tr>
 					<tr>
-						<th>商品画像</th><td><%= @item.image %></td>
+						<th>商品画像</th><td><%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg', fallback: "noimage.jpg" %></td>
 					</tr>
 					<tr>
 						<th>商品説明</th><td><%= @item.body %></td>

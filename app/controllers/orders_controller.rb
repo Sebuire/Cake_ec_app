@@ -40,10 +40,10 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     if @order.save!(order_params)
       current_customer.carts.delete_all
-      session[:name_kanji].clear
-      session[:address].clear
-      session[:postal_code].clear
-      session[:payment].clear
+      session[:name_kanji] = nil
+      session[:address] = nil
+      session[:postal_code] = nil
+      session[:payment] = nil
       redirect_to customer_path(current_customer)
     else
       render :new
