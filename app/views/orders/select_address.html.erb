@@ -1,0 +1,14 @@
+<%=render 'layouts/customer_header'  %>
+
+<% @customer.addresses.each do |g| %>
+  <%= form_for g, url:orders_payment_path do |f| %>
+	  <%= f.text_field :postal_code %>
+	  <%= f.text_field :address %>
+	  <%= f.submit '配送先を決定' %>
+  <% end %>
+<% end %>
+
+
+
+
+<%= render 'layouts/customer_footer' %>

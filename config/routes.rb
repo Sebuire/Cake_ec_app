@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   resources :genres, only: [:show]
   # cartsルーティング
   resources :carts, only: [:index, :create, :update, :destroy]
+  delete 'cart/delete/all' => 'carts#destroy_all', as: 'cart_delete_all'
   # ordersルーティング
   resources :orders, only: [:new, :create, :index]
   # order_itemsルーティング
@@ -60,4 +61,11 @@ Rails.application.routes.draw do
   # adminsルーティング
   resources :admins, only: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # orderの確認画面のルーティング
+  get '/orders/address' => 'orders#select_address'
+  post '/orders/address' => 'orders#select_address'
+  get '/orders/payment' => 'orders#select_payment'
+  patch '/orders/payment' => 'orders#select_payment'
+  post '/order/confirm' =>  'orders#confirm'
 end
