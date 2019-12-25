@@ -29,17 +29,17 @@
 				</tr>
 				<tr>
 					<th></th>
-					<td><%= link_to "パスワード変更", edit_customer_password_path, class: "btn btn-default" %></td>
+					<td><%= link_to "パスワード変更", "#", class: "btn btn-default" %></td>
 				</tr>
 			</table>
 		</div>
 
 		<div class="col-xs-6 col-xs-offset-3">
-			<%= link_to "配送先一覧", addresses_path, class: "btn btn-defalt" %>
+			<%= link_to "配送先一覧", addresses_path, class: "btn btn-default" %>
 		</div>
 
 		<div class="col-xs-6 col-xs-offset-3">
-			<%= link_to "注文履歴", customer_order_path(current_customer.id), class: "btn btn-defalt" %>
+			<%= link_to "注文履歴", customer_order_path(current_customer.id), class: "btn btn-default" %>
 		</div>
 
 		<div class="col-xs-6 col-xs-offset-3">
