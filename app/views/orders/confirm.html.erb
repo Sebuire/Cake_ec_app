@@ -38,7 +38,7 @@
 				</tr>
 				<tr>
 					<th>小計</th>
-					<td><%= c.item.price + c.item.price * c.quantity / 10 %>円</td>
+					<td><%= c.item.price * c.quantity + c.item.price * c.quantity / 10 %>円</td>
 				</tr>
 			</table>
 		<% end %>
@@ -46,6 +46,7 @@
 				<%= o.hidden_field :total_price, :value => @total_all %>
 				<%= o.hidden_field :customer_id, :value => current_customer.id %>
 				<%= o.hidden_field :order_name, :value => session[:name_kanji] %>
+				<%= o.hidden_field :order_name_kana, :value => session[:name_kana] %>
 				<%= o.hidden_field :order_address, :value => session[:address] %>
 				<%= o.hidden_field :order_postal_code, :value => session[:postal_code] %>
 				<%= o.hidden_field :payment, :value => session[:payment] %>

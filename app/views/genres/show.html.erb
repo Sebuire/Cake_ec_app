@@ -9,7 +9,7 @@
 							<div style="width: 100px; float: left;">
 								<%= attachment_image_tag g, :image,fallback: "noimage.jpg" %>
 								<%= g.name %>
-								<%= g.price %>円
+								<%= g.price + g.price / 10 %>円
 							</div>
 						<% end %>
 					</div>
