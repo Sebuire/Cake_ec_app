@@ -2,49 +2,24 @@
 <%= render 'layouts/customer_header' %>
 
 <h1 class="title">配送先一覧</h1>
-<h2 class="title">マイページ</h2>
 <div class="container">
 	<div class="row">
 		<div class="col">
 			<div class="col-xs-6 col-xs-offset-3">
-				<table class="table table-bordered">
-					<tr>
-						<th>氏名</th>
-						<td><%= @customer.name_last_kanji %><%= @customer.name_first_kanji %></td>
-					</tr>
-					<tr>
-						<th>フリガナ</th>
-						<td><%= @customer.name_last_kana %><%= @customer.name_first_kana %></td>
-					</tr>
-					<tr>
-						<th>電話番号</th>
-						<td><%= @customer.phone_number %></td>
-					</tr>
-					<tr>
-						<th>メールアドレス</th>
-						<td><%= @customer.email %></td>
-					</tr>
-
-				</table>
-			</div>
-			</table>
-			<div class="col-xs-6 col-xs-offset-3">
-
-				<h3 class="title">配送先一覧</h3>
 				<% @customer.addresses.each do |f| %>
-				<table class="table table-bordered">
-					<tr>
-						<th>配送先 </th><td></td>
-					</tr>
-					<tr>
-							<th>住所</th>
-							<td><%= f.address %></td>
-					</tr>
-					<tr>
-						<th>郵便番号</th>
-						<td><%= f.postal_code %></td>
-					</tr>
-				</table>
+				<div style="text-align: center;">
+					<h3>配送先<%= @times += 1 %></h3>
+				</div>
+					<table class="table table-bordered">
+						<tr>
+								<th>住所</th>
+								<td><%= f.address %></td>
+						</tr>
+						<tr>
+							<th>郵便番号</th>
+							<td><%= f.postal_code %></td>
+						</tr>
+					</table>
 					<tr>
 						<div style="text-align: center; margin-bottom: 40px;">
 							<%= link_to "配送先を変更する",edit_address_path(f.id), class: "btn btn-default" %></div>

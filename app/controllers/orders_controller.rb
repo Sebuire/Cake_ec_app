@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :authenticate_customer!
   def select_address
     @customer = current_customer
-    @times = 0
   end
 
   def new
@@ -25,6 +24,7 @@ class OrdersController < ApplicationController
   	@order = Order.new
     @order.order_items.build
 
+    @times = 0
     @postage = 800
     @tax = 10
     @total = 0
