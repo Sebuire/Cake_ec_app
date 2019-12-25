@@ -29,6 +29,7 @@ class Admin::OrdersController < ApplicationController
 	end
 
 	def update
+		byebug
 		@order = Order.find(params[:id])
 		 if @order.update(order_params)
                redirect_to admin_orders_path
