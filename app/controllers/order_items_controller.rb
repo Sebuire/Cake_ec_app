@@ -1,13 +1,8 @@
 class OrderItemsController < ApplicationController
 	before_action :authenticate_customer!
   def show
-  	@order_items = OrderItem.all
-  end
-
-  def index
-    @order = Order.find(params[:id])
+  	@order = Order.find(params[:id])
     @order_items = @order.order_items
-    @times = 0
   end
 
   # private
