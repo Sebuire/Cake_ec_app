@@ -15,6 +15,7 @@ class AddressesController < ApplicationController
   def index
     @customer = current_customer
     @addresses = @customer.addresses
+    @times = 0
   end
 
   def address_params

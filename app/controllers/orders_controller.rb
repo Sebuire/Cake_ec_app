@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :authenticate_customer!
   def select_address
     @customer = current_customer
-    @times = 0
   end
 
   def new
@@ -25,6 +24,7 @@ class OrdersController < ApplicationController
   	@order = Order.new
     @order.order_items.build
 
+    @times = 0
     @postage = 800
     @tax = 10
     @total = 0
@@ -39,11 +39,6 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.order_items.build(
-      item_id: params[:order][:order_item][:item_id],
-      price: params[:order][:order_item][:price],
-      quantity: params[:order][:order_item][:quantity]
-      )
     if @order.save
       current_customer.carts.delete_all
       session[:name_kanji] = nil
