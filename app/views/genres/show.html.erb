@@ -4,7 +4,7 @@
 		<% if @genre.is_active == true %>
 			<div style=" width: 100%; margin: 20px auto;">
 				<% @genre.items.each do |g| %>
-					<div style="width: 300px; float: left; margin: 20px 5px 20px 0;">
+					<div style="float: left; margin: 20px 5px 20px 0;">
 						<%= link_to item_path(g.id) do %>
 							<div style="width: 100px; float: left;">
 								<%= attachment_image_tag g, :image,fallback: "noimage.jpg" %>
