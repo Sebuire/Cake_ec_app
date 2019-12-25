@@ -13,6 +13,8 @@ class AddressesController < ApplicationController
   end
 
   def index
+    @customer = current_customer
+    @addresses = @customer.addresses
   end
 
   def address_params

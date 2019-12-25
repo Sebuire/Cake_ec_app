@@ -56,6 +56,11 @@ class OrdersController < ApplicationController
     end
   end
 
+  def index
+    @customer = current_customer
+    @orders = @customer.orders
+  end
+
 
   private
   def order_params
