@@ -3,6 +3,11 @@ class OrderItemsController < ApplicationController
   def show
   	@order = Order.find(params[:id])
     @order_items = @order.order_items
+    @item_price = 0
+    @tax = 10
+    @order_items.each do |o|
+      @item_price += o.item.price * o.quantity + o.item.price  * o.quantity / 10
+    end
   end
 
   # private
