@@ -20,9 +20,12 @@
 					<td><%= f.text_field :name_first_kana %></td>
 				</tr>
 				<% current_customer.addresses.each do |a| %>
-					<%= f.radio_button :address_id, a.id %>
-					<%= a.postal_code %>
-					<%= a.address %>
+					<tr>
+						<th>住所<%= @times += 1 %>  <%= f.radio_button :address_id, a.id %></th>
+						<td>
+							<%= a.postal_code %><%= a.address %>
+						</td>
+					</tr>
 				<% end %>
 				<tr>
 					<th></th>

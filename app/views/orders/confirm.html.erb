@@ -56,18 +56,18 @@
 					<td><%= session[:postal_code] %></td>
 				</tr>
 			</table>
-			<%= form_with model: @order, url: orders_path do |o| %>
+			<%= form_for @order, url: orders_path do |o| %>
 				<%= o.hidden_field :total_price, :value => @total_all %>
 				<%= o.hidden_field :customer_id, :value => current_customer.id %>
 				<%= o.hidden_field :order_name, :value => session[:name_kanji] %>
 				<%= o.hidden_field :order_address, :value => session[:address] %>
 				<%= o.hidden_field :order_postal_code, :value => session[:postal_code] %>
 				<%= o.hidden_field :payment, :value => session[:payment] %>
-					<%= o.hidden_field :postage, :value => @postage %>
-					<%= o.fields_for :order_item do |i| %>
-						<%= i.hidden_field :item_id, :value => c.item_id %>
-						<%= i.hidden_field :price, :value => c.item.price %>
-						<%= i.hidden_field :quantity, :value => c.quantity %>
+				<%= o.hidden_field :postage, :value => @postage %>
+					<%= o.fields_for :order_item do |item| %>
+						<%= item.hidden_field :item_id, :value => c.item_id %>
+						<%= item.hidden_field :price, :value => c.item.price %>
+						<%= item.hidden_field :quantity, :value => c.quantity %>
 					<% end %>
 				<div style="text-align: center;">
 					<%= o.submit "購入確定", class: "btn btn-default", style: "margin-bottom: 50px;" %>
