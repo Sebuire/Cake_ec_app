@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:new, :create, :index]
   patch 'orders/new' => 'orders#new'
   post 'orders/show' => 'orders#show'
+  get 'order/:id' => 'orders#index', as: 'customer_order'
   # order_itemsルーティング
   resources :order_items, only: [:show, :index]
   # addressesルーティング
