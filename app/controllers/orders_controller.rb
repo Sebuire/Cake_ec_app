@@ -39,11 +39,6 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.order_items.build(
-      item_id: params[:order][:order_item][:item_id],
-      price: params[:order][:order_item][:price],
-      quantity: params[:order][:order_item][:quantity]
-      )
     if @order.save
       current_customer.carts.delete_all
       session[:name_kanji] = nil

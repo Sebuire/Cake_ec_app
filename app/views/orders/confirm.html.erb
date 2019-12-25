@@ -41,6 +41,7 @@
 					<td><%= c.item.price + c.item.price * c.quantity / 10 %>円</td>
 				</tr>
 			</table>
+		<% end %>
 			<%= form_for @order, url: orders_path do |o| %>
 				<%= o.hidden_field :total_price, :value => @total_all %>
 				<%= o.hidden_field :customer_id, :value => current_customer.id %>
@@ -49,16 +50,17 @@
 				<%= o.hidden_field :order_postal_code, :value => session[:postal_code] %>
 				<%= o.hidden_field :payment, :value => session[:payment] %>
 				<%= o.hidden_field :postage, :value => @postage %>
-					<%= o.fields_for :order_item do |item| %>
+				<% current_customer.carts.each do |c| %>
+					<%= o.fields_for :order_items do |item| %>
 						<%= item.hidden_field :item_id, :value => c.item_id %>
 						<%= item.hidden_field :price, :value => c.item.price %>
 						<%= item.hidden_field :quantity, :value => c.quantity %>
 					<% end %>
+				<% end %>
 					<div style="text-align: center;">
 						<%= o.submit "購入確定", class: "btn btn-default", style: "margin-bottom: 50px;" %>
 					</div>
 			<% end %>
-		<% end %>
 		<table class="table">
 			<h2 class="title">お届け先</h2>
 			<tr>
