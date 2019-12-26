@@ -3,110 +3,49 @@
 <h2 class="title">マイページ</h2>
 <div class="container">
 	<div class="row">
-		<div class="col">
-			<div class="col-xs-6 col-xs-offset-3">
-				<table class="table table-bordered">
-					<tr>
-						<th>氏名</th>
-						<td><%= @customer.name_last_kanji %><%= @customer.name_first_kanji %></td>
-					</tr>
-					<tr>
-						<th>フリガナ</th>
-						<td><%= @customer.name_last_kana %><%= @customer.name_first_kana %></td>
-					</tr>
-					<tr>
-						<th>電話番号</th>
-						<td><%= @customer.phone_number %></td>
-					</tr>
-					<tr>
-						<th>メールアドレス</th>
-						<td><%= @customer.email %></td>
-					</tr>
-					<tr>
-						<th></th>
-						<td>
-							<%= link_to "編集", edit_customer_path(@customer), class: "btn btn-default" %>
-						</td>
-					</tr>
-					<tr>
-						<th></th>
-						<td><%= link_to "パスワード変更", edit_customer_password_path, class: "btn btn-default" %></td>
-					</tr>
-				</table>
-			</div>
+		<div class="col-xs-6 col-xs-offset-3">
+			<table class="table table-bordered">
+				<tr>
+					<th>氏名</th>
+					<td><%= @customer.name_last_kanji %><%= @customer.name_first_kanji %></td>
+				</tr>
+				<tr>
+					<th>フリガナ</th>
+					<td><%= @customer.name_last_kana %><%= @customer.name_first_kana %></td>
+				</tr>
+				<tr>
+					<th>電話番号</th>
+					<td><%= @customer.phone_number %></td>
+				</tr>
+				<tr>
+					<th>メールアドレス</th>
+					<td><%= @customer.email %></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td>
+						<%= link_to "編集", edit_customer_path(@customer), class: "btn btn-default" %>
+					</td>
+				</tr>
+				<tr>
+					<th></th>
+					<td><%= link_to "パスワード変更", "#", class: "btn btn-default" %></td>
+				</tr>
 			</table>
-			<div class="col-xs-6 col-xs-offset-3">
-				<table class="table table-bordered">
-					<h3 class="title">配送先一覧</h3>
-						<% @customer.addresses.each do |f| %>
-							<tr>
-								<th>配送先<%= @times += 1 %></th><td></td>
-							</tr>
-							<tr>
-									<th>住所</th>
-									<td><%= f.address %></td>
-							</tr>
-							<tr>
-								<th>郵便番号</th>
-								<td><%= f.postal_code %></td>
-							</tr>
-							<tr>
-								<th></th>
-								<td><%= link_to "編集", edit_address_path(f.id), class: "btn btn-default" %></td>
-							</tr>
-						<% end %>
-				</table>
+		</div>
+
+		<div class="col-xs-6 col-xs-offset-3">
+			<%= link_to "配送先一覧", addresses_path, class: "btn btn-default" %>
+		</div>
+
+		<div class="col-xs-6 col-xs-offset-3">
+			<%= link_to "注文履歴", customer_order_path(current_customer.id), class: "btn btn-default" %>
+		</div>
+
+		<div class="col-xs-6 col-xs-offset-3">
+			 <div style="text-align: center; margin-bottom: 40px;">
+				<%= link_to "退会",customer_path(current_customer.id), method: :delete, data: {confirm: "退会するとアカウントが消去されます。よろしいですか？"}, class: "btn btn-danger" %>
 			</div>
-			<br>
-			<% @customer.orders.each do |f| %>
-				<div class="col-xs-6 col-xs-offset-3">
-					<table class="table table-bordered">
-				 	<tr>
-				 		<th>注文ID</th>
-				 		<td><%= f.id %></td>
-				 	</tr>
-				 	<tr>
-				 		<th>注文日</th>
-				 		<td><%= f.created_at.strftime("%Y年%m月%d日") %></td>
-				 	</tr>
-				 	<tr>
-				 		<th>送料</th>
-				 		<td><%= f.postage %>円</td>
-				 	</tr>
-				 	<tr>
-				 		<th>合計金額</th>
-				 		<td><%= f.total_price %>円</td>
-				 	</tr>
-				 	<tr>
-				 		<th>支払い方法</th>
-				 		<td><%= f.payment %></td>
-				 	</tr>
-				 	<tr>
-				 		<th>注文ステータス</th>
-				 		<td><%= f.order_status %></td>
-				 	</tr>
-				 	<tr>
-				 		<th>配送先氏名</th>
-				 		<td><%= f.order_name %></td>
-				 	</tr>
-				 	<tr>
-				 		<th>配送先住所</th>
-				 		<td><%= f.order_address %></td>
-				 	</tr>
-				 	<tr>
-				 		<th>配送先郵便番号</th>
-				 		<td><%= f.order_postal_code %></td>
-				 	</tr>
-				 	<tr>
-				 		<th></th>
-				 		<td><%= link_to "注文内容詳細", order_item_path(f.order_items), class: "btn btn-default" %></td>
-				 	</tr>
-				 </table>
-				 <div style="text-align: center; margin-bottom: 40px;">
-					<%= link_to "退会",customer_path(current_customer.id), method: :delete, data: {confirm: "退会するとアカウントが消去されます。よろしいですか？"}, class: "btn btn-danger" %>
-				</div>
-				</div>
-			<% end %>
 		</div>
 	</div>
 </div>

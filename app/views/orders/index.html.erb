@@ -1,0 +1,29 @@
+<%= render 'layouts/customer_header' %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 col-xs-offset-3">
+			<h3 class="title">注文履歴</h3>
+			<% @customer.orders.each do |f| %>
+				<table class="table table-bordered">
+				 	<tr>
+				 		<th>注文ID</th>
+				 		<td><%= f.id %></td>
+				 	</tr>
+				 	<tr>
+				 		<th>注文日</th>
+				 		<td><%= f.created_at.strftime("%Y年%m月%d日") %></td>
+				 	</tr>
+				 	<tr>
+				 		<th>注文ステータス</th>
+				 		<td><%= f.order_status %></td>
+				 	</tr>
+				 	<tr>
+				 		<th></th>
+				 		<td><%= link_to "注文内容詳細", order_item_path(f.id), class: "btn btn-default" %></td>
+				 	</tr>
+				 </table>
+			<% end %>
+		</div>
+	</div>
+</div>
+<%= render 'layouts/customer_footer' %>

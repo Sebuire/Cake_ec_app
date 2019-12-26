@@ -1,5 +1,5 @@
 <%= render 'layouts/customer_header' %>
-	<%= form_for(@order, url:order_confirm_path) do |f| %>
+	<%= form_for(@order, url:orders_show_path) do |f| %>
 		<p><%= f.radio_button :payment, :クレジットカード %>クレジットカード</p>
 		<p><%= f.radio_button :payment, :銀行振込 %>銀行振込</p>
 		<%= f.submit "支払方法の決定" %>

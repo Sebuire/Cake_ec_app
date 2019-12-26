@@ -8,7 +8,6 @@ class Admin::OrdersController < ApplicationController
 	def show
 		@order = Order.find(params[:id])
 		@order.order_items
-		@order_item = OrderItem.find(params[:id])
 		@count = 0
 
 		@tax = 10

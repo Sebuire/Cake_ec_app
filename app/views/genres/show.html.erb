@@ -4,15 +4,12 @@
 		<% if @genre.is_active == true %>
 			<div style=" width: 100%; margin: 20px auto;">
 				<% @genre.items.each do |g| %>
-					<div style="width: 50%; height: 350px; float: left;">
+					<div style="float: left; margin: 20px 5px 20px 0;">
 						<%= link_to item_path(g.id) do %>
-							<div style="width: 50%; height: 350px; float: left; border: 1px solid black;">
-								<%= attachment_image_tag g, :image %>
-								<p>ここに商品画像が入ります</p>
-							</div>
-							<div style="width: 50%; float: left; height: 350px; border: 1px solid black;">
+							<div style="width: 100px; float: left;">
+								<%= attachment_image_tag g, :image,fallback: "noimage.jpg" %>
 								<%= g.name %>
-								<%= g.price %>
+								<%= g.price + g.price / 10 %>円
 							</div>
 						<% end %>
 					</div>

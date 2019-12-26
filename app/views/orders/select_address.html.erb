@@ -1,14 +1,38 @@
-<%=render 'layouts/customer_header'  %>
-
-<% @customer.addresses.each do |g| %>
-  <%= form_for g, url:orders_payment_path do |f| %>
-	  <%= f.text_field :postal_code %>
-	  <%= f.text_field :address %>
-	  <%= f.submit '配送先を決定' %>
-  <% end %>
-<% end %>
-
-
-
-
+<%=render 'layouts/customer_header' %>
+<div class="container">
+	<h2 class="title">配送先</h2>
+	<%= form_with model: current_customer, url: new_order_path do |f| %>
+		<div class="col-xs-6 col-xs-offset-3">
+			<table class="table">
+				<tr>
+					<th>名前(姓)</th><td><%= f.text_field :name_last_kanji %></td>
+				</tr>
+				<tr>
+					<th>名前(名)</th>
+					<td><%= f.text_field :name_first_kanji %></td>
+				</tr>
+				<tr>
+					<th>フリガナ(姓)</th>
+					<td><%= f.text_field :name_last_kana %></td>
+				</tr>
+				<tr>
+					<th>フリガナ(名)</th>
+					<td><%= f.text_field :name_first_kana %></td>
+				</tr>
+				<% current_customer.addresses.each do |a| %>
+					<tr>
+						<th>住所<%= f.radio_button :address_id, a.id %></th>
+						<td>
+							<%= a.postal_code %><%= a.address %>
+						</td>
+					</tr>
+				<% end %>
+				<tr>
+					<th></th>
+					<td><%= f.submit "配送先決定", class: "btn btn-default" %></td>
+				</tr>
+			</table>
+		</div>
+	<% end %>
+</div>
 <%= render 'layouts/customer_footer' %>

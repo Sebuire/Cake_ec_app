@@ -53,8 +53,11 @@ Rails.application.routes.draw do
   delete 'cart/delete/all' => 'carts#destroy_all', as: 'cart_delete_all'
   # ordersルーティング
   resources :orders, only: [:new, :create, :index]
+  patch 'orders/new' => 'orders#new'
+  post 'orders/show' => 'orders#show'
+  get 'customer/order/:id' => 'orders#index', as: 'customer_order'
   # order_itemsルーティング
-  resources :order_items, only: [:show]
+  resources :order_items, only: [:show, :index]
   # addressesルーティング
   resources :addresses, only: [:edit, :update, :index]
 
@@ -67,5 +70,6 @@ Rails.application.routes.draw do
   post '/orders/address' => 'orders#select_address'
   get '/orders/payment' => 'orders#select_payment'
   patch '/orders/payment' => 'orders#select_payment'
+  get '/order/confirm' =>  'orders#confirm'
   post '/order/confirm' =>  'orders#confirm'
 end

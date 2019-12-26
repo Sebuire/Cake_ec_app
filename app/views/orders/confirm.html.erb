@@ -1,3 +1,82 @@
-<%= session[:postal_code] %>
-<%= session[:address] %>
-<%= session[:payment] %>
+<%= render 'layouts/customer_header'  %>
+<div class="container">
+	<div class="col-xs-6 col-xs-offset-3" style="margin-bottom: 30px;">
+		<h1 class="title">購入内容確認</h1>
+		<table class="table">
+			<h2 class="title">お支払い内容</h2>
+			<tr>
+				<th>お支払い方法</th>
+				<td><%= session[:payment] %></td>
+			</tr>
+			<tr>
+				<th>合計金額</th>
+				<td><%= @total_all %>円</td>
+			</tr>
+			<tr>
+				<th>送料</th>
+				<td><%= @postage %>円</td>
+			</tr>
+			<tr>
+				<th>お支払い金額</th>
+				<td><%= @paymoney %>円</td>
+			</tr>
+		</table>
+		<% current_customer.carts.each do |c| %>
+			<h4>購入詳細<%= c.id %></h4>
+			<table class="table">
+				<tr>
+					<th>商品名</th>
+					<td><%= c.item.name %></td>
+				</tr>
+				<tr>
+					<th>商品価格(税込)</th>
+					<td><%= c.item.price + c.item.price / @tax %>円</td>
+				</tr>
+				<tr>
+					<th>数量</th>
+					<td><%= c.quantity %></td>
+				</tr>
+				<tr>
+					<th>小計</th>
+					<td><%= c.item.price * c.quantity + c.item.price * c.quantity / 10 %>円</td>
+				</tr>
+			</table>
+		<% end %>
+			<%= form_for @order, url: orders_path do |o| %>
+				<%= o.hidden_field :total_price, :value => @total_all %>
+				<%= o.hidden_field :customer_id, :value => current_customer.id %>
+				<%= o.hidden_field :order_name, :value => session[:name_kanji] %>
+				<%= o.hidden_field :order_name_kana, :value => session[:name_kana] %>
+				<%= o.hidden_field :order_address, :value => session[:address] %>
+				<%= o.hidden_field :order_postal_code, :value => session[:postal_code] %>
+				<%= o.hidden_field :payment, :value => session[:payment] %>
+				<%= o.hidden_field :postage, :value => @postage %>
+				<% current_customer.carts.each do |c| %>
+					<%= o.fields_for :order_items do |item| %>
+						<%= item.hidden_field :item_id, :value => c.item_id %>
+						<%= item.hidden_field :price, :value => c.item.price %>
+						<%= item.hidden_field :quantity, :value => c.quantity %>
+					<% end %>
+				<% end %>
+					<div style="text-align: center;">
+						<%= o.submit "購入確定", class: "btn btn-default", style: "margin-bottom: 50px;" %>
+					</div>
+			<% end %>
+		<table class="table">
+			<h2 class="title">お届け先</h2>
+			<tr>
+				<th>氏名</th>
+				<td><%= session[:name_kanji] %></td>
+			</tr>
+			<tr>
+				<th>配送先</th>
+				<td><%= session[:address] %></td>
+			</tr>
+			<tr>
+				<th>郵便番号</th>
+				<td><%= session[:postal_code] %></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<%=render 'layouts/customer_footer' %>
