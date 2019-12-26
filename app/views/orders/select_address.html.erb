@@ -20,22 +20,25 @@
 					<td><%= f.text_field :name_first_kana %></td>
 				</tr>
 				<% current_customer.addresses.each do |a| %>
-					<tr>
-						<% if a.id == 1 %>
-							<th>配送先　<%= f.radio_button :address_id, a.id, :checked => 'checked' %></th>
-							<td>
-								<span>〒</span>
-								<%= a.address %><br>
-								<%= a.postal_code %>
-							</td>
-						<% else %>
-							<th>配送先　<%= f.radio_button :address_id, a.id %></th>
-							<td>
-								<span>〒</span><%= a.postal_code %><br>
-								<%= a.address %>
-							</td>
-						<% end %>
-					</tr>
+					<table class="table">
+						<tr>
+							<% if a.id == 1 %>
+								<th>配送先　<%= f.radio_button :address_id, a.id, :checked => 'checked' %></th>
+								<td>
+									<span>〒</span>
+									<%= a.postal_code %><br>
+									<%= a.address %>
+								</td>
+							<% else %>
+								<th>配送先　<%= f.radio_button :address_id, a.id %></th>
+								<td>
+									<span>〒</span>
+									<%= a.postal_code %><br>
+									<%= a.address %>
+								</td>
+							<% end %>
+						</tr>
+					</table>
 				<% end %>
 				<tr>
 					<th></th>
