@@ -45,10 +45,17 @@
 		<%= form_for @order, url: orders_path do |o| %>
 			<%= o.hidden_field :total_price, :value => @total_all %>
 			<%= o.hidden_field :customer_id, :value => current_customer.id %>
-			<%= o.hidden_field :order_name, :value => session[:name_kanji] %>
-			<%= o.hidden_field :order_name_kana, :value => session[:name_kana] %>
-			<%= o.hidden_field :order_address, :value => session[:address] %>
-			<%= o.hidden_field :order_postal_code, :value => session[:postal_code] %>
+			<% if session[:new_address] == true && session[:new_postal_code] == true %>
+				<%= o.hidden_field :order_name, :value => session[:name_kanji] %>
+				<%= o.hidden_field :order_name_kana, :value => session[:name_kana] %>
+				<%= o.hidden_field :order_address, :value => session[:new_address] %>
+				<%= o.hidden_field :order_postal_code, :value => session[:new_postal_code] %>
+			<% else %>
+				<%= o.hidden_field :order_name, :value => session[:name_kanji] %>
+				<%= o.hidden_field :order_name_kana, :value => session[:name_kana] %>
+				<%= o.hidden_field :order_address, :value => session[:address] %>
+				<%= o.hidden_field :order_postal_code, :value => session[:postal_code] %>
+			<% end %>
 			<%= o.hidden_field :payment, :value => session[:payment] %>
 			<%= o.hidden_field :postage, :value => @postage %>
 			<% current_customer.carts.each do |c| %>
@@ -64,18 +71,33 @@
 		<% end %>
 		<table class="table">
 			<h2 class="title">お届け先</h2>
-			<tr>
-				<th>氏名</th>
-				<td><%= session[:name_kanji] %></td>
-			</tr>
-			<tr>
-				<th>配送先</th>
-				<td><%= session[:address] %></td>
-			</tr>
-			<tr>
-				<th>郵便番号</th>
-				<td><%= session[:postal_code] %></td>
-			</tr>
+			<% if session[:new_address] == true && session[:new_postal_code] == true %>
+				<tr>
+					<th>氏名</th>
+					<td><%= session[:name_kanji] %></td>
+				</tr>
+				<tr>
+					<th>配送先</th>
+					<td><%= session[:new_address] %></td>
+				</tr>
+				<tr>
+					<th>郵便番号</th>
+					<td><%= session[:new_postal_code] %></td>
+				</tr>
+			<% else %>
+				<tr>
+					<th>氏名</th>
+					<td><%= session[:name_kanji] %></td>
+				</tr>
+				<tr>
+					<th>配送先</th>
+					<td><%= session[:address] %></td>
+				</tr>
+				<tr>
+					<th>郵便番号</th>
+					<td><%= session[:postal_code] %></td>
+				</tr>
+			<% end %>
 		</table>
 	</div>
 </div>
