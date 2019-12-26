@@ -1,19 +1,23 @@
 
 <%= render 'layouts/customer_header' %>
 
+<% if flash[:notice] %>
+  <p style="color: lime; text-align: center"><%= flash[:notice] %></p>
+<% end %>
+
 <h1 class="title">配送先一覧</h1>
 <div class="container">
 	<div class="row">
 		<div class="col">
 			<div class="col-xs-6 col-xs-offset-3">
-				<% @customer.addresses.each do |f| %>
 				<div style="text-align: center;">
 					<h3>配送先</h3>
 				</div>
+				<% @customer.addresses.each do |f| %>
 					<table class="table table-bordered">
 						<tr>
-								<th>住所</th>
-								<td><%= f.address %></td>
+							<th>住所</th>
+							<td><%= f.address %></td>
 						</tr>
 						<tr>
 							<th>郵便番号</th>
@@ -22,10 +26,14 @@
 					</table>
 					<tr>
 						<div style="text-align: center; margin-bottom: 40px;">
-							<%= link_to "配送先を変更する",edit_address_path(f.id), class: "btn btn-default" %></div>
+							<%= link_to "配送先を変更する",edit_address_path(f.id), class: "btn btn-default" %>
 						</div>
 					</tr>
 				<% end %>
+
+				<div style="text-align: center; margin-bottom: 40px; ">
+					<%= link_to "配送先を追加する", new_address_path, class: "btn btn-primary" %>
+				</div>
 			</div>
 
 		</div>
