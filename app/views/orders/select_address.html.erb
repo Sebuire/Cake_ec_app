@@ -20,6 +20,7 @@
 					<td><%= f.text_field :name_first_kana %></td>
 				</tr>
 				<% current_customer.addresses.each do |a| %>
+				<% @times += 1 %>
 					<table class="table">
 						<tr>
 							<% if a.id == 1 %>
@@ -40,6 +41,11 @@
 						</tr>
 					</table>
 				<% end %>
+				<%= f.fields_for :address do |a| %>
+                	<%= f.radio_button :address_id, @times + 1 %>
+                	<%= a.text_field :address %>
+                	<%= a.text_field :postal_code %>
+                <% end %>
 				<tr>
 					<th></th>
 					<td><%= f.submit "配送先決定", class: "btn btn-default" %></td>
