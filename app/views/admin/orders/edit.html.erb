@@ -12,7 +12,7 @@
 						<th>注文日時</th><td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
 					</tr>
 				<tr>
-					<th>購入者</th><td><%= @order.customer.name_last_kanji %>　<%=@order.customer.name_first_kanji %></td>
+					<th>購入者</th><td><%= @order.customer.name_last_kanji %><%= @order.customer.name_first_kanji %></td>
 				</tr>
 			</table>
 		</div>

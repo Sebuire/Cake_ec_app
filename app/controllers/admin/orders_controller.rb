@@ -2,7 +2,7 @@ class Admin::OrdersController < ApplicationController
 	before_action :authenticate_admin!
 
 	def index
-	  	@orders = Order.page(params[:page]).per(20)
+	  	@orders = Order.page(params[:page]).per(10).reverse_order
 	end
 
 	def show
@@ -16,6 +16,11 @@ class Admin::OrdersController < ApplicationController
 		@order.order_items.each do |t|
 			@tax_price = t.item.price * t.quantity / @tax
 			@tax_price_all += @tax_price
+		end
+
+		@item_total_price = 0
+			@order.order_items.each do |f|
+			@item_total_price = f.price * f.quantity + f.price * f.quantity / 10
 		end
 
 		@total = 0
