@@ -59,7 +59,7 @@
 					<h3 class="title">合計金額</h3>
 				 	<tr>
 				 		<th>商品代金</th>
-				 		<td><%= @item_price %>円</td>
+				 		<td><%= @order.total_price %>円</td>
 				 	</tr>
 				 	<tr>
 				 		<th>配送料</th>
@@ -67,7 +67,7 @@
 				 	</tr>
 				 	<tr>
 				 		<th>合計</th>
-				 		<td><%= @order.total_price %>円</td>
+				 		<td><%= @paymoney %>円</td>
 				 	</tr>
 				</table>
 
