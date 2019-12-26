@@ -2,7 +2,7 @@
 <div class="container">
 	<h2 class="title">配送先</h2>
 	<%= form_with model: current_customer, url: new_order_path do |f| %>
-		<div class="col-xs-6 col-xs-offset-3">
+		<div class="col-xs-8 col-xs-offset-2">
 			<table class="table">
 				<tr>
 					<th>名前(姓)</th><td><%= f.text_field :name_last_kanji %></td>
@@ -21,10 +21,20 @@
 				</tr>
 				<% current_customer.addresses.each do |a| %>
 					<tr>
-						<th>住所<%= f.radio_button :address_id, a.id %></th>
-						<td>
-							<%= a.postal_code %><%= a.address %>
-						</td>
+						<% if a.id == 1 %>
+							<th>配送先　<%= f.radio_button :address_id, a.id, :checked => 'checked' %></th>
+							<td>
+								<span>〒</span>
+								<%= a.address %><br>
+								<%= a.postal_code %>
+							</td>
+						<% else %>
+							<th>配送先　<%= f.radio_button :address_id, a.id %></th>
+							<td>
+								<span>〒</span><%= a.postal_code %><br>
+								<%= a.address %>
+							</td>
+						<% end %>
 					</tr>
 				<% end %>
 				<tr>
