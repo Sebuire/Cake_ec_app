@@ -2,10 +2,12 @@ class OrdersController < ApplicationController
   before_action :authenticate_customer!
   def select_address
     @customer = current_customer
-    @times = 0
   end
 
   def new
+    if params[:customer][:address][:address].present?
+    @address = Address.create(address: params[:customer][:address][:address], postal_code: params[:customer][:address][:postal_code], customer_id: current_customer.id)
+    end
     session[:name_kanji] = (params[:customer][:name_last_kanji] + params[:customer][:name_first_kanji])
     session[:name_kana] = (params[:customer][:name_last_kana] + params[:customer][:name_first_kana])
     session[:address] = Address.find(params[:customer][:address_id])[:address]

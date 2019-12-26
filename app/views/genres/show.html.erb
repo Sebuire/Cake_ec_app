@@ -9,9 +9,10 @@
 								<%= link_to item_path(g.id) do %>
 									<div style="width: 250px; float: left; margin-right: 10px; ">
 										<%= attachment_image_tag g, :image, fallback: "noimage.jpg", style:"max-width:100%;"%>
+										<br>
 										<%= g.name %>
 										<br>
-										<%= g.price + g.price / 10 %>円
+										¥<%= g.price + g.price / 10 %>
 									</div>
 								<% end %>
 							</div>
