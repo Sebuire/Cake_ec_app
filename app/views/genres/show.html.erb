@@ -1,21 +1,22 @@
 <%= render 'layouts/customer_header' %>
 	<div class="container clearfix">
-		<h1 class="title">-<%= @genre.name %>-</h1>
-		<% if @genre.is_active == true %>
-			<div style=" width: 100%; margin: 20px auto;">
-				<% @genre.items.each do |g| %>
-					<div style="float: left; margin: 20px 5px 20px 0;">
-						<%= link_to item_path(g.id) do %>
-							<div style="width: 100px; float: left;">
-								<%= attachment_image_tag g, :image,fallback: "noimage.jpg" %>
-								<%= g.name %>
-								<%= g.price + g.price / 10 %>円
+			<h1 class="title">-<%= @genre.name %>-</h1>
+			<% if @genre.is_active == true %>
+				<div style=" width: 100%; margin: 20px auto;">
+						<% @genre.items.each do |g| %>
+
+							<div class=""style="float: left; margin: 20px 5px 20px 0;">
+								<%= link_to item_path(g.id) do %>
+									<div style="width: 250px; float: left; margin-right: 10px; ">
+										<%= attachment_image_tag g, :image, fallback: "noimage.jpg", style:"max-width:100%;"%>
+										<%= g.name %>
+										<br>
+										<%= g.price + g.price / 10 %>円
+									</div>
+								<% end %>
 							</div>
 						<% end %>
-					</div>
-				<% end %>
-			</div>
-		<% else %>
-		<% end %>
+				</div>
+			<% end %>
 	</div>
 <%= render 'layouts/customer_footer' %>
