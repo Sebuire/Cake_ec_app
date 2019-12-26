@@ -2,7 +2,7 @@
 	<% if customer_signed_in? %>
 		<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, style: "color: black; margin: 0 5px;" %>
 		<%= link_to "ご利用ガイド", guide_path, style: "color: black; margin: 0 5px;" %>
-		<%= link_to "カート", carts_path, style: "color: black; margin: 0 5px;" %>
+		<%= link_to "カート🛒", carts_path, style: "color: black; margin: 0 5px;" %>
 		<%= link_to "マイページ", customer_path(current_customer), style: "color: black; margin: 0 5px;" %>
 		<form style="display: inline-block;;">
 			<span>検索 </span><input type="" name="" style=" width:100px;" placeholder="商品名">

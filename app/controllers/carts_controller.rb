@@ -4,6 +4,7 @@ class CartsController < ApplicationController
   	@carts = Cart.all
   	@customer = current_customer
     @quantity = [*1..10]
+    @total = 0
   end
 
   def create

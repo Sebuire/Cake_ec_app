@@ -1,6 +1,6 @@
 <%= render 'layouts/customer_header' %>
 <div class="container clearfix">
-	<h2 class="title">カート</h2>
+	<h2 class="title">カート🛒</h2>
 	<div style="width: 100%;">
 		<% if @customer.carts.present? %>
 			<% if flash[:notice] %>
@@ -12,7 +12,8 @@
 					<%= link_to item_path(c.item_id) do %>
 						<%= attachment_image_tag c.item, :image %><br>
 						<span>商品名 : <%= c.item.name %></span>
-						<p>価格 : <%= c.item.price %>円</p>
+						<p>価格 : ¥<%= c.item.price + c.item.price / 10 %></p>
+						<% @total += c.item.price %>
 					<% end %>
 				<%= form_for c do |g| %>
 						<%= g.select :quantity, options_for_select(@quantity, {selected: c.quantity}) %>
@@ -21,6 +22,10 @@
 					<% end %>
 				</div>
 			<% end %>
+			</div>
+			<div style="text-align: center; margin-bottom: 50px;">
+				<h2>小計<%= @customer.carts.count %>点</h2>
+				<h3>¥<%= @total + @total / 10 %></h3>
 			</div>
 			<div style="text-align: center; margin-bottom: 50px;">
 				<%= link_to "購入画面に進む", orders_address_path, class: "btn btn-success" %>
