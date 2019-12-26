@@ -13,6 +13,7 @@ class AddressesController < ApplicationController
   end
 
   def index
+    @address = Address.new
     @customer = current_customer
     @addresses = @customer.addresses
   end
