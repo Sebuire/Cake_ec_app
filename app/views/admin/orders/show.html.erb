@@ -12,7 +12,7 @@
 					<th>購入者</th><td><%= @order.customer.name_last_kanji %><%=@order.customer.name_first_kanji %></td>
 				</tr>
 				<tr>
-					<th>配送先</th><td>〒<%= @order.order_postal_code %>　<%= @order.order_address %></td><br><td><%= @order.order_name %>
+					<th>配送先</th><td>〒<%= @order.order_postal_code %>　<%= @order.order_address %></td><br><td><%= @order.order_name %></td>
 				</tr>
 				<tr>
 					<th>支払い方法</th><td><%= @order.payment %></td>

@@ -10,36 +10,50 @@
 				  <p style="color: red; text-align: center"><%= message %></p>
 				<% end %>
 			<% end %>
+		</div>
+	</div>
 
-			<%= form_for(@item,url:admin_item_path) do |f| %>
-			<table class="table" style="margin-bottom: 10px;">
-				<tr>
-					<th>商品名</th><td><%= f.text_field :name, autofocus: true, placeholder: "商品名", style: "width: 50%;", class: "form-control" %></td>
-				</tr>
-				<tr>
-					<th>商品説明</th><td><%= f.text_area :body, placeholder: "商品説明", style: "width: 100%; height:  150px;", class: "form-control" %></td>
-				</tr>
-				<tr>
-					<th>商品画像</th><td><%= f.attachment_field :image, placeholder: "商品画像" %></td>
-				</tr>
-				<tr>
-					<th>価格(円)</th><td><%= f.text_field :price, placeholder: "価格", style: "width: 30%;", class: "form-control"  %></td>
-				</tr>
-				<tr>
-					<th>販売ステータス</th><td>販売中　<%= f.check_box :sales_status %><br></td>
-				</tr>
-			</table>
-			<div style="text-align: center;">
-				<%= f.submit '更新', class: "btn btn-default", style: "margin: 0 0 15px;" %>
+	<div class="row">
+		<%= form_for(@item,url:admin_item_path) do |f| %>
+			<div class="col-xs-5">
+				<strong>商品画像</strong>
+					<%= attachment_image_tag @item, :image, style: " width: 50%;", fallback: "noimage.jpg" %>
+					<%= f.attachment_field :image, placeholder: "商品画像" %>
+			</div>
+
+			<div class="col-xs-5">
+				<table class="table" style="margin-bottom: 10px;">
+					<tr>
+						<th>商品名</th>
+						<td><%= f.text_field :name, autofocus: true, placeholder: "商品名", style: "width: 50%;", class: "form-control" %></td>
+					</tr>
+					<tr>
+						<th>商品説明</th>
+						<td><%= f.text_area :body, placeholder: "商品説明", style: "width: 100%; height:  150px;", class: "form-control" %></td>
+					</tr>
+					<tr>
+						<th>ジャンル</th>
+						<td><%= f.collection_select :genre_id, Genre.all, :id, :name, {}, class: "form-control" %></td>
+					</tr>
+					<tr>
+						<th>税抜価格</th>
+						<td><%= f.text_field :price, placeholder: "価格", style: "width: 50%;", class: "form-control" %>円</td>
+					</tr>
+					<tr>
+						<th>販売ステータス</th>
+						<td>販売中　<%= f.check_box :sales_status %></td>
+					</tr>
+				</table>
+				<div style="text-align: center;">
+					<%= f.submit '更新', class: "btn btn-default", style: "margin: 0 0 15px;" %>
 				</div>
-			<% end %>
+			</div>
+		<% end %>
+
 
 			<div style="text-align: center;">
 				<%= link_to "商品詳細へ", admin_item_path, class: "btn btn-default", style: "margin-bottom: 15px;" %><br>
 				<%= link_to "商品一覧に戻る", admin_items_path, class: "btn btn-default", style: "margin-bottom: 15px;" %>
 			</div>
-        </div>
     </div>
 </div>
-
-<%= render 'layouts/admin_footer' %>
