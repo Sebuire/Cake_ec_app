@@ -5,12 +5,12 @@
 		</div>
 		<div class="clearfix genre-box" style="width: 100%; padding: 20px 0;">
 			<div style="text-align: center;">
-				<%= link_to "全ての商品を見る", items_path, class: "btn btn-success", style: "margin-bottom: 35px;" %>
+				<%= link_to "全ての商品を見る", items_path, class: "btn btnpink", style: "margin-bottom: 35px;" %>
 			</div>
 			<% @genres.each do |g| %>
 				<% if g.is_active == true %>
 					<div class="col-xs-3" style="height: 200px; display: inline-block; border: 1px solid black; text-align: center; line-height: 200px;">
-						<%= link_to g.name, genre_path(g.id) %>
+						<%= link_to g.name, genre_path(g.id), class: "btn btnpink" %>
 					</div>
 				<% else %>
 				<% end %>
