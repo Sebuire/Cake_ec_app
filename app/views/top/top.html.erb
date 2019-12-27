@@ -1,22 +1,20 @@
 <%= render 'layouts/customer_header' %>
 	<div class="container">
-		<div style="border: 1px solid black;">
+		<div class="topbox" style="border: 1px solid palevioletred; position: relative;">
 			<%= image_tag "cake.jpg", style: "width: 100%;" %>
+			<%= link_to "全ての商品を見る", items_path, class: "btn btnpink2", style: "position: absolute; top: 50%; left: 40%; border: 2px solid palevioletred;" %>
 		</div>
-		<div class="clearfix genre-box" style="width: 100%; padding: 20px 0;">
-			<div style="text-align: center;">
-				<%= link_to "全ての商品を見る", items_path, class: "btn btnpink", style: "margin-bottom: 35px;" %>
-			</div>
+		<div class="genrebg clearfix" style="width: 100%; padding: 20px 0;">
 			<% @genres.each do |g| %>
 				<% if g.is_active == true %>
-					<div class="col-xs-3" style="height: 200px; display: inline-block; border: 1px solid black; text-align: center; line-height: 200px;">
-						<%= link_to g.name, genre_path(g.id), class: "btn btnpink" %>
+					<div class="col-xs-3 genrebox" style="height: 200px; display: inline-block; border: 1px solid palevioletred; text-align: center; line-height: 200px;">
+						<%= link_to g.name, genre_path(g.id), class: "btn btnpink2" %>
 					</div>
 				<% else %>
 				<% end %>
 			<% end %>
 		</div>
-		<div style="border: 1px solid black; margin: 20px auto;"><%= image_tag "cake_menu.jpg" %>
+		<div style="border: 1px solid palevioletred; margin: 20px auto;"><%= image_tag "cake_menu.jpg" %>
 		</div>
 	</div>
 <%= render 'layouts/customer_footer' %>
