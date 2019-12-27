@@ -17,11 +17,13 @@
 	height: 400px;
 	margin: 0 auto;
 	text-align: center;
+	z-index: -1;
 	a{
 		padding: 10px 20px;
 		margin-top: 178px;
 		border: 2px solid palevioletred;
 		box-shadow:0px 0px 10px;
+		z-index: 100;
 	}
 	a:hover{
 		background-color: palevioletred;
@@ -53,7 +55,7 @@
 		box-shadow:0px 0px 10px;
 	}
 }
-.genre4-ku{
+.genre3-ku{
 	width: 100%;
 	padding: 40px 0;
 	height: 200px;
@@ -78,7 +80,96 @@
 		background-color: #fff;
 	}
 }
-
+.genre4-ku{
+	width: 80%;
+	margin: 40px auto;
+	.div1{
+		width: 45%;
+		height: 250px;
+		float: left;
+		text-align: center;
+		padding-top: 15px;
+		box-shadow:0px 0px 20px;
+		background: linear-gradient(moccasin, lightsalmon);
+		position: relative;
+		span{
+			font-size: 30px;
+			font-weight: 600;
+			text-shadow: 0.5px 0.5px 1px dimgray;
+		}
+		span:nth-child(2){
+			display: block;
+			width: 100%;
+			height: 43px;
+			background-color: #282828;
+			color: #fff;
+		}
+		p{
+			font-family: "Georgia"
+		}
+		.p1-ku{
+			font-size: 100px;
+			position: absolute;
+			left: 35px;
+			bottom: 3px;
+		}
+		.p2-ku{
+			font-size: 70px;
+			position: absolute;
+			right: 23px;
+		}
+		.p3-ku{
+			font-size: 40px;
+			font-weight: 600;
+			position: absolute;
+			bottom: 0px;
+			right: 7px;
+		}
+	}
+	.div2{
+		width: 45%;
+		height: 250px;
+		float: left;
+		margin-left: 10%;
+		background: linear-gradient(-100deg, #131313, #404040);
+		box-shadow: 0px 0px 20px;
+		position: relative;
+		padding: 20px;
+		.div3{
+			width: 100%;
+			height: 100%;
+			border: 1px solid #DA8E00;
+			span:first-child{
+				font-size: 90px;
+				color: #DA8E00;
+	  			background: -webkit-linear-gradient(-45deg, #F7DE05, #DA8E00, #EDAC06, #F7DE05, #ECB802, #DAAF08, #B67B03, #DA8E00, #EDAC06, #F7DE05, #ECB802, #EDAC06);
+	 			-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				font-family: cursive;
+				position: absolute;
+				top: 20px;
+				left: 40px;
+			}
+			span:last-child{
+				font-size: 90px;
+				color: #DA8E00;
+	  			background: -webkit-linear-gradient(-45deg, #F7DE05, #DA8E00, #EDAC06, #F7DE05, #ECB802, #DAAF08, #B67B03, #DA8E00, #EDAC06, #F7DE05, #ECB802, #EDAC06);
+	 			-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				font-family: cursive;
+				position: absolute;
+				bottom: 25px;
+				right: 55px;
+			}
+			.choco-ku{
+				position: absolute;
+				bottom: 0px;
+				left: 90px;
+				font-size: 100px;
+			}
+		}
+	}
+}
 
 
 
