@@ -17,8 +17,8 @@
 					<% end %>
 				<%= form_for c do |g| %>
 						<%= g.select :quantity, options_for_select(@quantity, {selected: c.quantity}) %>
-				    	<%= g.submit "数量変更", class: "btn btn-default",style: "margin: 0 10px;" %>
-				    	<%= link_to "削除", cart_path(c), method: :delete, class: "btn btn-danger" %>
+				    	<%= g.submit "数量変更", class: "btn btnpink",style: "margin: 0 10px;" %>
+				    	<%= link_to "削除", cart_path(c), method: :delete, class: "btn btngray" %>
 					<% end %>
 				</div>
 			<% end %>
@@ -29,7 +29,7 @@
 			</div>
 			<div style="text-align: center; margin-bottom: 50px;">
 				<%= link_to "購入画面に進む", orders_address_path, class: "btn btnpink" %>
-				<%= link_to "カートを空にする", cart_delete_all_path, method: :delete, class: "btn btn-danger" %>
+				<%= link_to "カートを空にする", cart_delete_all_path, method: :delete, class: "btn btngray" %>
 			</div>
 		<% else %>
 			<h5 class="title">お客様のカートに商品はありません。</h5>
