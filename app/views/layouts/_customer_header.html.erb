@@ -1,9 +1,9 @@
 <header style="width: 100%; height: 130px; border-bottom: 1px solid palevioletred; padding: 10px 0;">
 	<% if customer_signed_in? %>
-		<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, style: "margin: 0 5px;", class: "btn btngray" %>
-		<%= link_to "ご利用ガイド", guide_path, style: "margin: 0 5px;", class: "btn btnpink" %>
-		<%= link_to "カート🛒", carts_path, style: " margin: 0 5px;", class: "btn btnpink" %>
-		<%= link_to "マイページ", customer_path(current_customer), style: "margin: 0 5px;", class: "btn btnpink" %>
+		<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, style: "margin: 0 5px; box-shadow:0px 0px 10px;", class: "btn btngray" %>
+		<%= link_to "ご利用ガイド", guide_path, style: "margin: 0 5px; box-shadow:0px 0px 10px;", class: "btn btnpink" %>
+		<%= link_to "カート🛒", carts_path, style: " margin: 0 5px; box-shadow:0px 0px 10px;", class: "btn btnpink" %>
+		<%= link_to "マイページ", customer_path(current_customer), style: "margin: 0 5px; box-shadow:0px 0px 10px;", class: "btn btnpink" %>
 		<form style="display: inline-block;;">
 			<span>🔎 </span><input type="" name="" style=" width:100px;" placeholder="商品名">
 		</form>
@@ -13,10 +13,10 @@
 		<%= link_to "Log in", new_customer_session_path %>
 		<%= link_to "Sign up", new_customer_registration_path %>
 	<% end %>
-	<h1 style="text-align: center; line-height: 55px;"><a href="/" style="text-decoration: none; color: palevioletred;">ながのCAKE</a></h1>
+	<h1 style="text-align: center; line-height: 55px;"><a href="/" style="text-decoration: none; color: palevioletred; text-shadow: 0px 0px 3px;">ながのCAKE</a></h1>
 </header>
 <% if customer_signed_in? %>
-	<h5 style="color: palevioletred; padding: 0 5px;">ようこそ<%= link_to customer_path(current_customer), style: "color: palevioletred;" do |f| %>
+	<h5 style="color: palevioletred; padding: 0 5px; text-shadow: 0px 0px 1.5px;">ようこそ<%= link_to customer_path(current_customer), style: "color: palevioletred; text-shadow: 0px 0px 1.5px;" do |f| %>
 		<%= current_customer.name_last_kanji %><%= current_customer.name_first_kanji %>
 	<% end %>
 	さん</h5>
