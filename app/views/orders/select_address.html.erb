@@ -1,6 +1,6 @@
 <%=render 'layouts/customer_header' %>
 <div class="container">
-	<h2 class="title">配送先</h2>
+	<h2 class="title"><strong>配送先を選択</strong></h2>
 	<%= form_with model: current_customer, url: new_order_path do |f| %>
 		<div class="col-xs-8 col-xs-offset-2">
 			<table class="table">
@@ -19,37 +19,39 @@
 					<th>フリガナ(名)</th>
 					<td><%= f.text_field :name_first_kana %></td>
 				</tr>
-				<% current_customer.addresses.each do |a| %>
-					<table class="table">
-						<tr>
-							<% if a.id == 1 %>
-								<th>配送先　<%= f.radio_button :address_id, a.id, :checked => 'checked' %></th>
-								<td>
-									<span>〒</span>
-									<%= a.postal_code %><br>
-									<%= a.address %>
-								</td>
-							<% else %>
-								<th>配送先　<%= f.radio_button :address_id, a.id %></th>
-								<td>
-									<span>〒</span>
-									<%= a.postal_code %><br>
-									<%= a.address %>
-								</td>
-							<% end %>
-						</tr>
-					</table>
-				<% end %>
-				<%= f.fields_for :address do |a| %>
-					<%= f.radio_button :address_id, current_customer.addresses.count + 1 %>
-					<%= a.text_field :address %>
-					<%= a.text_field :postal_code %>
-				<% end %>
-				<tr>
-					<th></th>
-					<td><%= f.submit "配送先決定", class: "btn btn-default" %></td>
-				</tr>
 			</table>
+		</div>
+		<div class="col-xs-10 col-xs-offset-1">
+			<% current_customer.addresses.each do |a| %>
+				<% if a.id == 1 %>
+						<th>配送先　<%= f.radio_button :address_id, a.id, :checked => 'checked' %></th>
+						<tr>
+							<td>〒<%= a.postal_code %></td>
+							<td><%= a.address %></td>
+						</tr>
+						<br>
+						<br>
+				<% else %>
+						<th>配送先　<%= f.radio_button :address_id, a.id%></th>
+						<tr>
+							<td>〒<%= a.postal_code %></td>
+							<td><%= a.address %></td>
+						</tr>
+						<br>
+						<br>
+				<% end %>
+			<% end %>
+			<%= f.fields_for :address do |a| %>
+				<th>新しい配送先を登録する　<%= f.radio_button :address_id, current_customer.addresses.count + 1 %></th>
+				<tr>
+					<td>〒<%= a.text_field :postal_code,placeholder: "郵便番号(ハイフンなし)" %></td>
+					<td><%= a.text_field :address, placeholder: "住所" %></td>
+				</tr>
+			<% end %>
+			<div style="text-align: center; margin: 30px;">
+				<th></th>
+				<td><%= f.submit "配送先決定", class: "btn btn-default" %></td>
+			</div>
 		</div>
 	<% end %>
 </div>
