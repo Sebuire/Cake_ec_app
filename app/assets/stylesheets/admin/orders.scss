@@ -2,6 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.order_table:last-child{
-  margin-bottom: 0;
+.table-no-border-c tr, th, td{
+	border: none;
 }

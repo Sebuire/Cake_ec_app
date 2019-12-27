@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:new, :create, :update, :destroy, :index]
   end
   namespace :admin do
-    resources :customers, only: [:index, :show, :update, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
   end
   # customers用のdeviseルーティング
   devise_for :customers, controllers: {

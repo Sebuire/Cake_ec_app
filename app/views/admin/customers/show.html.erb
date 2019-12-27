@@ -3,60 +3,48 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-3">
-			<h2 class="title">顧客詳細</h2>
-			<table class="table table-bordered">
+			<h2 class="title">会員詳細</h2>
+			<table class="table">
 				<tr>
-					<th>氏名(漢字)</th>
+					<th>顧客ID</th>
+					<td><%= @customer.id %></td>
+				</tr>
+				<tr>
+					<th>氏名</th>
 					<td>
 						<%= @customer.name_last_kanji %>
 						<%= @customer.name_first_kanji %>
 					</td>
 				</tr>
 				<tr>
-					<th>氏名(カナ)</th>
+					<th>フリガナ</th>
 					<td>
 						<%= @customer.name_last_kana %>
 						<%= @customer.name_first_kana %>
 					</td>
 				</tr>
 				<tr>
-					<th>メールアドレス</th>
-					<td><%= @customer.email %></td>
+					<th>郵便番号</th>
+					<td><% %></td>
+				</tr>
+				<tr>
+					<th>住所</th>
+					<td><% %></td>
 				</tr>
 				<tr>
 					<th>電話番号</th>
 					<td><%= @customer.phone_number %></td>
 				</tr>
 				<tr>
-					<th>登録日</th>
-					<td><%= @customer.created_at.strftime('%Y/%m/%d') %></td>
+					<th>メールアドレス</th>
+					<td><%= @customer.email %></td>
 				</tr>
-				<% if @customer.deleted_at.present? %>
-				<tr>
-					<th>退会日</th>
-					<td><%= @customer.deleted_at.strftime('%Y/%m/%d') %></td>
-				</tr>
-				<% end %>
 			</table>
-
-			<h4 style="margin-top: 20px; text-align: center;">配送先一覧</h4>
-			<% @customer.addresses.each do |a| %>
-			<table class="table table-bordered customer_address_table" style="margin-bottom: 10px;">
-				<tr>
-					<th class="col-xs-2">配送先<%= @number += 1 %></th>
-					<td>〒<%= a.postal_code %></td>
-				</tr>
-				<tr>
-					<th></th>
-					<td><%= a.address %></td>
-			</table>
-			<% end %>
-
+			<div style="text-align: right">
+				<%= link_to "編集", edit_admin_customer_path(@customer), class: "btn btn-default" %>
+			</div>
 			<div style="text-align: center">
-				<% if @customer.deleted_at.nil? %>
-					<%= link_to "退会", admin_customer_path(@customer), method: :delete, data: {confirm: "本当に退会させますか？"}, class: "btn btn-default", style: "margin-top: 20px;"%><br>
-				<% end %>
-				<%= link_to '顧客一覧に戻る', admin_customers_path, class: "btn btn-default", style: "margin: 15px 0;" %>
+				<%= link_to '顧客一覧に戻る', admin_customers_path, class: "btn btn-default", style: "margin: 30px 0;" %>
 			</div>
 		</div>
 	</div>

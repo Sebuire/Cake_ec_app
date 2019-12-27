@@ -2,13 +2,14 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-xs-8 col-xs-offset-2">
+		<div class="col-xs-10 col-xs-offset-1">
 			<table class="table">
-				<h2 class="title">顧客一覧</h2>
+				<h2 class="title">会員一覧</h2>
 				<thead>
 					<th>顧客ID</th>
 					<th>顧客名</th>
-					<th>会員ステータス</th>
+					<th>メールアドレス</th>
+					<th>ステータス</th>
 					<th></th>
 				</thead>
 				<tbody>
@@ -19,11 +20,12 @@
 								<%= customer.name_last_kanji %>
 								<%= customer.name_first_kanji %>
 							</td>
+							<td><%= customer.email %></td>
 							<td>
 								<% if customer.deleted_at.nil? %>
-									<span style="color: lime;">有効</span>
+									<span>有効</span>
 								<% else %>
-									<span style="color: red">退会済み</span>
+									<span>退会済み</span>
 								<% end %>
 							</td>
 							<td><%= link_to "詳細",admin_customer_path(customer.id), class: "btn btn-default" %> </td>
@@ -31,14 +33,12 @@
 					<% end %>
 				</tbody>
 			</table>
-			<div style="text-align: center;">
+			<div style="text-align: right;">
 				<%= paginate @customers, class: "paginate" %><br>
 			</div>
-
 			<div style="text-align: center;">
-				<%= link_to '管理者TOP', admins_path, class: "btn btn-default", style: "margin: 15px 0;" %>
+				<%= link_to '管理者TOP', admins_path, class: "btn btn-default", style: "margin: 30px 0;" %>
 			</div>
-
 		</div>
 	</div>
 </div>

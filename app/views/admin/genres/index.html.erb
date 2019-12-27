@@ -4,14 +4,14 @@
 <% end %>
 <div class="container genre_container">
 	<div class="row">
-		<div class="col-xs-8 col-xs-offset-2">
-			<h2 class="title">ジャンル一覧画面</h2>
+		<div class="col-xs-10 col-xs-offset-1">
+			<h2 class="title">ジャンル一覧</h2>
 			<table class="table">
 				<thead>
 					<tr>
 						<th>ジャンルID</th>
 						<th>ジャンル名</th>
-						<th>取り扱い状況</th>
+						<th>状態</th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -23,9 +23,9 @@
 						<td><%= f.name %></td>
 						<td>
 							<% if f.is_active == true %>
-								<span>取り扱い中</span>
+								<span>有効</span>
 							<% else %>
-								<span style="color: red">取り扱い中止</span>
+								<span style="color: red">無効</span>
 							<% end %>
 						</td>
 						<%= form_for f, url:admin_genre_path(f.id) do |g| %>

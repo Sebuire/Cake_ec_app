@@ -18,11 +18,6 @@ class Admin::OrdersController < ApplicationController
 			@tax_price_all += @tax_price
 		end
 
-		@item_total_price = 0
-			@order.order_items.each do |f|
-			@item_total_price = f.price * f.quantity + f.price * f.quantity / 10
-		end
-
 		@total = 0
 			@order.order_items.each do |f|
 			@total += f.price
