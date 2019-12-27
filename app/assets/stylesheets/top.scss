@@ -5,25 +5,93 @@
 	background-color: white;
 	color: palevioletred;
 }
-.topbox a{
-	padding: 10px 20px;
+.top1-ku{
+	margin-bottom: 50px;
 }
-.topbox a:hover{
-	background-color: palevioletred;
-	color: white;
-}
-.genrebg a{
-	border: 2px solid palevioletred;
-}
-.genrebg a:hover{
-	background-color: palevioletred;
-	color: white;
-}
-.genrebg div:nth-child(3){
-	background-image: url(cookie.png);
+.top2-ku{
+	background-image: url(cake.jpg);
 	background-position: center;
+	background-size: cover;
+	border: 1px solid palevioletred;
+	width: 90%;
+	height: 400px;
+	margin: 0 auto;
+	text-align: center;
+	a{
+		padding: 10px 20px;
+		margin-top: 178px;
+		border: 2px solid palevioletred;
+		box-shadow:0px 0px 10px;
+	}
+	a:hover{
+		background-color: palevioletred;
+		color: white;
+	}
 }
-.genrebg div:nth-child(4){
-	background-image: url(candy1.jpg);
-	background-position: center;
+.genre1-ku{
+	width: 90%;
+	padding: 20px 0;
+	margin: 0 auto;
+	text-align: center;
+	a{
+		border: 2px solid palevioletred;
+	}
+	a:hover{
+		background-color: palevioletred;
+		color: white;
+	}
 }
+.genre-title-ku{
+	color: palevioletred;
+	text-shadow: 0px 0px 3px;
+}
+.genre2-ku{
+	text-align: center;
+	.btnpink2{
+		width: 90%;
+		margin-bottom: 20px;
+		box-shadow:0px 0px 10px;
+	}
+}
+.genre4-ku{
+	width: 100%;
+	padding: 40px 0;
+	height: 200px;
+	background-color: palevioletred;
+	text-align: center;
+	p{
+		font-family: Safari;
+		font-size: 20px;
+		font-weight: 600;
+		color: #fff;
+		text-shadow: 0.5px 0.5px 1px dimgray;
+	}
+	a{
+		margin-top: 14px;
+		border: 2px solid #fff;
+		color: #fff;
+		text-shadow: 0.5px 0.5px 1px dimgray;
+		box-shadow:0px 0px 10px;
+	}
+	a:hover{
+		color: palevioletred;
+		background-color: #fff;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,20 +1,24 @@
 <%= render 'layouts/customer_header' %>
-	<div class="container">
-		<div class="topbox" style="border: 1px solid palevioletred; position: relative;">
-			<%= image_tag "cake.jpg", style: "width: 100%;" %>
-			<%= link_to "全ての商品を見る", items_path, class: "btn btnpink2", style: "position: absolute; top: 50%; left: 40%; border: 2px solid palevioletred;" %>
+	<div class="top1-ku clearfix">
+		<div class="top2-ku">
+			<%= link_to "全ての商品を見る", items_path, class: "btn btnpink2 top2-btn"%>
 		</div>
-		<div class="genrebg clearfix" style="width: 100%; padding: 20px 0;">
+		<div class="genre1-ku clearfix">
+			<h2 class="title genre-title-ku">ジャンル一覧</h2>
 			<% @genres.each do |g| %>
 				<% if g.is_active == true %>
-					<div class="col-xs-3 genrebox" style="height: 200px; display: inline-block; border: 1px solid palevioletred; text-align: center; line-height: 200px;">
-						<%= link_to g.name, genre_path(g.id), class: "btn btnpink2" %>
+					<div class="genre2-ku col-xs-6 col-xs-offset-3">
+						<%= link_to g.name, genre_path(g.id), class: "btn btnpink2"%>
 					</div>
-				<% else %>
 				<% end %>
 			<% end %>
 		</div>
-		<div style="border: 1px solid palevioletred; margin: 20px auto;"><%= image_tag "cake_menu.jpg" %>
+		<div class="genre3-ku"></div>
+		<div class="genre4-ku">
+			<p>お探しのケーキは見つかりましたか？ <br>
+			ながのCAKEではケーキだけでなく様々な商品を取り扱っております!</p>
+			<%= link_to "全ての商品を見る", items_path, class: "btn"%>
 		</div>
+		<div class="genre5-ku"></div>
 	</div>
 <%= render 'layouts/customer_footer' %>
