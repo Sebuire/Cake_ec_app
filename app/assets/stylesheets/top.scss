@@ -1,3 +1,29 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.btnpink2{
+	background-color: white;
+	color: palevioletred;
+}
+.topbox a{
+	padding: 10px 20px;
+}
+.topbox a:hover{
+	background-color: palevioletred;
+	color: white;
+}
+.genrebg a{
+	border: 2px solid palevioletred;
+}
+.genrebg a:hover{
+	background-color: palevioletred;
+	color: white;
+}
+.genrebg div:nth-child(3){
+	background-image: url(cookie.png);
+	background-position: center;
+}
+.genrebg div:nth-child(4){
+	background-image: url(candy1.jpg);
+	background-position: center;
+}
