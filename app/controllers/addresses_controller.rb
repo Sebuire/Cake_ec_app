@@ -29,7 +29,9 @@ class AddressesController < ApplicationController
       flash[:notice] = "住所を追加しました！"
       redirect_to addresses_path
     else
-      render 'new'
+      @customer = current_customer
+      @addresses = @customer.addresses
+      render :index
     end
   end
 
