@@ -1,13 +1,19 @@
 <%= render 'layouts/customer_header' %>
+<div style="width: 90%; padding-left: 100px;">
+	<%= link_to root_path do %>
+		<span>＞トップ</span>
+	<% end %>
+</div>
 	<div class="container clearfix">
-			<h1 class="title">-<%= @genre.name %>-</h1>
+			<h1 class="title"><%= @genre.name %></h1>
+			<h4 class="title"><%= @genre.items.count %>件</h4>
 			<% if @genre.is_active == true %>
 				<div style=" width: 100%; margin: 20px auto;">
 						<% @genre.items.each do |g| %>
 
 							<div class=""style="float: left; margin: 20px 5px 20px 0;">
 								<%= link_to item_path(g.id) do %>
-									<div style="width: 250px; float: left; margin-right: 10px; ">
+									<div style="width: 250px; float: left; margin-right: 10px; color: black;">
 										<%= attachment_image_tag g, :image, fallback: "noimage.jpg", style:"max-width:100%;"%>
 										<br>
 										<%= g.name %>
