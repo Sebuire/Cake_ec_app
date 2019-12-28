@@ -303,8 +303,77 @@
 		color: palevioletred;
 	}
 }
-
-
+.genre5-ku{
+	width: 80%;
+	margin: 30px auto;
+	box-shadow:0px 0px 7px;
+	border-radius: 15px;
+	span{
+		display: block;
+		height: 50px;
+		color: white;
+		font-size: 20px;
+		font-weight: 600;
+		line-height: 50px;
+		background-color: lightpink;
+		text-align: center;
+		border-radius: 15px;
+	}
+}
+.genre6-ku{
+	width: 80%;
+	margin: 10px auto;
+	div{
+		width: 31%;
+		height: 240px;
+		margin-left: 3.3%;
+		float: left;
+		box-shadow:0px 0px 10px;
+	}
+	div:first-child{
+		margin-left: 0.3%;
+		background-image: url(pudding3.jpg);
+		background-position: center;
+		background-size: cover;
+		position: relative;
+		span{
+			position: absolute;
+			bottom: 0;
+			right: 100px;
+			color: white;
+			font-weight: 600;
+			text-shadow: 1px 1px 2px dimgray;
+		}
+	}
+	div:nth-child(2){
+		background-image: url(cookie1.jpg);
+		background-position: center;
+		background-size: cover;
+		position: relative;
+		span{
+			position: absolute;
+			bottom: 0;
+			right: 100px;
+			color: white;
+			font-weight: 600;
+			text-shadow: 1px 1px 2px dimgray;
+		}
+	}
+	div:last-child{
+		background-image: url(cake_genre.jpg);
+		background-position: center;
+		background-size: cover;
+		position: relative;
+		span{
+			position: absolute;
+			bottom: 0;
+			right: 100px;
+			color: white;
+			font-weight: 600;
+			text-shadow: 1px 1px 2px dimgray;
+		}
+	}
+}
 
 
 
