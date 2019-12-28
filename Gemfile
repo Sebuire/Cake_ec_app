@@ -72,3 +72,4 @@ gem 'paranoia'
 
 # クレジット
 gem 'payjp'
+gem "font-awesome-rails"

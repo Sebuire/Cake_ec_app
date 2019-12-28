@@ -1,25 +1,34 @@
-<header style="width: 100%; height: 130px; border-bottom: 1px solid palevioletred; padding: 10px 0;">
+<header class="customer-header-ku clearfix">
 	<% if customer_signed_in? %>
-		<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, style: "margin: 0 5px; box-shadow:0px 0px 10px;", class: "btn btngray" %>
-		<%= link_to "ご利用ガイド", guide_path, style: "margin: 0 5px; box-shadow:0px 0px 10px;", class: "btn btnpink" %>
-		<%= link_to "カート🛒", carts_path, style: " margin: 0 5px; box-shadow:0px 0px 10px;", class: "btn btnpink" %>
-		<%= link_to "マイページ", customer_path(current_customer), style: "margin: 0 5px; box-shadow:0px 0px 10px;", class: "btn btnpink" %>
-		<form style="display: inline-block;;">
-			<span>🔎 </span><input type="" name="" style=" width:100px;" placeholder="商品名">
-		</form>
+		<div class="nav-ku">
+			<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btngray logout-ku" %>
+			<%= link_to "ご利用ガイド", guide_path, class: "btn btnpink guide-ku" %>
+			<%= link_to "カート🛒", carts_path, style: " margin: 0 5px; box-shadow:0px 0px 10px;", class: "btn btnpink" %>
+			<%= link_to "マイページ", customer_path(current_customer), class: "btn btnpink mypage-ku" %>
+		</div>
 	<% else %>
-		<%= link_to "会社概要","/about" %>
-		<%= link_to "ご利用ガイド", "/guide" %>
-		<%= link_to "Log in", new_customer_session_path %>
-		<%= link_to "Sign up", new_customer_registration_path %>
+		<div class="nav-ku">
+			<%= link_to "会社概要","/about", class: "btn btnpink about-ku" %>
+			<%= link_to "ご利用ガイド", "/guide", class: "btn btnpink guide-ku" %>
+			<%= link_to "ログイン", new_customer_session_path, class: "btn btnpink login-ku" %>
+			<%= link_to "会員登録", new_customer_registration_path, class: "btn btnpink signup-ku" %>
+		</div>
 	<% end %>
-	<h1 style="text-align: center; line-height: 55px;"><a href="/" style="text-decoration: none; color: palevioletred; text-shadow: 0px 0px 3px;">ながのCAKE</a></h1>
+		<div class="title-ku">
+			<%= link_to "ながのCAKE",root_path %>
+			<div class="title-icon-ku">
+				<%= fa_icon("twitter") %>
+				<%= fa_icon("instagram") %>
+				<%= fa_icon("facebook") %>
+				<%= fa_icon("envelope") %>
+			</div>
+		</div>
 </header>
 <% if customer_signed_in? %>
-	<h5 style="color: palevioletred; padding: 0 5px; text-shadow: 0px 0px 1.5px;">ようこそ<%= link_to customer_path(current_customer), style: "color: palevioletred; text-shadow: 0px 0px 1.5px;" do |f| %>
+	<h4 class="index-ku">ようこそ<%= link_to customer_path(current_customer), style: "color: palevioletred; text-shadow: 0px 0px 1.5px;" do |f| %>
 		<%= current_customer.name_last_kanji %><%= current_customer.name_first_kanji %>
 	<% end %>
-	さん</h5>
+	さん</h4>
 <% else %>
-	<h5>ようこそゲストさん</h5>
+	<h4 class="index-ku">ようこそゲストさん</h4>
 <% end %>
