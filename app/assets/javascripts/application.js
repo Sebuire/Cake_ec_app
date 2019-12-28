@@ -16,3 +16,17 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+// トップボタンのjs
+$(function(){
+
+	$('.to-top-ku').each(function(){
+
+		let el = ('html');
+
+		$(this).on('click', function(){
+			$(el).stop(true).animate({scrollTop: 0}, 600);
+		});
+	});
+});
