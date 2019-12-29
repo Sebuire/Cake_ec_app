@@ -59,14 +59,14 @@
 	width: 100%;
 	padding: 40px 0;
 	height: 200px;
-	background-color: palevioletred;
+	background-color: lightpink;
 	text-align: center;
 	p{
 		font-family: Safari;
 		font-size: 20px;
 		font-weight: 600;
 		color: #fff;
-		text-shadow: 0.5px 0.5px 1px dimgray;
+		text-shadow: 1px 1px 2px dimgray;
 	}
 	a{
 		margin-top: 14px;
@@ -298,9 +298,13 @@
 	height: 60px;
 	border-radius: 50%;
 	box-shadow:0px 0px 10px;
+	z-index: 100;
 	i{
 		font-size: 60px;
 		color: palevioletred;
+	}
+	i:hover{
+		color: lightpink;
 	}
 }
 .genre5-ku{
@@ -317,6 +321,7 @@
 		line-height: 50px;
 		background-color: lightpink;
 		text-align: center;
+		text-shadow: 1px 1px 2px dimgray;
 		border-radius: 15px;
 	}
 }
@@ -375,7 +380,31 @@
 	}
 }
 
+.guide-title-ku{
+	color: palevioletred;
+}
+.guide-box-ku{
+	text-align: left;
+	padding: 10px;
+	margin-bottom: 15px;
+}
 
+.about-title-ku{
+	color: palevioletred;
+}
+.shop-box{
+	text-align: center;
+	padding: 10px;
+	margin-bottom: 15px;
+	div{
+		width: 70%;
+		height: 500px;
+		padding: 20px;
+		margin: 0 auto;
+		background-image: url(shop.jpg);
+		background-size: cover;
+	}
+}
 
 
 
