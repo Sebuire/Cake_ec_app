@@ -51,7 +51,7 @@
 				<tr>
 					<th>会員ステータス</th>
 					<td><lavel><%= c.radio_button :deleted_at, nil %>有効</lavel>
-						<lavel style="margin-left: 10px"><% %>退会済み</lavel>
+						<lavel style="margin-left: 10px"><%= c.radio_button :deleted_at, false %>退会済み</lavel>
 					</td>
 				</tr>
 			</table>

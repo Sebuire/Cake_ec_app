@@ -7,7 +7,13 @@
 			<table class="table">
 				<tr>
 					<th>顧客ID</th>
-					<td><%= @customer.id %></td>
+					<td><%= @customer.id %>
+						<% if @customer.deleted_at.nil? %>
+							<span style="background-color: blue; color: white; border-radius: 5px; padding: 5px; float: right;">有効</span>
+						<% else %>
+							<span  style="background-color: red; color: white; border-radius: 5px; padding: 5px;">退会済み</span>
+						<% end %>
+					</td>
 				</tr>
 				<tr>
 					<th>氏名</th>
