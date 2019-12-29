@@ -15,11 +15,10 @@
 				<tbody>
 					<%= form_for @genre, url:admin_genre_path(@genre) do |g| %>
 						<tr>
-							<td>
-								<%= g.text_field :name, class: "form-control", style: "width: 70%;" %>
+							<td><%= g.text_field :name, class: "form-control", style: "width: 70%;" %>
 							</td>
-							<td>
-								有効　<%= g.check_box :is_active %></td>
+							<td>有効　<%= g.check_box :is_active %>
+							</td>
 							<td><%= g.submit '更新', class: "btn btn-default" %>
 							</td>
 						</tr>
