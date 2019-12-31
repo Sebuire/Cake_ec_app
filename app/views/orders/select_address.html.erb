@@ -21,9 +21,9 @@
 				</tr>
 			</table>
 		</div>
-		<div class="col-xs-10 col-xs-offset-1">
+		<div class="col-xs-10 col-xs-offset-2">
 			<% current_customer.addresses.each do |a| %>
-				<% if a.id == 1 %>
+ 				<% if a.id == 1 %>
 						<th>配送先　<%= f.radio_button :address_id, a.id, :checked => 'checked' %></th>
 						<tr>
 							<td>〒<%= a.postal_code %></td>
@@ -42,13 +42,12 @@
 				<% end %>
 			<% end %>
 			<%= f.fields_for :address do |a| %>
-				<th>新しい配送先を登録する　<%= f.radio_button :address_id, current_customer.addresses.count + 1 %></th>
-				<tr>
-					<td>〒<%= a.text_field :postal_code,placeholder: "郵便番号(ハイフンなし)" %></td>
-					<td><%= a.text_field :address, placeholder: "住所" %></td>
-				</tr>
+				<label><%= f.radio_button :address_id, current_customer.addresses.count + 1 %>新しい配送先を登録する </label><br>
+				<label>〒<%= a.text_field :postal_code,placeholder: "郵便番号(ハイフンなし)", :class => "form-control edit-form" %></label>
+				<br><label>住所<%= a.text_field :address, placeholder: "住所", :size => "60x15",:class => "form-control edit-form"%></label>
+
 			<% end %>
-			<div style="text-align: center; margin: 30px;">
+			<div style="text-align: center; margin: 30px; transform: translateY(0%) translateX(-15%);">
 				<th></th>
 				<td><%= f.submit "配送先決定", class: "btn btnpink" %></td>
 			</div>

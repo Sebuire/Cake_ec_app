@@ -1,32 +1,71 @@
 <%= render 'layouts/customer_header' %>
 <div class="container clearfix">
-	<h2 class="title">カート🛒</h2>
+	<h2 class="title">カート</h2>
 	<div style="width: 100%;">
 		<% if @customer.carts.present? %>
 			<% if flash[:notice] %>
 				<%= flash[:notice] %><br>
 			<% end %>
-			<div class="clearfix" style="width: 100%;">
-				<% @customer.carts.each do |c| %>
-				<div class="col-xs-5" style="float: left; margin-bottom: 40px;">
-					<%= link_to item_path(c.item_id) do %>
-						<%= attachment_image_tag c.item, :image %><br>
-						<span>商品名 : <%= c.item.name %></span>
-						<p>価格 : ¥<%= c.item.price + c.item.price / 10 %></p>
-						<% @total += c.item.price %>
+
+<!-- 以下のtableを追加 -->
+		<div class="clearfix" style="width: 80%; margin-left: 100px;">
+			<table class="table table-bordered">
+				<caption  style="font-size: 25px;">ショッピングカート</caption>
+				<thead>
+					<tr>
+						<th width="40%">商品名</th>
+						<th width="20%">単価(税込)</th>
+						<th width="20%">数量</th>
+						<th width="20%">小計</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @customer.carts.each do |ca| %>
+						<tr>
+							<td>
+								<%= link_to item_path(ca.item_id) do %>
+									<%= attachment_image_tag ca.item, :image, fallback: "noimage.jpg", style:"max-width:75px;"%>
+									<%= ca.item.name %>
+								<% end %>
+							</td>
+							<td><%= ca.item.price + ca.item.price / 10 %></td>
+							<%= form_for ca do |g| %>
+								<td><%= g.select :quantity, options_for_select(@quantity, {selected: ca.quantity}) %>
+							    <%= g.submit "数量変更", class: "btn btnpink",style: "margin: 0 10px;" %>
+							    <% @total = ca.item.price + ca.item.price / 10 %>
+							    <td><%= @total_all = ca.quantity * @total %>円</td>
+							    <td><%= link_to "削除", cart_path(ca), method: :delete, class: "btn btngray" %></td>
+							    </td>
+							<% end %>
+						</tr>
 					<% end %>
-				<%= form_for c do |g| %>
-						<%= g.select :quantity, options_for_select(@quantity, {selected: c.quantity}) %>
-				    	<%= g.submit "数量変更", class: "btn btnpink",style: "margin: 0 10px;" %>
-				    	<%= link_to "削除", cart_path(c), method: :delete, class: "btn btngray" %>
+				</tbody>
+			</table>
+<!-- ここまで追加した -->
+
+<!-- 				<br>
+				<div class="clearfix" style="width: 100%;">
+					<% @customer.carts.each do |c| %>
+						<div class="col-xs-6" style="float: left; margin-bottom: 40px;">
+							<%= link_to item_path(c.item_id) do %>
+								<%= attachment_image_tag c.item, :image, fallback: "noimage.jpg", style:"max-width:300px;"%><br>
+								<span>商品名 : <%= c.item.name %></span>
+								<p>価格 : ¥<%= c.item.price + c.item.price / 10 %></p>
+								<% @total += c.item.price %>
+							<% end %>
+						<%= form_for c do |g| %>
+								<%= g.select :quantity, options_for_select(@quantity, {selected: c.quantity}) %>
+						    	<%= g.submit "数量変更", class: "btn btnpink",style: "margin: 0 10px;" %>
+						    	<%= link_to "削除", cart_path(c), method: :delete, class: "btn btngray" %>
+							<% end %>
+						</div>
 					<% end %>
 				</div>
-			<% end %>
-			</div>
 			<div style="text-align: center; margin-bottom: 50px;">
 				<h2>小計<%= @customer.carts.count %>点</h2>
 				<h3>¥<%= @total + @total / 10 %></h3>
-			</div>
+			</div> -->
 			<div style="text-align: center; margin-bottom: 50px;">
 				<%= link_to "購入画面に進む", orders_address_path, class: "btn btnpink" %>
 				<%= link_to "カートを空にする", cart_delete_all_path, method: :delete, class: "btn btngray" %>
