@@ -1,47 +1,59 @@
 <%= render 'layouts/admin_header' %>
-<% if flash[:notice] %>
-  <p style="color: lime"><%= flash[:notice] %></p>
-<% end %>
-<div class="container genre_container">
+
+<div class="container">
 	<div class="row">
-		<div class="col-xs-8 col-xs-offset-2">
-			<h2 class="title">ジャンル一覧画面</h2>
+		<div class="col-xs-6 col-xs-offset-3">
+		<% if flash[:notice] %>
+  			<p style="color: lime"><%= flash[:notice] %></p>
+		<% end %>
+			<h2 class="title">ジャンル追加</h2>
+		        <% if @genre.errors.any? %>
+					<p style="color: red; text-align: center;"><%= @genre.errors.count %>件のERRORが発生しました</p>
+					<% @genre.errors.full_messages.each do |message| %>
+					<p style="color: red; text-align: center;"><%= message %></p>
+					<% end %>
+				<% end %>
+				<div class="clearfix" style="text-align: center;">
+					<%= form_for @genre, url:admin_genres_path do |f| %>
+						<div class="form-group form-inline" style="float: left;">
+							<%= f.label :ジャンル名 %>
+    						<%= f.text_field :name, class: "form-control", style: "width: 70%; margin-left: 10px;" %>
+						</div>
+						<span>有効　<%= f.check_box :is_active %></span>
+						<div style="float: right;">	<%= f.submit "追加", class: "btn btn-default" %></div>
+					<% end %>
+				</div>
+			<h2 class="title">ジャンル一覧</h2>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>ジャンルID</th>
 						<th>ジャンル名</th>
-						<th>取り扱い状況</th>
-						<th></th>
+						<th>状態</th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-				<% @genres.each do |f| %>
-					<tr>
-						<td><%= f.id %></td>
-						<td><%= f.name %></td>
-						<td>
-							<% if f.is_active == true %>
-								<span>取り扱い中</span>
-							<% else %>
-								<span style="color: red">取り扱い中止</span>
-							<% end %>
-						</td>
-						<%= form_for f, url:admin_genre_path(f.id) do |g| %>
-							<td><%= g.check_box :is_active %></td>
-							<td><%= g.submit '更新', class: "btn btn-default" %></td>
-						<% end %>
-					</tr>
-				<% end %>
+					<% @genres.each do |g| %>
+						<tr>
+							<td><%= g.name %></td>
+							<td>
+								<% if g.is_active == true %>
+									<span>有効</span>
+								<% else %>
+									<span style="color: red">無効</span>
+								<% end %>
+							</td>
+							<td><%= link_to '編集', edit_admin_genre_path(g), class: "btn btn-default", style: "float: right;" %>
+							</td>
+						</tr>
+					<% end %>
 				</tbody>
 			</table>
 			<div style="text-align: center;">
 				<%= paginate @genres, class: "paginate" %>
 			</div>
 			<div style="text-align: center;">
-				<%= link_to "ジャンル追加", new_admin_genre_path, class: "btn btn-default", style: "margin: 15px 0;" %><br>
-				<%= link_to "管理者TOP", admins_path, class: "btn btn-default", style: "margin-bottom: 15px;" %>
+				<%= link_to "管理者TOP", admins_path, class: "btn btn-default", style: "margin: 30px;" %>
 			</div>
 		</div>
 	</div>

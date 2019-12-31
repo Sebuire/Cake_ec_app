@@ -9,10 +9,10 @@ Rails.application.routes.draw do
     resources :items
   end
   namespace :admin do
-    resources :genres, only: [:new, :create, :update, :destroy, :index]
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
   end
   namespace :admin do
-    resources :customers, only: [:index, :show, :update, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
   end
   # customers用のdeviseルーティング
   devise_for :customers, controllers: {

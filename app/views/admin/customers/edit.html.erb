@@ -1,0 +1,72 @@
+<%= render 'layouts/admin_header' %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1">
+			<h2 class="title">会員編集</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-6 col-xs-offset-3">
+			<%= form_for(@customer, url:admin_customer_path) do |c| %>
+			<table class="table">
+				<tr>
+					<th>顧客ID</th>
+					<td><%= @customer.id %></td>
+				</tr>
+				<tr>
+					<th>氏名</th>
+					<td class="form-group form-inline">
+						<%= c.text_field :name_last_kanji, autofocus: true, placeholder: "名前", style: "", class: "form-control" %>
+						<%= c.text_field :name_first_kanji, autofocus: true, placeholder: "名前", style: "", class: "form-control" %>
+					</td>
+				</tr>
+				<tr>
+					<th>フリガナ</th>
+					<td class="form-group form-inline">
+						<%= c.text_field :name_last_kana, autofocus: true, placeholder: "カナ", style: "", class: "form-control" %>
+						<%= c.text_field :name_first_kana, autofocus: true, placeholder: "カナ", style: "", class: "form-control" %>
+					</td>
+				</tr>
+				<tr>
+					<th>郵便番号</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>住所</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>電話番号</th>
+					<td>
+						<%= c.text_field :phone_number, autofocus: true, placeholder: "電話番号", style: "", class: "form-control" %>
+					</td>
+				</tr>
+				<tr>
+					<th>メールアドレス</th>
+					<td>
+						<%= c.text_field :email, autofocus: true, placeholder: "メールアドレス", style: "", class: "form-control" %>
+					</td>
+				</tr>
+				<tr>
+					<th>会員ステータス</th>
+					<td><lavel><%= c.radio_button :deleted_at, nil %>有効</lavel>
+						<lavel style="margin-left: 10px"><%= c.radio_button :deleted_at, false %>退会済み</lavel>
+					</td>
+				</tr>
+			</table>
+			<div style="text-align: right">
+				<%= c.submit "更新", class: "btn btn-default"  %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+			<div class="col-xs-10 col-xs-offset-1" style="text-align: center">
+				<%= link_to '顧客一覧に戻る', admin_customers_path, class: "btn btn-default", style: "margin: 30px 0;" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%= render 'layouts/admin_footer' %>

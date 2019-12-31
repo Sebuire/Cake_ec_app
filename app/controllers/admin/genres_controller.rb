@@ -1,7 +1,8 @@
 class Admin::GenresController < ApplicationController
     before_action :authenticate_admin!
-    def new
+    def index
         @genre = Genre.new
+        @genres = Genre.page(params[:page]).per(10)
     end
 
     def create
@@ -10,8 +11,13 @@ class Admin::GenresController < ApplicationController
             flash[:notice] = "ジャンルを追加しました！"
             redirect_to admin_genres_path
         else
-            render :new
+            @genres = Genre.page(params[:page]).per(10)
+            render :index
         end
+    end
+
+    def edit
+        @genre = Genre.find(params[:id])
     end
 
     def update
@@ -24,10 +30,6 @@ class Admin::GenresController < ApplicationController
         @genre = Genre.find(params[:id])
         @genre.destroy
         redirect_to admin_genres_path
-    end
-
-    def index
-        @genres = Genre.page(params[:page]).per(10)
     end
 
     private
