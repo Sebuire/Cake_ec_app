@@ -30,3 +30,26 @@ $(function(){
 		});
 	});
 });
+
+// slideのjs
+$(function(){
+	$('.slide-ku').each(function(){
+		let $slides = $(this).find('img'),
+			slideCount = $slides.length,
+			currentIndex = 0;
+
+			$slides.eq(currentIndex).fadeIn();
+
+			setInterval(showNextSlide, 4000);
+
+			function showNextSlide(){
+				let nextIndex = (currentIndex + 1) % (slideCount);
+
+				$slides.eq(currentIndex).fadeOut();
+
+				$slides.eq(nextIndex).fadeIn();
+
+				currentIndex = nextIndex;
+			}
+	});
+});

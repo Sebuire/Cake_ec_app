@@ -406,7 +406,18 @@
 	}
 }
 
-
+.slide-ku{
+	width: 800px;
+	height: 533px;
+	margin: 50px auto;
+	position: relative;
+	img{
+		width: 100%;
+		height: 533px;
+		display: none;
+		position: absolute;
+	}
+}
 
 
 
