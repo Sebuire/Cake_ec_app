@@ -5,46 +5,49 @@
   <p style="color: lime; text-align: center"><%= flash[:notice] %></p>
 <% end %>
 
-<h1 class="title">配送先一覧</h1>
 <div class="container">
 	<div class="row">
 		<div class="col">
 			<div class="col-xs-6 col-xs-offset-3">
 				<div style="text-align: center;">
 
-					<h3>配送先登録</h3>
+					<h3 style="text-align: left">配送先登録</h3>
 					<%= form_for @address, url: addresses_path do |a| %>
-						<table class="table">
+						<table class="table table-bordered">
 							<tr>
-							<th>郵便番号</th>
+							<th class="warning">郵便番号</th>
 								<td><%= a.text_field :postal_code %></td>
 							</tr>
 							<tr>
-							<th>住所</th>
+							<th class="warning">住所</th>
 								<td><%= a.text_area :address %></td>
 							</tr>
 						</table>
-					<div style="text-align: center; margin-bottom: 40px;"><%= a.submit "追加", class: "btn btn-primary" %></div>
+					    <div style="text-align: center; margin-bottom: 40px;"><%= a.submit "登録する", class: "btn btnpink" %></div>
 					<% end %>
-					<h3>配送先</h3>
+					<h3 style="text-align: left">配送先一覧</h3>
 				</div>
+				<table style="margin-bottom: 40px;" class="table table-bordered">
+					<thead>
+						<tr>
+							<th class="warning">郵便番号</th>
+							<th class="warning">住所</th>
+							<th class="warning"></th>
+						</tr>
+					</thead>
 				<% @customer.addresses.each do |f| %>
-					<table class="table table-bordered">
+				    <tbody>
 						<tr>
-							<th>住所</th>
-							<td><%= f.address %></td>
-						</tr>
-						<tr>
-							<th>郵便番号</th>
 							<td><%= f.postal_code %></td>
+							<td><%= f.address %></td>
+							<td  style="text-align: center;">
+								<%= link_to "編集", edit_address_path(f.id), class: "btn btnpink" %>
+
+								<%= link_to "削除", address_path(f.id), method: :delete, data: {confirm: "この登録住所が削除されます。よろしいですか？"}, class: "btn btngray" %></td>
 						</tr>
-					</table>
-					<tr>
-						<div style="text-align: center; margin-bottom: 40px;">
-							<%= link_to "配送先を変更する",edit_address_path(f.id), class: "btn btn-default" %>
-						</div>
-					</tr>
+					</tbody>
 				<% end %>
+				</table>
 			</div>
 
 		</div>

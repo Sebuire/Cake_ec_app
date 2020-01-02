@@ -59,7 +59,7 @@ Rails.application.routes.draw do
   # order_itemsルーティング
   resources :order_items, only: [:show, :index]
   # addressesルーティング
-  resources :addresses, only: [:edit, :update, :index, :new, :create]
+  resources :addresses, only: [:edit, :update, :index, :new, :create, :destroy]
 
   # adminsルーティング
   resources :admins, only: [:index]
