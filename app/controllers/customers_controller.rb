@@ -8,12 +8,15 @@ class CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @times = 0
+    @current = current_customer
+    @address = @current.addresses
   end
 
   def edit
     @customer = Customer.find(params[:id])
     @times = 0
   end
+  # ↑updataするとエラーが出る
 
   def update
     @customer = Customer.find(params[:id])
