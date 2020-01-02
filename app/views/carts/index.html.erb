@@ -29,19 +29,35 @@
 									<%= ca.item.name %>
 								<% end %>
 							</td>
-							<td><%= ca.item.price + ca.item.price / 10 %></td>
+							<td style="vertical-align: middle; text-align: center;">
+								<%= ca.item.price + ca.item.price / 10 %>円
+							</td>
 							<%= form_for ca do |g| %>
-								<td><%= g.select :quantity, options_for_select(@quantity, {selected: ca.quantity}) %>
-							    <%= g.submit "数量変更", class: "btn btnpink",style: "margin: 0 10px;" %>
-							    <% @total = ca.item.price + ca.item.price / 10 %>
-							    <td><%= @total_all = ca.quantity * @total %>円</td>
-							    <td><%= link_to "削除", cart_path(ca), method: :delete, class: "btn btngray" %></td>
+								<td style="vertical-align: middle; text-align: center;">
+									<%= g.select :quantity, options_for_select(@quantity, {selected: ca.quantity}) %>
+								    <%= g.submit "数量変更", class: "btn btnpink",style: "margin: 0 10px;" %>
+								    <% @total = ca.item.price + ca.item.price / 10 %>
+								    <td style="vertical-align: middle; text-align: center;">
+								    	<%= @total_all = ca.quantity * @total %>円
+								    </td>
+								    <td style="vertical-align: middle; text-align: center;">
+								    	<%= link_to "削除", cart_path(ca), method: :delete, class: "btn btngray" %>
+								    </td>
 							    </td>
 							<% end %>
 						</tr>
 					<% end %>
 				</tbody>
 			</table>
+			<div class="col-xs-3 col-xs-offset-9">
+				<table class="table table-bordered">
+					<tr>
+						<th>合計</th>
+						<td>
+						</td>
+					</tr>
+				</table>
+			</div>
 <!-- ここまで追加した -->
 
 <!-- 				<br>
