@@ -1,104 +1,108 @@
 <%= render 'layouts/customer_header'  %>
 <div class="container">
-	<div class="col-xs-6 col-xs-offset-3" style="margin-bottom: 30px;">
-		<h1 class="title">購入内容確認</h1>
-		<table class="table">
-			<h2 class="title">お支払い内容</h2>
-			<tr>
-				<th>お支払い方法</th>
-				<td><%= session[:payment] %></td>
-			</tr>
-			<tr>
-				<th>合計金額</th>
-				<td><%= @total_all %>円</td>
-			</tr>
-			<tr>
-				<th>送料</th>
-				<td><%= @postage %>円</td>
-			</tr>
-			<tr>
-				<th>お支払い金額</th>
-				<td><%= @paymoney %>円</td>
-			</tr>
-		</table>
-		<% current_customer.carts.each do |c| %>
-			<h4>購入詳細<%= c.id %></h4>
-			<table class="table">
+	<div class="row">
+		<h1 class="title" >購入内容確認</h1>
+		<div class="col-xs-6" style="margin-bottom: 30px;">
+			<table class="table table-bordered">
+				<h2 class="title">お支払い内容</h2>
 				<tr>
-					<th>商品名</th>
-					<td><%= c.item.name %></td>
+					<th>お支払い方法</th>
+					<td><%= session[:payment] %></td>
 				</tr>
 				<tr>
-					<th>商品価格(税込)</th>
-					<td><%= c.item.price + c.item.price / @tax %>円</td>
+					<th>合計金額</th>
+					<td><%= @total_all %>円</td>
 				</tr>
 				<tr>
-					<th>数量</th>
-					<td><%= c.quantity %></td>
+					<th>送料</th>
+					<td><%= @postage %>円</td>
 				</tr>
 				<tr>
-					<th>小計</th>
-					<td><%= c.item.price * c.quantity + c.item.price * c.quantity / 10 %>円</td>
+					<th>お支払い金額</th>
+					<td><%= @paymoney %>円</td>
 				</tr>
 			</table>
-		<% end %>
-		<%= form_for @order, url: orders_path do |o| %>
-			<%= o.hidden_field :total_price, :value => @total_all %>
-			<%= o.hidden_field :customer_id, :value => current_customer.id %>
-			<% if session[:new_address] == true && session[:new_postal_code] == true %>
-				<%= o.hidden_field :order_name, :value => session[:name_kanji] %>
-				<%= o.hidden_field :order_name_kana, :value => session[:name_kana] %>
-				<%= o.hidden_field :order_address, :value => session[:new_address] %>
-				<%= o.hidden_field :order_postal_code, :value => session[:new_postal_code] %>
-			<% else %>
-				<%= o.hidden_field :order_name, :value => session[:name_kanji] %>
-				<%= o.hidden_field :order_name_kana, :value => session[:name_kana] %>
-				<%= o.hidden_field :order_address, :value => session[:address] %>
-				<%= o.hidden_field :order_postal_code, :value => session[:postal_code] %>
-			<% end %>
-			<%= o.hidden_field :payment, :value => session[:payment] %>
-			<%= o.hidden_field :postage, :value => @postage %>
-			<% current_customer.carts.each do |c| %>
-				<%= o.fields_for :order_items do |item| %>
-					<%= item.hidden_field :item_id, :value => c.item_id %>
-					<%= item.hidden_field :price, :value => c.item.price %>
-					<%= item.hidden_field :quantity, :value => c.quantity %>
+		</div>
+		<div class="col-xs-6" style="margin-bottom: 30px;">
+			<table class="table table-bordered">
+				<h2 class="title">お届け先</h2>
+				<% if session[:new_address] == true && session[:new_postal_code] == true %>
+					<tr>
+						<th>氏名</th>
+						<td><%= session[:name_kanji] %></td>
+					</tr>
+					<tr>
+						<th>配送先</th>
+						<td><%= session[:new_address] %></td>
+					</tr>
+					<tr>
+						<th>郵便番号</th>
+						<td><%= session[:new_postal_code] %></td>
+					</tr>
+				<% else %>
+					<tr>
+						<th>氏名</th>
+						<td><%= session[:name_kanji] %></td>
+					</tr>
+					<tr>
+						<th>配送先</th>
+						<td><%= session[:address] %></td>
+					</tr>
+					<tr>
+						<th>郵便番号</th>
+						<td><%= session[:postal_code] %></td>
+					</tr>
 				<% end %>
+			</table>
+		</div>
+		<div>
+			<table class="table table-bordered">
+				<tr>
+					<th>商品名</th>
+					<th>商品価格(税込)</th>
+					<th>数量</th>
+					<th>小計</th>
+				</tr>
+				<% current_customer.carts.each do |c| %>
+					<tr>
+						<td>
+							<%= attachment_image_tag c.item, :image, fallback: "noimage.jpg", style:"max-width:75px;" %>
+							<%= c.item.name %>
+						</td>
+						<td style="vertical-align: middle; width: 20%;"><%= c.item.price + c.item.price / @tax %>円</td>
+						<td style="vertical-align: middle;"><%= c.quantity %></td>
+						<td style="vertical-align: middle; width: 10%;"><%= c.item.price * c.quantity + c.item.price * c.quantity / 10 %>円</td>
+					</tr>
+				<% end %>
+			</table>
+			<%= form_for @order, url: orders_path do |o| %>
+				<%= o.hidden_field :total_price, :value => @total_all %>
+				<%= o.hidden_field :customer_id, :value => current_customer.id %>
+				<% if session[:new_address] == true && session[:new_postal_code] == true %>
+					<%= o.hidden_field :order_name, :value => session[:name_kanji] %>
+					<%= o.hidden_field :order_name_kana, :value => session[:name_kana] %>
+					<%= o.hidden_field :order_address, :value => session[:new_address] %>
+					<%= o.hidden_field :order_postal_code, :value => session[:new_postal_code] %>
+				<% else %>
+					<%= o.hidden_field :order_name, :value => session[:name_kanji] %>
+					<%= o.hidden_field :order_name_kana, :value => session[:name_kana] %>
+					<%= o.hidden_field :order_address, :value => session[:address] %>
+					<%= o.hidden_field :order_postal_code, :value => session[:postal_code] %>
+				<% end %>
+				<%= o.hidden_field :payment, :value => session[:payment] %>
+				<%= o.hidden_field :postage, :value => @postage %>
+				<% current_customer.carts.each do |c| %>
+					<%= o.fields_for :order_items do |item| %>
+						<%= item.hidden_field :item_id, :value => c.item_id %>
+						<%= item.hidden_field :price, :value => c.item.price %>
+						<%= item.hidden_field :quantity, :value => c.quantity %>
+					<% end %>
+				<% end %>
+					<div style="text-align: center; margin-top: 50px;">
+						<%= o.submit "購入確定", class: "btn btnpink", style: "margin-bottom: 50px;" %>
+					</div>
 			<% end %>
-				<div style="text-align: center;">
-					<%= o.submit "購入確定", class: "btn btn-default", style: "margin-bottom: 50px;" %>
-				</div>
-		<% end %>
-		<table class="table">
-			<h2 class="title">お届け先</h2>
-			<% if session[:new_address] == true && session[:new_postal_code] == true %>
-				<tr>
-					<th>氏名</th>
-					<td><%= session[:name_kanji] %></td>
-				</tr>
-				<tr>
-					<th>配送先</th>
-					<td><%= session[:new_address] %></td>
-				</tr>
-				<tr>
-					<th>郵便番号</th>
-					<td><%= session[:new_postal_code] %></td>
-				</tr>
-			<% else %>
-				<tr>
-					<th>氏名</th>
-					<td><%= session[:name_kanji] %></td>
-				</tr>
-				<tr>
-					<th>配送先</th>
-					<td><%= session[:address] %></td>
-				</tr>
-				<tr>
-					<th>郵便番号</th>
-					<td><%= session[:postal_code] %></td>
-				</tr>
-			<% end %>
-		</table>
+		</div>
 	</div>
 </div>
 <%=render 'layouts/customer_footer' %>

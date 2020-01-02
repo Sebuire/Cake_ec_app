@@ -1,63 +1,42 @@
 <%= render 'layouts/customer_header' %>
 <div class="container">
+
+	<h2 class="title">注文内容詳細</h2>
 	<div class="row">
-		<div class="col-xs-6 col-xs-offset-3">
-
-			<h2 class="title">注文内容詳細</h2>
-
-			<h3 class="title">注文商品</h3>
-			<% @order_items.each do |f| %>
+		<div class="col-xs-7">
+			<h3 class="title">注文情報</h3>
 				<table class="table table-bordered">
 					<tr>
-						<th>商品ID</th>
-						<td><%= f.item_id %></td>
-					</tr>
-					<tr>
-						<th>商品名</th>
-						<td><%= f.item.name %></td>
+						<th>注文日</th>
+						<td> <%= @order.created_at.strftime("%Y年%m月%d日") %></td>
 					</tr>
 					<tr>
 						<th>商品価格</th>
-						<td><%= f.item.price %>円</td>
+						<td><%= @order.total_price %>円</td>
 					</tr>
 					<tr>
-						<th>数量</th>
-						<td><%= f.quantity %></td>
-					</tr>
-					<tr>
-						<th>製作状況</th>
-						<td><%= f.making_status %></td>
-					</tr>
-				</table>
-			<% end %>
-
-			 	<table class="table table-bordered">
-			 		<h3 class="title">お届け先</h3>
-			 		<tr>
-			 			<th>配送先氏名</th>
-					 		<td><%= @order.order_name %></td>
-					 	</tr>
-				 	<tr>
-				 		<th>配送先住所</th>
-				 		<td><%=  @order.order_address %></td>
-				 	</tr>
-				 	<tr>
-				 		<th>配送先郵便番号</th>
-				 		<td>〒<%= @order.order_postal_code %></td>
-				 	</tr>
-				</table>
-
-				<table class="table table-bordered">
-			 		<h3 class="title">お支払い情報</h3>
-			 		<tr>
 			 			<th>支払い方法</th>
 					 	<td><%= @order.payment %></td>
 					 </tr>
-				</table>
-
-				<table class="table table-bordered">
-					<h3 class="title">合計金額</h3>
+					 <tr>
+		 				<th>配送先氏名</th>
+				 		<td><%= @order.order_name %></td>
+				 	</tr>
 				 	<tr>
+				 		<th>郵便番号</th>
+				 		<td>〒<%= @order.order_postal_code %></td>
+				 	</tr>
+			 		<tr>
+			 			<th>配送先住所</th>
+			 			<td><%=  @order.order_address %></td>
+			 		</tr>
+
+				</table>
+		</div>
+		<div class="col-xs-5">
+		 	<table class="table table-bordered">
+		 		<h3 class="title">請求情報</h3>
+		 		<tr>
 				 		<th>商品代金</th>
 				 		<td><%= @order.total_price %>円</td>
 				 	</tr>
@@ -66,16 +45,34 @@
 				 		<td><%= @order.postage %>円</td>
 				 	</tr>
 				 	<tr>
-				 		<th>合計</th>
+				 		<th>ご請求金額</th>
 				 		<td><%= @paymoney %>円</td>
 				 	</tr>
-				</table>
 
-
-			<div style="text-align: center;">
-				<%= link_to "マイページへ", current_customer, class: "btn btn-default", style: "margin-bottom: 30px;" %>
-			</div>
+			</table>
 		</div>
+	</div>
+
+	<table class="table table-bordered">
+ 		<h3 class="title">注文内容</h3>
+				<tr>
+					<th>商品名</th>
+					<th>商品価格</th>
+					<th>数量</th>
+					<th>製作状況</th>
+				</tr>
+ 		<% @order_items.each do |o| %>
+				<tr>
+					<td><%= o.item.name %></td>
+					<td><%= o.item.price %>円</td>
+					<td><%= o.quantity %></td>
+					<td><%= o.making_status %></td>
+				</tr>
+ 		<% end %>
+ 	</div>
+	</table>
+	<div style="text-align: center;">
+		<%= link_to "マイページへ", current_customer, class: "btn btnpink", style: "margin-bottom: 30px;" %>
 	</div>
 </div>
 <%= render 'layouts/customer_footer' %>
