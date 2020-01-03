@@ -1,29 +1,27 @@
 <%= render 'layouts/customer_header' %>
-<div style="width: 90%; padding-left: 100px;">
-	<%= link_to root_path do %>
-		<span>＞トップ</span>
-	<% end %>
-</div>
-	<div class="container clearfix">
-			<h1 class="title"><%= @genre.name %></h1>
-			<h4 class="title"><%= @genre.items.count %>件</h4>
-			<% if @genre.is_active == true %>
-				<div style=" width: 100%; margin: 20px auto;">
-						<% @genre.items.each do |g| %>
-
-							<div class=""style="float: left; margin: 20px 5px 20px 0;">
-								<%= link_to item_path(g.id) do %>
-									<div style="width: 250px; float: left; margin-right: 10px; color: black;">
-										<%= attachment_image_tag g, :image, fallback: "noimage.jpg", style:"max-width:100%;"%>
-										<br>
-										<%= g.name %>
-										<br>
-										¥<%= g.price + g.price / 10 %>
-									</div>
-								<% end %>
-							</div>
+<div class="container clearfix">
+	<div class="row">
+		<div class="col-xs-3">
+			<%= render 'layouts/sidebar' %>
+		</div>
+		<div class="col-xs-9">
+			<h3 class="" style=""><%= @genre.name %>
+				<span class="" style="font-size: 15px;">（全<%= @genre.items.count %>件）</span>
+			</h3>
+			<% if @genre.items.present? %>
+				<% @genre.items.each do |g| %>
+					<div class="item-image-c" style="float: left; margin: 20px 20px 20px 0; width: 180px;">
+						<%= link_to item_path(g.id) do %>
+							<%= attachment_image_tag g, :image, fallback: "noimage.jpg", style:"max-width:100%;"%>
 						<% end %>
-				</div>
+						<%= link_to g.name, genre_path(g), style:"text-decoration: none; color: #333333;" %>
+						<p>¥<%= g.price + g.price / 10 %></p>
+					</div>
+				<% end %>
+			<% else %>
+				<p>商品がありません。</p>
 			<% end %>
+		</div>
 	</div>
+</div>
 <%= render 'layouts/customer_footer' %>
