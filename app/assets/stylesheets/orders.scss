@@ -1,3 +1,9 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.item-image-c a:hover {
+  opacity: 0.7;
+  filter: item-image-c(opacity=70);
+  -ms-filter: "item-image-c(opacity=70)";
+}

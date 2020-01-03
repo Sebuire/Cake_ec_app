@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
 
   def show
   	@item = Item.find(params[:id])
+  	@genres = Genre.all
   	@cart = Cart.new
   	@quantity = [*1..10]
   end

@@ -1,31 +1,20 @@
 <%= render 'layouts/customer_header' %>
-	<div class="clearfix" style="text-align: center;">
-		<%= link_to "トップへ戻る", root_path, class: "btn btn-success" %>
-		<div class="col-xs-2" style="text-align: center;">
-			<% @genres.each do |g| %>
-				<div style="width: 100%; height: 200px; line-height: 200px; border: 1px solid black;">
-					<%= link_to genre_path(g.id) do %>
-						<%= g.name %>
+<div class="container clearfix">
+	<div class="row">
+		<div class="col-xs-3">
+			<%= render 'layouts/sidebar' %>
+		</div>
+		<div class="col-xs-9">
+			<% @items.each do |i| %>
+				<div class="item-image-c" style="float: left; width: 180px; margin: 20px 20px 20px 0;">
+					<%= link_to item_path(i.id) do %>
+						<%= attachment_image_tag i, :image, fallback: "noimage.jpg", style:"max-width:100%;" %>
 					<% end %>
+					<%= link_to i.name, item_path(i), style:"text-decoration: none; color: #333333;" %>
+					<p><%= i.price + i.price / 10 %>円</p>
 				</div>
 			<% end %>
 		</div>
-		<div class="col-xs-10">
-			<div style=" width: 100%; margin: 20px auto;">
-				<% @items.each do |i| %>
-					<div style="float: left; margin: 20px 5px 20px 0;">
-						<%= link_to item_path(i.id) do %>
-							<div style="width: 250px; float: left; margin-right: 10px; ">
-								<%= attachment_image_tag i, :image, fallback: "noimage.jpg", style:"max-width:100%;"%>
-								<br>
-								<%= i.name %>
-								<br>
-								<%= i.price + i.price / 10 %>円
-							</div>
-						<% end %>
-					</div>
-				<% end %>
-			</div>
-		</div>
 	</div>
+</div>
 <%= render 'layouts/customer_footer' %>
