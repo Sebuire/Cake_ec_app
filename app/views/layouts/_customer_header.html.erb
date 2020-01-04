@@ -6,12 +6,24 @@
 			<%= link_to "カート🛒", carts_path, style: " margin: 0 5px; box-shadow:0px 0px 10px;", class: "btn btnpink" %>
 			<%= link_to "マイページ", customer_path(current_customer), class: "btn btnpink mypage-ku" %>
 		</div>
+		<div class="form-box">
+			<%= form_tag(items_path,:method => 'get') do %>
+			  <%= text_field_tag(:search, "", {placeholder: "商品名"}) %>
+			  <%= submit_tag '検索', :name => nil %>
+			<% end %>
+		</div>
 	<% else %>
 		<div class="nav-ku">
 			<%= link_to "会社概要","/about", class: "btn btnpink about-ku" %>
 			<%= link_to "ご利用ガイド", "/guide", class: "btn btnpink guide-ku" %>
 			<%= link_to "ログイン", new_customer_session_path, class: "btn btnpink login-ku" %>
 			<%= link_to "会員登録", new_customer_registration_path, class: "btn btnpink signup-ku" %>
+		</div>
+		<div class="form-box">
+			<%= form_tag(items_path,:method => 'get') do %>
+			  <%= text_field_tag(:search, "", {placeholder: "商品名"}) %>
+			  <%= submit_tag '検索', :name => nil %>
+			<% end %>
 		</div>
 	<% end %>
 		<div class="title-ku">
