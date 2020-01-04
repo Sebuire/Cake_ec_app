@@ -8,6 +8,7 @@ class Admin::OrdersController < ApplicationController
 	def show
 		@order = Order.find(params[:id])
 		@order_items = @order.order_items
+		@customer = Customer.with_deleted.find(@order.customer_id)
 		@tax = 10
 		@order_items.each do |o|
 			@tax_price = o.item.price + o.item.price / @tax
@@ -17,7 +18,6 @@ class Admin::OrdersController < ApplicationController
 
 	def edit
 		@order = Order.find(params[:id])
-
 	end
 
 	def update

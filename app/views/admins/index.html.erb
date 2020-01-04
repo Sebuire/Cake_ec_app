@@ -1,24 +1,11 @@
 <%= render 'layouts/admin_header' %>
-<% if flash[:notice] %>
-  <p style="color: lime; text-align: center;"><%= flash[:notice] %></p>
-<% end %>
-<h1 class="admin-top-title">管理者 TOP</h1>
-<main class="feature-box clearfix" style="margin-bottom: 40px;">
-	<div class="feature-inner inner1">
-		<div style="width: 300px; height: 300px;">
-			<%= link_to "商品一覧", admin_items_path %>
-		</div>
-		<div style="width: 300px; height: 300px;">
-			<%= link_to "注文履歴一覧", admin_orders_path %>
-		</div>
-	</div>
-	<div class="feature-inner inner2">
-		<div style="width: 300px; height: 300px;">
-			<%= link_to "ジャンル一覧", admin_genres_path %>
-		</div>
-		<div style="width: 300px; height: 300px;">
-			<%= link_to "顧客一覧", admin_customers_path %>
-		</div>
-	</div>
-</main>
-<%= render 'layouts/admin_footer' %>
+<div class="container" style="margin-bottom: 300px;">
+	<% if flash[:notice] %>
+		<p style="color: lime; text-align: center;"><%= flash[:notice] %></p>
+	<% end %>
+	<h2 class="">管理者画面</h2>
+	<p style="font-size: 20px;">本日の注文件数</p>
+	<P><%= link_to @orders.count, admin_orders_path %>件</P>
+</div>
+<%= render "layouts/admin_footer" %>
+
