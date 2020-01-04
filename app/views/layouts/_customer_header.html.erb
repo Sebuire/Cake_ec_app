@@ -1,10 +1,14 @@
 <header class="customer-header-ku clearfix">
 	<% if customer_signed_in? %>
 		<div class="nav-ku">
-			<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btngray logout-ku" %>
-			<%= link_to "ご利用ガイド", guide_path, class: "btn btnpink guide-ku" %>
-			<%= link_to "カート🛒", carts_path, style: " margin: 0 5px; box-shadow:0px 0px 10px;", class: "btn btnpink" %>
-			<%= link_to "マイページ", customer_path(current_customer), class: "btn btnpink mypage-ku" %>
+			<span class="index">ようこそ<%= link_to customer_path(current_customer), style: "color: #440000; text-shadow: 0px 0px 1px;" do |f| %>
+				<%= current_customer.name_last_kanji %><%= current_customer.name_first_kanji %>
+			<% end %>
+			さん</span>
+			<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "logout" %>
+			<%= link_to "ご利用ガイド", guide_path, class: "guide" %>
+			<%= link_to "カート🛒", carts_path, class: "cart" %>
+			<%= link_to "マイページ", customer_path(current_customer), class: "mypage" %>
 		</div>
 		<div class="form-box">
 			<%= form_tag(items_path,:method => 'get') do %>
@@ -14,10 +18,11 @@
 		</div>
 	<% else %>
 		<div class="nav-ku">
-			<%= link_to "会社概要","/about", class: "btn btnpink about-ku" %>
-			<%= link_to "ご利用ガイド", "/guide", class: "btn btnpink guide-ku" %>
-			<%= link_to "ログイン", new_customer_session_path, class: "btn btnpink login-ku" %>
-			<%= link_to "会員登録", new_customer_registration_path, class: "btn btnpink signup-ku" %>
+			<span class="index">ようこそゲストさん</span>
+			<%= link_to "ログイン", new_customer_session_path, class: "btn link login" %>
+			<%= link_to "会員登録", new_customer_registration_path, class: "btn link signup" %>
+			<%= link_to "会社概要","/about", class: "btn link about" %>
+			<%= link_to "ご利用ガイド", "/guide", class: "btn link guide" %>
 		</div>
 		<div class="form-box">
 			<%= form_tag(items_path,:method => 'get') do %>
@@ -30,14 +35,6 @@
 			<%= link_to "ながのCAKE",root_path %>
 		</div>
 </header>
-<% if customer_signed_in? %>
-	<h4 class="index-ku">ようこそ<%= link_to customer_path(current_customer), style: "color: palevioletred; text-shadow: 0px 0px 1.5px;" do |f| %>
-		<%= current_customer.name_last_kanji %><%= current_customer.name_first_kanji %>
-	<% end %>
-	さん</h4>
-<% else %>
-	<h4 class="index-ku">ようこそゲストさん</h4>
-<% end %>
-<button class="to-top-ku">
+<button class="to-top">
 	 <%= fa_icon("chevron-circle-up") %>
 </button>

@@ -1,18 +1,17 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.btnpink2{
+.btnbrown{
 	background-color: white;
-	color: palevioletred;
+	color: #440000;
 }
-.top1-ku{
+.top1{
 	margin-bottom: 50px;
 }
 .top2-ku{
 	background-image: url(cake.jpg);
 	background-position: center;
 	background-size: cover;
-	border: 1px solid palevioletred;
 	width: 80%;
 	height: 400px;
 	margin: 30px auto;
@@ -21,12 +20,12 @@
 	a{
 		padding: 10px 20px;
 		margin-top: 178px;
-		border: 2px solid palevioletred;
+		border: 2px solid #440000;
 		box-shadow:0px 0px 10px;
 		z-index: 100;
 	}
 	a:hover{
-		background-color: palevioletred;
+		background-color: #440000;
 		color: white;
 	}
 }
@@ -36,30 +35,29 @@
 	margin: 0 auto;
 	text-align: center;
 	a{
-		border: 2px solid palevioletred;
+		border: 2px solid #440000;
 	}
 	a:hover{
-		background-color: palevioletred;
+		background-color: #440000;
 		color: white;
 	}
 }
 .genre-title-ku{
-	color: palevioletred;
+	color: #440000;
 	text-shadow: 0px 0px 3px;
 }
 .genre2-ku{
 	text-align: center;
-	.btnpink2{
+	.btnbrown2{
 		width: 90%;
 		margin-bottom: 20px;
-		box-shadow:0px 0px 10px;
 	}
 }
 .genre3-ku{
 	width: 100%;
 	padding: 40px 0;
 	height: 200px;
-	background-color: lightpink;
+	background-color: #440000;
 	text-align: center;
 	p{
 		font-family: Safari;
@@ -76,100 +74,11 @@
 		box-shadow:0px 0px 10px;
 	}
 	a:hover{
-		color: palevioletred;
+		color: #440000;
 		background-color: #fff;
 	}
 }
-.genre4-ku{
-	width: 80%;
-	margin: 40px auto;
-	.div1{
-		width: 46%;
-		height: 250px;
-		float: left;
-		text-align: center;
-		padding-top: 15px;
-		box-shadow:0px 0px 20px;
-		background: linear-gradient(moccasin, lightsalmon);
-		position: relative;
-		span{
-			font-size: 30px;
-			font-weight: 600;
-			text-shadow: 0.5px 0.5px 1px dimgray;
-		}
-		span:nth-child(2){
-			display: block;
-			width: 100%;
-			height: 43px;
-			background-color: #282828;
-			color: #fff;
-		}
-		p{
-			font-family: "Georgia"
-		}
-		.p1-ku{
-			font-size: 100px;
-			position: absolute;
-			left: 35px;
-			bottom: 3px;
-		}
-		.p2-ku{
-			font-size: 70px;
-			position: absolute;
-			right: 23px;
-		}
-		.p3-ku{
-			font-size: 40px;
-			font-weight: 600;
-			position: absolute;
-			bottom: 0px;
-			right: 7px;
-		}
-	}
-	.div2{
-		width: 45%;
-		height: 250px;
-		float: left;
-		margin-left: 8%;
-		background: linear-gradient(-100deg, #131313, #404040);
-		box-shadow: 0px 0px 20px;
-		position: relative;
-		padding: 20px;
-		.div3{
-			width: 100%;
-			height: 100%;
-			border: 1px solid #DA8E00;
-			span:first-child{
-				font-size: 90px;
-				color: #DA8E00;
-	  			background: -webkit-linear-gradient(-45deg, #F7DE05, #DA8E00, #EDAC06, #F7DE05, #ECB802, #DAAF08, #B67B03, #DA8E00, #EDAC06, #F7DE05, #ECB802, #EDAC06);
-	 			-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				font-family: cursive;
-				position: absolute;
-				top: 20px;
-				left: 40px;
-			}
-			span:last-child{
-				font-size: 90px;
-				color: #DA8E00;
-	  			background: -webkit-linear-gradient(-45deg, #F7DE05, #DA8E00, #EDAC06, #F7DE05, #ECB802, #DAAF08, #B67B03, #DA8E00, #EDAC06, #F7DE05, #ECB802, #EDAC06);
-	 			-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				font-family: cursive;
-				position: absolute;
-				bottom: 25px;
-				right: 55px;
-			}
-			.choco-ku{
-				position: absolute;
-				bottom: 0px;
-				left: 90px;
-				font-size: 100px;
-			}
-		}
-	}
-}
+
 .icon-ku{
 	font-size: 20px;
 	padding-bottom: 20px;
@@ -177,78 +86,91 @@
 
 .customer-header-ku{
 	width: 100%;
-	border-bottom: 1px solid palevioletred;
+	border-bottom: 1px solid #440000;
 	padding: 10px 0;
 	.nav-ku{
 		width: 38%;
 		height: 50px;
 		line-height: 50px;
-		padding-left: 20px;
 		float: right;
-		.logout-ku{
+		.logout{
+			color: #440000;
 			margin: 0 5px;
-			box-shadow:0px 0px 10px;
 		}
-		.guide-ku{
-			margin: 0 5px;
-			box-shadow:0px 0px 10px;
+		.logout:hover{
+			color: #440000;
 		}
-		.mypage-ku{
-			margin: 0 5px;
-			box-shadow:0px 0px 10px;
+		.guide{
+			color: #440000;
+			margin: 0 1px;
 		}
-		.about-ku{
-			margin: 0 5px;
-			box-shadow:0px 0px 10px;
+		.guide:hover{
+			color: #440000;
 		}
-		.login-ku{
+		.mypage{
+			color: #440000;
 			margin: 0 5px;
-			box-shadow:0px 0px 10px;
 		}
-		.signup-ku{
+		.mypage:hover{
+			color: #440000;
+		}
+		.about{
+			color: #440000;
+			margin: 0 1px;
+		}
+		.about:hover{
+			color: #440000;
+		}
+		.login{
+			color: #440000;
 			margin: 0 5px;
-			box-shadow:0px 0px 10px;
+		}
+		.login:hover{
+			color: #440000;
+		}
+		.signup{
+			color: #440000;
+			margin: 0 1px;
+		}
+		.signup:hover{
+			color: #440000;
+		}
+		.cart{
+			color: #440000;
+			margin: 0 5px;
+		}
+		.cart:hover{
+			color: #440000;
 		}
 	}
 	.title-ku{
 		height: 50px;
-		margin-left: 10px;
+		margin-left: 15px;
 		line-height: 50px;
 		float: left;
 		a{
 			font-size: 30px;
-			color: palevioletred;
+			color: #440000;
 			text-decoration: none;
 			text-shadow: 1px 1px 2px dimgray;
 			font-weight: 600;
-			font-family: monospace;
-		}
-		.title-icon-ku{
-			float: right;
-			padding-top: 8px;
-			padding-right: 70px;
-			i{
-				font-size: 35px;
-				padding: 0 6px;
-				color: palevioletred;
-			}
 		}
 	}
 }
-.index-ku{
-	color: palevioletred;
+.index{
+	color: #440000;
 	padding: 6px 15px;
-	text-shadow: 0px 0px 1.5px;
 }
 
 .nav-footer-ku{
 	width: 100%;
-	background-color: #FFE6EC;
+	background-color: #fff;
 	.nav-footer-inner{
 		text-align: center;
 		.nav-footer-contact{
 			width: 100%;
 			padding: 10px;
+			color: #440000;
 			h4{
 				font-weight: 600;
 			}
@@ -262,6 +184,7 @@
 		.nav-footer-guide{
 			width: 100%;
 			padding: 10px;
+			color: #440000;
 			h4{
 				font-weight: 600;
 			}
@@ -269,6 +192,7 @@
 		.nav-footer-question{
 			width: 100%;
 			padding: 10px;
+			color: #440000;
 			h4{
 				font-weight: 600;
 			}
@@ -276,9 +200,13 @@
 		.nav-footer-about{
 			width: 100%;
 			padding: 10px;
+			color: #440000;
 			h4{
 				font-weight: 600;
 			}
+		}
+		.icon-ku{
+			color: #440000;
 		}
 	}
 }
@@ -290,7 +218,7 @@
 	text-align: center;
 	border-top: 1px solid lightgrey;
 }
-.to-top-ku{
+.to-top{
 	position: fixed;
 	bottom: 60px;
 	right: 100px;
@@ -301,10 +229,10 @@
 	z-index: 100;
 	i{
 		font-size: 60px;
-		color: palevioletred;
+		color: #440000;
 	}
 	i:hover{
-		color: lightpink;
+		color: #660000;
 	}
 }
 .genre5-ku{
@@ -319,7 +247,7 @@
 		font-size: 20px;
 		font-weight: 600;
 		line-height: 50px;
-		background-color: lightpink;
+		background-color: #440000;
 		text-align: center;
 		text-shadow: 1px 1px 2px dimgray;
 		border-radius: 15px;
@@ -381,16 +309,17 @@
 }
 
 .guide-title-ku{
-	color: palevioletred;
+	color: #440000;
 }
 .guide-box-ku{
 	text-align: left;
 	padding: 10px;
-	margin-bottom: 15px;
+	margin: 30px auto;
+	color: #440000;
 }
 
 .about-title-ku{
-	color: palevioletred;
+	color: #440000;
 }
 .shop-box{
 	text-align: center;
@@ -421,20 +350,43 @@
 }
 .form-box{
 	width: 520px;
-	padding-top: 15px;
+	padding-top: 10px;
 	text-align: right;
 	margin-right: 66px;
 	text-aline: center;
 	float: right;
 	input{
-		width: 100px;
+		width: 50px;
+		margin-left: -5px;
+		height: 30px;
+		background-color: #440000;
+		color: white;
+		border-top-right-radius: 8px;
+		border-bottom-right-radius: 8px;
+	}
+	input:hover{
+		background-color: #fff;
+		color: #440000;
 	}
 	input#search{
 		width: 400px;
+		padding: 0;
+		height: 30px;
+		background-color: #fff;
+		border-top-right-radius: 0px;
+		border-bottom-right-radius: 0px;
+		border-top-left-radius: 8px;
+		border-bottom-left-radius: 8px;
 	}
 }
-
-
+.container{
+	margin: 50px auto;
+}
+.form-item{
+	input#search{
+		width: 200px;
+	}
+}
 
 
 

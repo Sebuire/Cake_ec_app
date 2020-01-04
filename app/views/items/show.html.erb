@@ -10,6 +10,9 @@
 			<% if flash[:success] %>
 				<%= flash[:success] %>
 			<% end %>
+			<% if flash[:danger] %>
+				<%= flash[:danger] %>
+			<% end %>
 		</div>
 		<div class="col-xs-3">
 			<%= render 'layouts/sidebar' %>

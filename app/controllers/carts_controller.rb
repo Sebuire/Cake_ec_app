@@ -15,11 +15,14 @@ class CartsController < ApplicationController
   def create
     @cart = current_customer.carts.new(cart_params)
     cart = Cart.find_by(item_id: @cart.item_id)
-    if cart.present?
+    if cart.present? && cart.quantity < 10
        cart.update(quantity: cart.quantity + @cart.quantity)
        redirect_to item_path(cart.item_id)
        flash[:success] = "カートに商品を追加しました。"
-    elsif @cart.quantity > 0
+    elsif cart.quantity >= 10
+       flash[:danger] = "1度の注文の上限は10点です。"
+       redirect_to item_path(cart.item_id)
+    else
       @cart.save!(cart_params)
       redirect_to item_path(@cart.item_id)
       flash[:success] = "カートに商品を追加しました。"
