@@ -7,7 +7,9 @@
 			さん</span>
 			<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "logout" %>
 			<%= link_to "ご利用ガイド", guide_path, class: "guide" %>
-			<%= link_to "カート🛒", carts_path, class: "cart" %>
+			<%= link_to (carts_path) do %>
+				<span class="cart">カート<%= fa_icon("shopping-cart") %></span>
+			<% end %>
 			<%= link_to "マイページ", customer_path(current_customer), class: "mypage" %>
 		</div>
 		<div class="form-box">

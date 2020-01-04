@@ -1,22 +1,22 @@
 <%= render 'layouts/customer_header' %>
 	<div class="container">
 		<div class="col-xs-6 col-xs-offset-3">
-		    <h2 style="text-align: left;" class="title">配送先編集</h2>
+		    <h3 class="title"><strong>配送先編集</strong></h3>
 			<%= form_for @address, url: address_path(@address.id) do |f| %>
 				<table style="text-align: center;" class="table table-bordered">
 					<tr>
-						<th class="warning">郵便番号</th>
-						<td><%= f.text_field :postal_code %></td>
+						<th class="table-color">郵便番号</th>
+						<td><%= f.text_field :postal_code, style: "width: 70%;" %></td>
 					</tr>
 					<tr>
-						<th class="warning">住所</th>
-						<td><%= f.text_area :address %></td>
+						<th class="table-color">住所</th>
+						<td><%= f.text_field :address, style: "width: 70%;" %></td>
 					</tr>
 				</table>
 
 				<div style="text-align: center;">
-					<div style="margin-bottom: 30px;"><%= f.submit "変更", class: "btn btnpink" %></div>
-					<div style="margin-bottom: 40px;"><%= link_to "配送先一覧へ", addresses_path, class: "btn btngray" %></div>
+					<div style="margin-bottom: 25px;"><%= f.submit "変更", class: "btnbrown" %></div>
+					<div style="margin-bottom: 30px;"><%= link_to "配送先一覧へ", addresses_path, class: "btnbrown" %></div>
 				</div>
 			<% end %>
 		</div>
