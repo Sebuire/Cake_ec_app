@@ -5,6 +5,11 @@ class CartsController < ApplicationController
   	@customer = current_customer
     @quantity = [*1..10]
     @total = 0
+    @totalPrice = 0
+    @carts.each do |c|
+      @totalPrice += c.item.price * c.quantity
+      @totalPrice += @totalPrice / 10
+    end
   end
 
   def create
