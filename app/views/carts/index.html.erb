@@ -54,35 +54,11 @@
 					<tr>
 						<th>合計</th>
 						<td>
-							<% end %>
+							<span><%= @totalPriceAll %>円</span>
 						</td>
 					</tr>
 				</table>
 			</div>
-<!-- ここまで追加した -->
-
-<!-- 				<br>
-				<div class="clearfix" style="width: 100%;">
-					<% @customer.carts.each do |c| %>
-						<div class="col-xs-6" style="float: left; margin-bottom: 40px;">
-							<%= link_to item_path(c.item_id) do %>
-								<%= attachment_image_tag c.item, :image, fallback: "noimage.jpg", style:"max-width:300px;"%><br>
-								<span>商品名 : <%= c.item.name %></span>
-								<p>価格 : ¥<%= c.item.price + c.item.price / 10 %></p>
-								<% @total += c.item.price %>
-							<% end %>
-						<%= form_for c do |g| %>
-								<%= g.select :quantity, options_for_select(@quantity, {selected: c.quantity}) %>
-						    	<%= g.submit "数量変更", class: "btn btnpink",style: "margin: 0 10px;" %>
-						    	<%= link_to "削除", cart_path(c), method: :delete, class: "btn btngray" %>
-							<% end %>
-						</div>
-					<% end %>
-				</div>
-			<div style="text-align: center; margin-bottom: 50px;">
-				<h2>小計<%= @customer.carts.count %>点</h2>
-				<h3>¥<%= @total + @total / 10 %></h3>
-			</div> -->
 			<div style="text-align: center; margin-bottom: 50px;">
 				<%= link_to "購入画面に進む", orders_address_path, class: "btn btnpink" %>
 				<%= link_to "カートを空にする", cart_delete_all_path, method: :delete, class: "btn btngray" %>

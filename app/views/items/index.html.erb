@@ -5,6 +5,12 @@
 			<%= render 'layouts/sidebar' %>
 		</div>
 		<div class="col-xs-9">
+			<div>
+				<%= form_tag(items_path,:method => 'get') do %>
+				  <%= text_field_tag :search %>
+				  <%= submit_tag 'Search', :name => nil %>
+				<% end %>
+			</div>
 			<% @items.each do |i| %>
 				<div class="item-image-c" style="float: left; width: 180px; margin: 20px 20px 20px 0;">
 					<%= link_to item_path(i.id) do %>
