@@ -5,20 +5,25 @@
 			<%= render 'layouts/sidebar' %>
 		</div>
 		<div class="col-xs-9">
-			<div>
+			<div class="form-box">
 				<%= form_tag(items_path,:method => 'get') do %>
-				  <%= text_field_tag :search %>
-				  <%= submit_tag 'Search', :name => nil %>
+				  <%= text_field_tag(:search, "", {placeholder: "商品名"}) %>
+				  <%= submit_tag '検索', :name => nil %>
 				<% end %>
 			</div>
-			<% @items.each do |i| %>
-				<div class="item-image-c" style="float: left; width: 180px; margin: 20px 20px 20px 0;">
-					<%= link_to item_path(i.id) do %>
-						<%= attachment_image_tag i, :image, fallback: "noimage.jpg", style:"max-width:100%;" %>
-					<% end %>
-					<%= link_to i.name, item_path(i), style:"text-decoration: none; color: #333333;" %>
-					<p><%= i.price + i.price / 10 %>円</p>
-				</div>
+			<% if @items.blank? %>
+				<h4><strong><%= params[:search] %> : 0件</strong></h4>
+			<% else %>
+				<h4><strong><%= params[:search] %> : <%= @items.count %>件</strong></h4>
+				<% @items.each do |i| %>
+					<div class="item-image-c" style="float: left; width: 180px; margin: 20px 20px 20px 0;">
+						<%= link_to item_path(i.id) do %>
+							<%= attachment_image_tag i, :image, fallback: "noimage.jpg", style:"max-width:100%;" %>
+						<% end %>
+						<%= link_to i.name, item_path(i), style:"text-decoration: none; color: #333333;" %>
+						<p><%= i.price + i.price / 10 %>円</p>
+					</div>
+				<% end %>
 			<% end %>
 		</div>
 	</div>
