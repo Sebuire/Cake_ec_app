@@ -12,11 +12,15 @@ class Admin::CustomersController < ApplicationController
 
     def edit
         @customer = Customer.with_deleted.find(params[:id])
+        @address = @customer.addresses.first
     end
 
     def update
         @customer = Customer.with_deleted.find(params[:id])
-        if @customer.update(customer_params)
+        @address = @customer.addresses.first
+        @address.postal_code = params[:customer][:address][:postal_code]
+        @address.address = params[:customer][:address][:address]
+        if @customer.update(customer_params) && @address.save
           flash[:notice] = "会員情報を編集しました！"
           redirect_to admin_customer_path(@customer)
         else
@@ -32,6 +36,6 @@ class Admin::CustomersController < ApplicationController
 
     private
     def customer_params
-        params.require(:customer).permit(:name_last_kanji, :name_first_kanji, :name_last_kana, :name_first_kana, :email, :phone_number, :deleted_at)
+        params.require(:customer).permit(:name_last_kanji, :name_first_kanji, :name_last_kana, :name_first_kana, :email, :phone_number, :deleted_at ,addresses_attributes: [:address, :postal_code, :_destroy, :id])
     end
 end

@@ -16,8 +16,8 @@
 					<% @orders.each do |o| %>
 						<tr>
 							<td><%= o.created_at.strftime('%Y/%m/%d %T') %></td>
-							<td><%= o.customer.name_last_kanji %><%= o.customer.name_first_kanji %></td>
-							<td><%= o.order_items.count %></td>
+							<td><%= o.order_name %></td>
+							<td><%= o.calculate_quantity %></td>
 							<td><%= o.order_status %></td>
 							<td><%= link_to '詳細',admin_order_path(o), class:"btn btn-default" %></td>
 						</tr>

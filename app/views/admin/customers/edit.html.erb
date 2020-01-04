@@ -28,14 +28,20 @@
 						<%= c.text_field :name_first_kana, autofocus: true, placeholder: "カナ", style: "", class: "form-control" %>
 					</td>
 				</tr>
-				<tr>
-					<th>郵便番号</th>
-					<td></td>
-				</tr>
-				<tr>
-					<th>住所</th>
-					<td></td>
-				</tr>
+				 <%= c.fields_for @address do |a| %>
+					<tr>
+						<th>郵便番号</th>
+						<td>
+							<%= a.text_field :postal_code, autofocus: true, placeholder: "郵便番号", style: "", class: "form-control" %>
+						</td>
+					</tr>
+					<tr>
+						<th>住所</th>
+						<td>
+							<%= a.text_field :address, autofocus: true, placeholder: "住所", style: "", class: "form-control" %>
+						</td>
+					</tr>
+				<% end %>
 				<tr>
 					<th>電話番号</th>
 					<td>
@@ -50,8 +56,11 @@
 				</tr>
 				<tr>
 					<th>会員ステータス</th>
-					<td><lavel><%= c.radio_button :deleted_at, nil %>有効</lavel>
-						<lavel style="margin-left: 10px"><%= c.radio_button :deleted_at, false %>退会済み</lavel>
+					<td><% if @customer.deleted_at.nil? %>
+							<span style="background-color: blue; color: white; border-radius: 5px; padding: 5px;">有効</span>
+						<% else %>
+							<span  style="background-color: red; color: white; border-radius: 5px; padding: 5px;">退会済み</span>
+						<% end %>
 					</td>
 				</tr>
 			</table>

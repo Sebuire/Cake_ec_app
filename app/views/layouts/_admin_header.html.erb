@@ -1,5 +1,11 @@
-<header style="width: 100%; height: 200px; background-color: grey; text-align: center;">
-		<span style="color: grey;">s</span>
+<header style="width: 100%;background-color: grey;">
+	<div class="clearfix" style="padding: 10px;">
+		 <div style="float: left; margin-left: 30px;">
+		 	<h3 style="color: #fff; ">
+		 		<%= link_to 'ながのCAKE', admins_path, style:"color:#fff; text-decoration:none;"  %>
+		 	</h3>
+		 </div>
+		 <div style="float: right; margin-right: 30px;">
 		<% if admin_signed_in? %>
 			<%= link_to "ログアウト", destroy_admin_session_path, method: :delete ,:style => "color: white; text-decoration: none; border: 3px solid white; padding: 5px 10px; font-weight: 600; line-height: 100px; margin-left: 20px;" %>
 			<%= link_to "商品一覧", admin_items_path,:style => "color: white; text-decoration: none; border: 3px solid white; padding: 5px 10px; font-weight: 600; line-height: 100px;" %>
@@ -7,9 +13,29 @@
 			<%= link_to "ジャンル一覧", admin_genres_path,:style => "color: white; text-decoration: none; border: 3px solid white; padding: 5px 10px; font-weight: 600; line-height: 100px;" %>
 			<%= link_to "顧客一覧", admin_customers_path,:style => "color: white; text-decoration: none; border: 3px solid white; padding: 5px 10px; font-weight: 600; line-height: 100px;" %>
 		<% end %>
-		<h1 style="font-size: 50px; color: #fff; "><%= link_to 'ながのCAKE', admins_path, :style=>"color:#fff;" "text-decoration:none;"  %></h1>
+	</div>
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">ながのCAKE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#"></a>
+      <a class="nav-item nav-link" href="admin_items_path">商品一覧</a>
+      <a class="nav-item nav-link" href="admin_orders_path">注文履歴一覧</a>
+      <a class="nav-item nav-link" href="admin_genres_path">ジャンル一覧</a>
+      <a class="nav-item nav-link disabled" href="admin_customers_path" tabindex="-1" aria-disabled="true">顧客一覧</a>
+    </div>
+  </div>
+</nav> -->
+
+
 </header>
-<% if admin_signed_in? %>
-	<p style="padding: 10px;">管理者ログイン中</p>
-<% end %>
+<div class="container">
+	<% if admin_signed_in? %>
+		<p style="padding: 10px;">管理者ログイン中</p>
+	<% end %>
+</div>
 

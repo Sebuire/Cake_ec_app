@@ -11,7 +11,7 @@
 						<% if @customer.deleted_at.nil? %>
 							<span style="background-color: blue; color: white; border-radius: 5px; padding: 5px; float: right;">有効</span>
 						<% else %>
-							<span  style="background-color: red; color: white; border-radius: 5px; padding: 5px;">退会済み</span>
+							<span  style="background-color: red; color: white; border-radius: 5px; padding: 5px; float: right;">退会済み</span>
 						<% end %>
 					</td>
 				</tr>
@@ -29,14 +29,16 @@
 						<%= @customer.name_first_kana %>
 					</td>
 				</tr>
+				<% if @customer.deleted_at.nil? %>
 				<tr>
 					<th>郵便番号</th>
-					<td><% %></td>
+					<td><%= @customer.addresses.first.postal_code %></td>
 				</tr>
 				<tr>
 					<th>住所</th>
-					<td><% %></td>
+					<td><%= @customer.addresses.first.address %></td>
 				</tr>
+				<% end %>
 				<tr>
 					<th>電話番号</th>
 					<td><%= @customer.phone_number %></td>
@@ -46,9 +48,16 @@
 					<td><%= @customer.email %></td>
 				</tr>
 			</table>
-			<div style="text-align: right">
-				<%= link_to "編集", edit_admin_customer_path(@customer), class: "btn btn-default" %>
-			</div>
+			<% if @customer.deleted_at.nil? %>
+				<div style="text-align: right">
+					<span>
+						<%= link_to "編集", edit_admin_customer_path(@customer), class: "btn btn-default", style:"margin-right: 10px;" %>
+					</span>
+					<span>
+						<%= link_to "退会", admin_customer_path(@customer), method: :delete, data: {confirm: "本当に退会させますか？"}, class: "btn btn-default" %>
+					</span>
+				</div>
+			<% end %>
 			<div style="text-align: center">
 				<%= link_to '顧客一覧に戻る', admin_customers_path, class: "btn btn-default", style: "margin: 30px 0;" %>
 			</div>
