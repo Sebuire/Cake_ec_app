@@ -8,8 +8,8 @@ class CartsController < ApplicationController
     @totalPrice = 0
     @carts.each do |c|
       @totalPrice += c.item.price * c.quantity
-      @totalPrice += @totalPrice / 10
     end
+    @totalPriceAll = @totalPrice + @totalPrice / 10
   end
 
   def create
