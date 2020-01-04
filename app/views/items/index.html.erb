@@ -12,9 +12,9 @@
 				<% end %>
 			</div>
 			<% if @items.blank? %>
-				<h4 style="color: #440000;"><strong><%= params[:search] %> : 0件</strong></h4>
+				<h3 class="brown"><strong><%= params[:search] %> : 0件</strong></h3>
 			<% elsif params[:search].present? && @items.present? %>
-				<h4 style="color: #440000;"><strong><%= params[:search] %> : <%= @items.count %>件</strong></h4>
+				<h3 class="brown"><strong><%= params[:search] %> : <%= @items.count %>件</strong></h3>
 				<% @items.each do |i| %>
 					<div class="item-image-c" style="float: left; width: 180px; margin: 20px 20px 20px 0;">
 						<%= link_to item_path(i.id) do %>
@@ -25,7 +25,7 @@
 					</div>
 				<% end %>
 			<% else %>
-				<h4 style="color: #440000;"><strong><%= @items.count %>件</strong></h4>
+				<h3 style="color: #440000;"><strong>全<%= @items.count %>件</strong></h3>
 				<% @items.each do |i| %>
 					<div class="item-image-c" style="float: left; width: 180px; margin: 20px 20px 20px 0;">
 						<%= link_to item_path(i.id) do %>

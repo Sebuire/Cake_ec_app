@@ -1,65 +1,65 @@
 <%= render 'layouts/customer_header' %>
 <div class="container">
-
-	<h2 class="title"><strong>注文内容詳細</strong></h2>
+	<h3 class="title"><strong>注文内容詳細</strong></h3>
 	<div class="row">
 		<div class="col-xs-7">
 			<h3 class="title"><strong>注文情報</strong></h3>
 				<table class="table table-bordered">
 					<tr>
-						<th>注文日</th>
+						<th class="table-color">注文日</th>
 						<td> <%= @order.created_at.strftime("%Y年%m月%d日") %></td>
 					</tr>
 					<tr>
-						<th>商品価格</th>
-						<td><%= @order.total_price %>円</td>
+						<th class="table-color">商品価格</th>
+						<td><%= @orderPrice %>円</td>
 					</tr>
 					<tr>
-			 			<th>支払い方法</th>
+			 			<th class="table-color">支払い方法</th>
 					 	<td><%= @order.payment %></td>
 					 </tr>
 					 <tr>
-		 				<th>配送先氏名</th>
+		 				<th class="table-color">配送先氏名</th>
 				 		<td><%= @order.order_name %></td>
 				 	</tr>
 				 	<tr>
-				 		<th>郵便番号</th>
+				 		<th class="table-color">郵便番号</th>
 				 		<td>〒<%= @order.order_postal_code %></td>
 				 	</tr>
 			 		<tr>
-			 			<th>配送先住所</th>
+			 			<th class="table-color">配送先住所</th>
 			 			<td><%=  @order.order_address %></td>
 			 		</tr>
-
 				</table>
 		</div>
 		<div class="col-xs-5">
 		 	<table class="table table-bordered">
 		 		<h3 class="title"><strong>請求情報</strong></h3>
 		 		<tr>
-				 		<th>商品代金</th>
-				 		<td><%= @order.total_price %>円</td>
-				 	</tr>
-				 	<tr>
-				 		<th>配送料</th>
-				 		<td><%= @order.postage %>円</td>
-				 	</tr>
-				 	<tr>
-				 		<th>ご請求金額</th>
-				 		<td><%= @paymoney %>円</td>
-				 	</tr>
-
+			 		<th class="table-color">商品代金</th>
+			 		<td><%= @orderPrice %>円</td>
+			 	</tr>
+			 	<tr>
+			 		<th class="table-color">消費税</th>
+			 		<td><%= @orderPrice / 10 %>円</td>
+			 	</tr>
+			 	<tr>
+			 		<th class="table-color">配送料</th>
+			 		<td><%= @order.postage %>円</td>
+			 	</tr>
+			 	<tr>
+			 		<th class="table-color">ご請求金額</th>
+			 		<td><%= @paymoney %>円</td>
+			 	</tr>
 			</table>
 		</div>
 	</div>
-
 	<table class="table table-bordered">
  		<h3 class="title"><strong>注文内容</strong></h3>
 				<tr>
-					<th>商品名</th>
-					<th>商品価格</th>
-					<th>数量</th>
-					<th>製作状況</th>
+					<th class="table-color">商品名</th>
+					<th class="table-color">商品価格</th>
+					<th class="table-color">数量</th>
+					<th class="table-color">製作状況</th>
 				</tr>
  		<% @order_items.each do |o| %>
 				<tr>
@@ -72,7 +72,8 @@
  	</div>
 	</table>
 	<div style="text-align: center;">
-		<%= link_to "マイページへ", current_customer, class: "btn btnpink", style: "margin-bottom: 30px;" %>
+		<%= link_to "注文履歴へ", customer_order_path(current_customer.id), class: "btnbrown" %>
+		<%= link_to "マイページへ", current_customer, class: "btnbrown" %>
 	</div>
 </div>
 <%= render 'layouts/customer_footer' %>

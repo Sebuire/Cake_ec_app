@@ -4,6 +4,14 @@
 .btnbrown{
 	background-color: white;
 	color: #440000;
+	border: 1px solid #440000;
+	padding: 5px 10px;
+	border-radius: 2px;
+}
+.btnbrown:hover{
+	background-color: #440000;
+	color: #fff;
+	text-decoration: none;
 }
 .top1{
 	margin-bottom: 50px;
@@ -93,6 +101,7 @@
 		height: 50px;
 		line-height: 50px;
 		float: right;
+		margin-right: 80px;
 		.logout{
 			color: #440000;
 			margin: 0 5px;
@@ -141,6 +150,12 @@
 		}
 		.cart:hover{
 			color: #440000;
+		}
+		a{
+			text-decoration: none;
+		}
+		a:hover{
+			border-bottom: 1px solid #440000;
 		}
 	}
 	.title-ku{
@@ -352,9 +367,8 @@
 	width: 520px;
 	padding-top: 10px;
 	text-align: right;
-	margin-right: 66px;
+	display: inline-block;
 	text-aline: center;
-	float: right;
 	input{
 		width: 50px;
 		margin-left: -5px;
@@ -380,15 +394,28 @@
 	}
 }
 .container{
-	margin: 50px auto;
+	margin: 40px auto;
 }
 .form-item{
 	input#search{
 		width: 200px;
 	}
 }
-
-
+.title{
+	text-align: center;
+	color: #440000;
+	margin-bottom: 20px;
+}
+.table-color{
+	background-color: #440000;
+	color: #fff;
+}
+.table{
+	color: #440000;
+}
+.brown{
+	color: #440000;
+}
 
 
 

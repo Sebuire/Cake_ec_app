@@ -1,41 +1,41 @@
 <%= render 'layouts/customer_header' %>
-
 <div class="container">
 	<div class="row">
 		<div class="col">
 			<div class="col-xs-6 col-xs-offset-3">
-                <h2 style="text-align: left;">マイページ編集</h2>
+                <h3 class="title"><strong>マイページ編集</strong></h3>
 				<%= form_for @customer, url: customer_path(@customer) do |f| %>
 					<table class="table table-bordered">
 						<tr>
-							<th class="warning">名前(姓)</th>
+							<th class="table-color">名前(姓)</th>
 							<td><%= f.text_field :name_last_kanji %></td>
 						</tr>
 						<tr>
-							<th class="warning">名前(名)</th>
+							<th class="table-color">名前(名)</th>
 							<td><%= f.text_field :name_first_kanji %></td>
 						</tr>
 						<tr>
-							<th class="warning">フリガナ(姓)</th>
+							<th class="table-color">フリガナ(姓)</th>
 							<td><%= f.text_field :name_last_kana %></td>
 						</tr>
 						<tr>
-							<th class="warning">フリガナ(名)</th>
+							<th class="table-color">フリガナ(名)</th>
 							<td><%= f.text_field :name_first_kana %></td>
 						</tr>
 						<tr>
-							<th class="warning">メールアドレス</th>
+							<th class="table-color">メールアドレス</th>
 							<td><%= f.text_field :email %></td>
 						</tr>
 						<tr>
-							<th class="warning">電話番号(ハイフン不要)</th>
+							<th class="table-color">電話番号(ハイフン不要)</th>
 							<td><%= f.telephone_field :phone_number %></td>
 						</tr>
 					</table>
 					<div style="text-align: center;">
-						<div style="margin-bottom: 40px;"><%= f.submit '保存',class: "btn btnpink" %></div>
-			            <div style="">
-			    	    <%= link_to "マイページへ", customer_path(@customer), class: "btn btngray", style: "margin-bottom: 40px;" %></div>
+						<div style="margin-bottom: 30px;"><%= f.submit '保存',class: "btnbrown" %></div>
+			            <div>
+			    	    	<%= link_to "マイページへ", customer_path(@customer), class: "btnbrown", style: "margin-bottom: 40px;" %>
+			    	    </div>
 			    <% end %>
 			    </div>
     		</div>
