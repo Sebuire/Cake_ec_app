@@ -1,11 +1,18 @@
 <%= render 'layouts/customer_header' %>
-
 <div class="container">
 	<div class="row">
-			<div  style="height: 600px; width: 100%;">
-				<h1 style="text-align: center; line-height: 600px;">ご購入ありがとうございます！！！</h1>
-				<div style="text-align: center; margin-top: -200px" ><%= link_to "Topに戻る", root_path, class: "btnbrown"%></p>
-			</div>
+		<div class="title" style="width: 100%; margin: 70px auto;">
+			<h4 class="title" style="line-height: 50px;"><strong>ご購入ありがとうございます。<br>配送状況などはマイページの注文履歴からご確認いただけます。</strong></h4>
+			<%= link_to "Topに戻る", root_path, class: "btnbrown"%>
+				<%= link_to "マイページへ", customer_path(current_customer), class: "btnbrown"%>
+		</div>
+	</div>
+	<h3 class="title"><strong>こちらの商品もご好評いただいております。</strong></h3>
+	<br>
+	<div class="popularphoto">
+		<div><span>滑らかクリームのプリン</span></div>
+		<div><span>こだわりのクッキー(12種)</span></div>
+		<div><span>花の香るマカロンケーキ</span></div>
 	</div>
 </div>
 <%= render 'layouts/customer_footer' %>
