@@ -21,10 +21,10 @@
 	<% else %>
 		<div class="nav-ku">
 			<span class="index">ようこそゲストさん</span>
-			<%= link_to "ログイン", new_customer_session_path, class: "btn link login" %>
-			<%= link_to "会員登録", new_customer_registration_path, class: "btn link signup" %>
-			<%= link_to "会社概要","/about", class: "btn link about" %>
-			<%= link_to "ご利用ガイド", "/guide", class: "btn link guide" %>
+			<%= link_to "ログイン", new_customer_session_path, class: "login" %>
+			<%= link_to "会員登録", new_customer_registration_path, class: "signup" %>
+			<%= link_to "会社概要","/about", class: "about" %>
+			<%= link_to "ご利用ガイド", "/guide", class: "guide" %>
 		</div>
 		<div class="form-box">
 			<%= form_tag(items_path,:method => 'get') do %>

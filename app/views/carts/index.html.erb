@@ -1,31 +1,31 @@
 <%= render 'layouts/customer_header' %>
-<div class="container clearfix">
-	<h2 class="title" style="color: #440000;">カート</h2>
+<div class="container">
+	<h2 class="title" style="color: #440000;"><strong>カート</strong></h2>
 	<div style="width: 100%;">
 		<% if @customer.carts.present? %>
-			<% if flash[:notice] %>
-				<%= flash[:notice] %><br>
-			<% end %>
 		<div class="clearfix" style="width: 80%; margin-left: 100px;">
+			<% if flash[:notice] %>
+				<p class="brown"><%= flash[:notice] %></p>
+			<% end %>
 			<table class="table table-bordered">
-				<caption  style="font-size: 25px;">ショッピングカート</caption>
+				<caption class="brown" style="font-size: 25px;">ショッピングカート</caption>
 				<thead>
 					<tr>
-						<th width="40%">商品名</th>
-						<th width="20%">単価(税込)</th>
-						<th width="20%">数量</th>
-						<th width="20%">小計</th>
-						<th></th>
+						<th class="table-color">商品名</th>
+						<th class="table-color">単価(税込)</th>
+						<th class="table-color">数量</th>
+						<th class="table-color">小計</th>
+						<th class="table-color"></th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @customer.carts.each do |ca| %>
 						<tr>
-							<td>
+							<td class="itemlink">
 								<%= link_to item_path(ca.item_id) do %>
-									<%= attachment_image_tag ca.item, :image, fallback: "noimage.jpg", style:"max-width:75px;"%>
-									<%= ca.item.name %>
+									<%= attachment_image_tag ca.item, :image, fallback: "noimage.jpg", style:"max-width:80px;"%>
 								<% end %>
+								<%= link_to ca.item.name, item_path(ca.item_id), class: "brown" %>
 							</td>
 							<td style="vertical-align: middle; text-align: center;">
 								<%= ca.item.price + ca.item.price / 10 %>円
@@ -33,13 +33,13 @@
 							<%= form_for ca do |g| %>
 								<td style="vertical-align: middle; text-align: center;">
 									<%= g.select :quantity, options_for_select(@quantity, {selected: ca.quantity}) %>
-								    <%= g.submit "数量変更", class: "btn btnpink",style: "margin: 0 10px;" %>
+								    <%= g.submit "数量変更", class: "btnbrown",style: "margin: 0 10px;" %>
 								    <% @total = ca.item.price + ca.item.price / 10 %>
 								    <td style="vertical-align: middle; text-align: center;">
 								    	<%= @total_all = ca.quantity * @total %>円
 								    </td>
 								    <td style="vertical-align: middle; text-align: center;">
-								    	<%= link_to "削除", cart_path(ca), method: :delete, class: "btn btngray" %>
+								    	<%= link_to "削除", cart_path(ca), method: :delete, class: "btnbrown" %>
 								    </td>
 							    </td>
 							<% end %>
@@ -58,12 +58,13 @@
 				</table>
 			</div>
 			<div style="text-align: center; margin-bottom: 50px;">
-				<%= link_to "購入画面に進む", orders_address_path, class: "btn btnpink" %>
-				<%= link_to "カートを空にする", cart_delete_all_path, method: :delete, class: "btn btngray" %>
+				<%= link_to "購入画面に進む", orders_address_path, class: "btnbrown" %>
+				<%= link_to "カートを空にする", cart_delete_all_path, method: :delete, class: "btnbrown" %>
 			</div>
 		<% else %>
 			<h5 class="title" style="color: #440000;">お客様のカートに商品はありません。</h5>
 		<% end %>
+		</div>
 	</div>
 </div>
 <%= render 'layouts/customer_footer' %>

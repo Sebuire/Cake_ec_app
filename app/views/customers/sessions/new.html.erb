@@ -16,12 +16,12 @@
           </tr>
           <tr>
             <th></th>
-            <td><%= f.submit "ログイン", class: "btn btnpink" %></td>
+            <td><%= f.submit "ログイン", class: "btnbrown" %></td>
           </tr>
         </table>
         <% if devise_mapping.rememberable? %>
           <div class="field">
-              <p><%= f.check_box :remember_me %> 次回から入力を省略する</p>
+              <p class="brown"><%= f.check_box :remember_me %> 次回から入力を省略する</p>
           </div>
         <% end %>
         <%= render "customers/shared/links" %>
