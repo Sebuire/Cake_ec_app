@@ -111,7 +111,7 @@
 		}
 		.guide{
 			color: #440000;
-			margin: 0 1px;
+			margin: 0 5px;
 		}
 		.guide:hover{
 			color: #440000;
@@ -125,7 +125,7 @@
 		}
 		.about{
 			color: #440000;
-			margin: 0 1px;
+			margin: 0 5px;
 		}
 		.about:hover{
 			color: #440000;
@@ -139,7 +139,7 @@
 		}
 		.signup{
 			color: #440000;
-			margin: 0 1px;
+			margin: 0 5px;
 		}
 		.signup:hover{
 			color: #440000;
@@ -394,7 +394,7 @@
 	}
 }
 .container{
-	margin: 40px auto;
+	margin: 40px 0;
 }
 .form-item{
 	input#search{
@@ -416,6 +416,10 @@
 .brown{
 	color: #440000;
 }
-
-
+.itemlink:hover{
+	color: #440000;
+	a:hover{
+		color: #440000;
+	}
+}
 

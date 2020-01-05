@@ -5,8 +5,8 @@
 			<%= render 'layouts/sidebar' %>
 		</div>
 		<div class="col-xs-9">
-			<h3 class="" style=""><%= @genre.name %>
-				<span class="" style="font-size: 15px;">（全<%= @genre.items.count %>件）</span>
+			<h3 class="brown"><%= @genre.name %>
+				<span class="brown" style="font-size: 15px;">（全<%= @genre.items.count %>件）</span>
 			</h3>
 			<% if @genre.items.present? %>
 				<% @genre.items.each do |g| %>
@@ -14,12 +14,12 @@
 						<%= link_to item_path(g.id) do %>
 							<%= attachment_image_tag g, :image, fallback: "noimage.jpg", style:"max-width:100%;"%>
 						<% end %>
-						<%= link_to g.name, genre_path(g), style:"text-decoration: none; color: #333333;" %>
-						<p>¥<%= g.price + g.price / 10 %></p>
+						<%= link_to g.name, item_path(g.id), class: "brown itemlink" %>
+						<p class="brown">¥<%= g.price + g.price / 10 %></p>
 					</div>
 				<% end %>
 			<% else %>
-				<p>商品がありません。</p>
+				<p class="brown">商品がありません。</p>
 			<% end %>
 		</div>
 	</div>

@@ -1,21 +1,22 @@
 <%= render 'layouts/customer_header' %>
-<div class="container" style="margin-bottom: 50px;">
-	<%= form_for(@order, url:orders_show_path) do |f| %>
-		<div class="col-xs-8 col-xs-offset-2">
+<%= form_for(@order, url:orders_show_path) do |f| %>
+	<div class="container">
+		<h2 class="title"><strong>支払い方法を選択</strong></h2>
+		<div class="col-xs-4 col-xs-offset-2 brown">
 			<span style="line-height: 50px;"><%= f.radio_button :payment, :クレジットカード %><strong style="font-size: 15px;"> クレジットカード</strong></span>
 			<br>
 			<p>下記のクレジットカード会社がご利用可能です。</p>
 			<%= image_tag "card_image.png", style: "width: 150px;" %>
 		</div>
-		<div class="col-xs-8 col-xs-offset-2">
+		<div class="col-xs-6 brown">
 			<span style="line-height: 50px;"><%= f.radio_button :payment, :銀行振込 %><strong style="font-size: 15px;"> 銀行振込</strong></span>
 			<p>下記の銀行がご利用可能です。</p>
 			<%= image_tag "bank.jpg", style: "width: 180px;" %>
 		</div>
-		<div style="text-align: center;">
-			<%= f.submit "支払方法の決定", class: "btn btnpink", style: "margin-top: 30px;" %>
-		</div>
-	<% end %>
-</div>
+	</div>
+	<div style="text-align: center; margin: 50px 0;">
+		<%= f.submit "支払方法の決定", class: "btnbrown" %>
+	</div>
+<% end %>
 <%= render 'layouts/customer_footer' %>
 

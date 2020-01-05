@@ -1,15 +1,15 @@
 <%- if controller_name != 'sessions' %>
-  <p style="text-align: center;">既に登録済みの方は
+  <p class="brown" style="text-align: center;">既に登録済みの方は
   <%= link_to "こちら", new_session_path(resource_name) %></p><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <p style="text-align: center;">会員登録は
+  <p class="brown" style="text-align: center;">会員登録は
   <%= link_to "こちら", new_registration_path(resource_name) %></p>
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <p style="text-align: center;">パスワードを忘れた方は
+  <p class="brown" style="text-align: center;">パスワードを忘れた方は
   <%= link_to "こちら", new_password_path(resource_name) %></p><br />
 <% end %>
 
