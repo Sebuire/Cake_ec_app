@@ -62,10 +62,15 @@
 	padding-bottom: 20px;
 }
 
-.customer-header-ku{
+.customer-header{
 	width: 100%;
 	border-bottom: 1px solid #440000;
 	padding: 10px 0;
+	position: absolute;
+	top: 0;
+	z-index: 100;
+	background-color: #fff;
+	opacity: 0.9;
 	.nav-ku{
 		width: 38%;
 		height: 50px;
@@ -141,6 +146,10 @@
 			font-weight: 600;
 		}
 	}
+}
+.customer-header.sticky{
+	position: fixed;
+	top: 0;
 }
 .index{
 	color: #440000;
@@ -346,7 +355,7 @@
 	}
 }
 .container{
-	margin-top: 40px;
+	margin-top: 100px;
 	margin-bottom: 40px;
 }
 .form-item{
@@ -482,4 +491,99 @@
 		background-size: cover;
 	}
 }
-
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.clearfix::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.feature-inner div{
+	display: inline-block;
+}
+.admin-top-title{
+	text-align: center;
+	font-family: cursive;
+	margin-bottom: 20px;
+}
+.inner1{
+	width: 630px;
+	height: 315px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 300px;
+}
+.inner1 div:first-child{
+	border: 3px solid black;
+	margin-right: 20px;
+}
+.inner1 div:first-child a{
+	text-decoration: none;
+	color: black;
+	font-size: 20px;
+	font-weight: 600;
+	border: 3px solid black;
+	padding: 5px 10px;
+}
+.inner1 div:first-child a:hover{
+	color: silver;
+	border: 3px solid silver;
+}
+.inner1 div:last-child{
+	border: 3px solid black;
+	margin-right: 0px;
+}
+.inner1 div:last-child a{
+	text-decoration: none;
+	color: black;
+	font-size: 20px;
+	font-weight: 600;
+	border: 3px solid black;
+	padding: 5px 10px;
+}
+.inner1 div:last-child a:hover{
+	color: silver;
+	border: 3px solid silver;
+}
+.inner2{
+	width: 630px;
+	height: 315px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 300px;
+}
+.inner2 div:first-child{
+	border: 3px solid black;
+	margin-right: 20px;
+}
+.inner2 div:first-child a{
+	text-decoration: none;
+	color: black;
+	font-size: 20px;
+	font-weight: 600;
+	border: 3px solid black;
+	padding: 5px 10px;
+}
+.inner2 div:first-child a:hover{
+	color: silver;
+	border: 3px solid silver;
+}
+.inner2 div:last-child{
+	border: 3px solid black;
+	margin-right: 0px;
+}
+.inner2 div:last-child a{
+	text-decoration: none;
+	color: black;
+	font-size: 20px;
+	font-weight: 600;
+	border: 3px solid black;
+	padding: 5px 10px;
+}
+.inner2 div:last-child a:hover{
+	color: silver;
+	border: 3px solid silver;
+}

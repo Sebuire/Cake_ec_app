@@ -61,8 +61,40 @@
 				<%= link_to "買い物を続ける", items_path, class: "btnbrown" %>
 				<%= link_to "購入画面に進む", orders_address_path, class: "btnbrown" %>
 			</div>
+			<h4 class="title"><strong>NEW!</strong></h4>
+			<p class="title" style="margin-top: -18px; font-size: 10px;">新商品</p>
+			<div class="brown">
+				<div style="width: 100%; margin-left: 185px;">
+					<% @items.each do |i| %>
+						<div style="float: left; width: 170px; margin: 10px 13px 10px 0;">
+							<%= link_to item_path(i.id) do %>
+								<%= attachment_image_tag i, :image, fallback: "noimage.jpg", style:"max-width:100%;" %>
+							<% end %>
+							<br>
+							<%= link_to i.name, item_path(i), style:"text-decoration: none; color: #440000;" %>
+							<p><%= i.price + i.price / 10 %>円</p>
+						</div>
+					<% end %>
+				</div>
+			</div>
 		<% else %>
 			<h5 class="title" style="color: #440000;">お客様のカートに商品はありません。</h5>
+			<br>
+			<br>
+			<h4 class="title"><strong>NEW!</strong></h4>
+			<p class="title" style="margin-top: -18px; font-size: 10px;">新商品</p>
+			<div class="brown col-xs-8 col-xs-offset-3">
+				<% @items.each do |i| %>
+					<div style="float: left; width: 170px; margin: 10px 13px 10px 0;">
+						<%= link_to item_path(i.id) do %>
+							<%= attachment_image_tag i, :image, fallback: "noimage.jpg", style:"max-width:100%;" %>
+						<% end %>
+						<br>
+						<%= link_to i.name, item_path(i), style:"text-decoration: none; color: #440000;" %>
+						<p><%= i.price + i.price / 10 %>円</p>
+					</div>
+				<% end %>
+			</div>
 		<% end %>
 		</div>
 	</div>
