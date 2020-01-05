@@ -13,21 +13,16 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
     @times = 0
   end
-  # ↑updataするとエラーが出る
 
   def update
     @customer = Customer.find(params[:id])
-    # @customer.addresses.build(
-    #   address: params[:customer][:address][:address],
-    #   postal_code: params[:customer][:address][:postal_code]
-    #   )
     if @customer.update(customers_params)
       redirect_to customer_path(@customer)
     else
-      @customer =Customer.all
+      @customer = current_customer
       render :edit
     end
 
@@ -44,7 +39,7 @@ class CustomersController < ApplicationController
 
   private
   def customers_params
-    params.require(:customer).permit(:name_first_kanji, :name_last_kanji,:name_first_kanji_kana, :name_last_kana, :email, :password, :phone_number, :deleted_at,
+    params.require(:customer).permit(:name_first_kanji, :name_last_kanji,:name_first_kana, :name_last_kana, :email, :password, :phone_number, :deleted_at,
       addresses_attributes: [:postal_code, :address, :_destroy, :id])
   end
   def correct_customer

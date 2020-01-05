@@ -23,26 +23,16 @@
 		</div>
 		<div class="col-xs-10 col-xs-offset-2 brown">
 			<% current_customer.addresses.each do |a| %>
- 				<% if a.id == 1 %>
-						<th><strong>配送先</strong>　<%= f.radio_button :address_id, a.id, :checked => 'checked' %></th>
-						<tr>
-							<td>〒<%= a.postal_code %></td>
-							<td><%= a.address %></td>
-						</tr>
-						<br>
-						<br>
-				<% else %>
-						<th><strong>配送先</strong>　<%= f.radio_button :address_id, a.id%></th>
-						<tr>
-							<td>〒<%= a.postal_code %></td>
-							<td><%= a.address %></td>
-						</tr>
-						<br>
-						<br>
-				<% end %>
+					<th><strong>配送先</strong>　<%= f.radio_button :address_id, a.id, :checked => 'checked' %></th>
+					<tr>
+						<td>〒<%= a.postal_code %></td>
+						<td><%= a.address %></td>
+					</tr>
+					<br>
+					<br>
 			<% end %>
 			<%= f.fields_for :address do |a| %>
-				<label><%= f.radio_button :address_id, current_customer.addresses.count + 1 %> 新しい配送先を登録する </label><br>
+				<label><%= f.radio_button :address_id, @address.id + 1 %> 新しい配送先を登録する </label><br>
 				<label>郵便番号<%= a.text_field :postal_code,placeholder: "(ハイフンなし)", :class => "form-control edit-form" %></label>
 				<br><label>住所<%= a.text_field :address, placeholder: "住所", :size => "60x15",:class => "form-control edit-form"%></label>
 
