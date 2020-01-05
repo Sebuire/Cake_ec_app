@@ -29,16 +29,17 @@
 								<% if item.sales_status == true %>
 									<td><span>販売中</span></td>
 								<% else %>
-									<td><span style="color: red;">売り切れ</span></td>
+									<td><span>売り切れ</span></td>
 								<% end %>
 								<td><%= link_to "詳細", admin_item_path(item.id), class: "btn btn-default" %></td>
 							</tr>
 						<% else %>
 							<tr>
-								<td><%= item.genre.name %><span style="color: red;">(取り扱い中止)</span></td>
+								<td><%= item.id %></td>
 								<td><%= item.name %></td>
 								<td><%= item.price %>円</td>
-								<td><span style="color: red;">販売停止</span></td>
+								<td><%= item.genre.name %></td>
+								<td><span>販売停止</span></td>
 								<td><%= link_to "詳細", admin_item_path(item.id), class: "btn btn-default" %></td>
 							</tr>
 						<% end %>

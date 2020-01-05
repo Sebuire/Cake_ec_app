@@ -4,8 +4,7 @@
 		<p style="color: lime; text-align: center;"><%= flash[:notice] %></p>
 	<% end %>
 	<h2 class="">管理者画面</h2>
-	<p style="font-size: 20px;">本日の注文件数</p>
-	<P><%= link_to @orders.count, admin_orders_path %>件</P>
+	<p style="font-size: 20px; margin-top: 50px;">本日の注文件数　<%= link_to @orders.count, admin_orders_path %>件</P>
 </div>
 <%= render "layouts/admin_footer" %>
 

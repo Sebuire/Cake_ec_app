@@ -1,41 +1,55 @@
-<header style="width: 100%;background-color: grey;">
-	<div class="clearfix" style="padding: 10px;">
-		 <div style="float: left; margin-left: 30px;">
-		 	<h3 style="color: #fff; ">
-		 		<%= link_to 'ながのCAKE', admins_path, style:"color:#fff; text-decoration:none;"  %>
-		 	</h3>
-		 </div>
-		 <div style="float: right; margin-right: 30px;">
-		<% if admin_signed_in? %>
-			<%= link_to "ログアウト", destroy_admin_session_path, method: :delete ,:style => "color: white; text-decoration: none; border: 3px solid white; padding: 5px 10px; font-weight: 600; line-height: 100px; margin-left: 20px;" %>
-			<%= link_to "商品一覧", admin_items_path,:style => "color: white; text-decoration: none; border: 3px solid white; padding: 5px 10px; font-weight: 600; line-height: 100px;" %>
-			<%= link_to "注文履歴一覧", admin_orders_path,:style => "color: white; text-decoration: none; border: 3px solid white; padding: 5px 10px; font-weight: 600; line-height: 100px;" %>
-			<%= link_to "ジャンル一覧", admin_genres_path,:style => "color: white; text-decoration: none; border: 3px solid white; padding: 5px 10px; font-weight: 600; line-height: 100px;" %>
-			<%= link_to "顧客一覧", admin_customers_path,:style => "color: white; text-decoration: none; border: 3px solid white; padding: 5px 10px; font-weight: 600; line-height: 100px;" %>
-		<% end %>
-	</div>
-
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">ながのCAKE</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#"></a>
-      <a class="nav-item nav-link" href="admin_items_path">商品一覧</a>
-      <a class="nav-item nav-link" href="admin_orders_path">注文履歴一覧</a>
-      <a class="nav-item nav-link" href="admin_genres_path">ジャンル一覧</a>
-      <a class="nav-item nav-link disabled" href="admin_customers_path" tabindex="-1" aria-disabled="true">顧客一覧</a>
-    </div>
-  </div>
-</nav> -->
-
-
+<header>
+    <nav class="navbar navbar-default" style="background-color: #440000;" >
+        <div class="container">
+        	<div class="navbar-header">
+	            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarlist">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+	            </button>
+	            <a class="navbar-brand" href="admins_path" style="color: white; font-size: 30px;">ながのCAKE</a>
+        	</div>
+			<% if admin_signed_in? %>
+	        <div class="collapse navbar-collapse" id="navbarlist">
+	            <ul class="nav navbar-nav navbar-right">
+	                <li style="color: white;">
+	                	<%= link_to destroy_admin_session_path, :method => :delete do %>
+							<i class="fa fa-sign-out" style="color: white;"></i><span style="color: white;">　ログアウト</span>
+						<% end %>
+	                </li>
+	                <li>
+	                	<%= link_to admin_items_path do %>
+	                		<i class="fa fa-birthday-cake" style="color: white;"></i><span style="color: white;">　商品一覧</span>
+	                	<% end %>
+	                </li>
+	                <li>
+	                	<%= link_to admin_orders_path do %><i class="fa fa-file" style="color: white;">
+	                		</i><span style="color: white;">　注文履歴一覧</span>
+	                	<% end %>
+	                </li>
+	                <li>
+	                	<%= link_to admin_genres_path do %>
+	                		<i class="fas fa-th" style="color: white;"></i><span style="color: white;">　ジャンル一覧</span>
+	                	<% end %>
+	                </li>
+	                <li>
+	                	<%= link_to admin_customers_path do %>
+	                		<i class="fa fa-user" style="color: white;"></i><span style="color: white;">　顧客一覧</span>
+	                	<% end %>
+	                </li>
+	            </ul>
+	        </div>
+	        <% end %>
+        </div>
+    </nav>
 </header>
-<div class="container">
+<div class="">
 	<% if admin_signed_in? %>
 		<p style="padding: 10px;">管理者ログイン中</p>
 	<% end %>
 </div>
+
 
