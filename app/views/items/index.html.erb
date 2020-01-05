@@ -25,15 +25,17 @@
 					</div>
 				<% end %>
 			<% else %>
-				<h3 style="color: #440000;"><strong>全<%= @items.count %>件</strong></h3>
+				<h3 style="color: #440000;"><strong>全<%= @activeItem %>件</strong></h3>
 				<% @items.each do |i| %>
-					<div class="item-image-c" style="float: left; width: 180px; margin: 20px 20px 20px 0;">
-						<%= link_to item_path(i.id) do %>
-							<%= attachment_image_tag i, :image, fallback: "noimage.jpg", style:"max-width:100%;" %>
-						<% end %>
-						<%= link_to i.name, item_path(i), style:"text-decoration: none; color: #333333;" %>
-						<p><%= i.price + i.price / 10 %>円</p>
-					</div>
+					<% if i.genre.is_active == true %>
+						<div class="item-image-c" style="float: left; width: 180px; margin: 20px 20px 20px 0;">
+							<%= link_to item_path(i.id) do %>
+								<%= attachment_image_tag i, :image, fallback: "noimage.jpg", style:"max-width:100%;" %>
+							<% end %>
+							<%= link_to i.name, item_path(i), style:"text-decoration: none; color: #333333;" %>
+							<p><%= i.price + i.price / 10 %>円</p>
+						</div>
+					<% end %>
 				<% end %>
 			<% end %>
 		</div>
