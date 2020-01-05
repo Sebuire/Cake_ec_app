@@ -58,8 +58,8 @@
 				</table>
 			</div>
 			<div style="text-align: center; margin-bottom: 50px;">
+				<%= link_to "買い物を続ける", items_path, class: "btnbrown" %>
 				<%= link_to "購入画面に進む", orders_address_path, class: "btnbrown" %>
-				<%= link_to "カートを空にする", cart_delete_all_path, method: :delete, class: "btnbrown" %>
 			</div>
 		<% else %>
 			<h5 class="title" style="color: #440000;">お客様のカートに商品はありません。</h5>
