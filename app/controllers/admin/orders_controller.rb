@@ -7,8 +7,8 @@ class Admin::OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-		@order_items = @order.order_items
 		@customer = Customer.with_deleted.find(@order.customer_id)
+		@order_items = @order.order_items
 		@tax = 10
 		@order_items.each do |o|
 			@tax_price = o.item.price + o.item.price / @tax
@@ -22,11 +22,9 @@ class Admin::OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
-		if @order.update(order_params)
-            redirect_to admin_orders_path
-        else
-            render :edit
-        end
+		@order.customer = Customer.with_deleted.find(@order.customer_id)
+		@order.update(order_params)
+        redirect_to admin_orders_path
 	end
 
 	private
