@@ -8,4 +8,7 @@ class TopController < ApplicationController
 
   def guide
   end
+
+  def thanks
+  end
 end

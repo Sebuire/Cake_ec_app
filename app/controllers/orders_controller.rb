@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
       session[:address] = nil
       session[:postal_code] = nil
       session[:payment] = nil
-      redirect_to customer_path(current_customer)
+      redirect_to thanks_path
     else
       render :new
     end
