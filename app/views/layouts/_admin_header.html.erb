@@ -10,7 +10,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="admins_path" style="color: white; font-size: 30px;">ながのCAKE</a>
+	            <%= link_to "ながのCAKE", admins_path, class: "navbar-brand", style: "color: #fff; font-size: 30px;" %>
         	</div>
 			<% if admin_signed_in? %>
 	        <div class="collapse navbar-collapse" id="navbarlist">
