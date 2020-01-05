@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   root to: 'top#top'
   get '/about' => 'top#about'
   get '/guide' => 'top#guide'
+  get '/thanks' => 'top#thanks'
   # customersルーティング
   resources :customers, only: [:show, :edit, :update, :destroy]
   # itemsルーティング
