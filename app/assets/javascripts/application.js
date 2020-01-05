@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
@@ -28,5 +27,26 @@ $(function(){
 		$(this).on('click', function(){
 			$(el).stop(true).animate({scrollTop: 0}, 600);
 		});
+	});
+});
+
+// ヘッダーのjs
+$(function(){
+
+	$('.customer-header').each(function(){
+
+		let $window = $(window),
+			$header = $(this),
+			headerOffsetTop = $header.offset().top;
+
+		$window.on('scroll', function(){
+			if ($window.scrollTop() > headerOffsetTop){
+				$header.addClass('sticky');
+			}else{
+				$header.removeClass('sticky');
+			}
+		});
+
+		$window.trigger('scroll');
 	});
 });
