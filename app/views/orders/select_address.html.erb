@@ -33,6 +33,9 @@
 					<br>
 			<% end %>
 			<%= f.fields_for :address do |a| %>
+				<% if flash[:notice] %>
+		<p class="red"><%= flash[:notice] %></p>
+	<% end %>
 				<label><%= f.radio_button :address_id, @address.id + 1 %> 新しい配送先を登録する </label><br>
 				<label>郵便番号<%= a.text_field :postal_code,placeholder: "(ハイフンなし)", :class => "form-control edit-form" %></label>
 				<br><label>住所<%= a.text_field :address, placeholder: "住所", :size => "60x15",:class => "form-control edit-form"%></label>
