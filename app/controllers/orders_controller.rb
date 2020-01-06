@@ -6,9 +6,16 @@ class OrdersController < ApplicationController
   end
 
   def new
-    if params[:customer][:address][:address].present?
+    if params[:customer][:address][:address].present? && params[:customer][:address][:postal_code].present?
       @address = Address.last
       Address.create(id: @address.id + 1, address: params[:customer][:address][:address], postal_code: params[:customer][:address][:postal_code], customer_id: current_customer.id)
+    else
+      p "とおったよおおおおお"
+      @address = Address.last
+      @customer = current_customer
+      flash.now[:notice] = '郵便番号・住所を入力してください'
+      render :select_address
+      return
     end
     session[:name_kanji] = (params[:customer][:name_last_kanji] + params[:customer][:name_first_kanji])
     session[:name_kana] = (params[:customer][:name_last_kana] + params[:customer][:name_first_kana])
