@@ -32,12 +32,16 @@
 				 		</td>
 				 		<td style="vertical-align: middle"><%= f.order_status %></td>
 				 		<td style="vertical-align: middle"><%= f.total_price %>円</td>
-				 		<td style="vertical-align: middle">
+				 		<td style="vertical-align: middle; width: 130px;">
 				 			<%= link_to "注文内容詳細", order_item_path(f.id), class: "btnbrown" %>
 				 		</td>
 				 	</tr>
 				<% end %>
 			</table>
+			<div style="text-align: center;">
+				<br>
+				<%= link_to "マイページへ", customer_path(@customer), class: "btnbrown", style: "margin-bottom: 40px;" %>
+			</div>
 		</div>
 	</div>
 </div>
