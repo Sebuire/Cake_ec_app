@@ -2,9 +2,12 @@
 <div class="container clearfix">
 	<div class="row">
 		<div class="col-xs-3">
+			<br>
+			<br>
 			<%= render 'layouts/sidebar' %>
 		</div>
 		<div class="col-xs-9">
+			<br><br>
 			<div class="form-box form-item">
 				<%= form_tag(items_path,:method => 'get') do %>
 				  <%= text_field_tag(:search, "", {placeholder: "商品名"}) %>
