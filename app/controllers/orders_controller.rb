@@ -6,9 +6,9 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @address = Address.last
     if params[:customer][:address][:address].present?
-    Address.create(id: @address.id + 1, address: params[:customer][:address][:address], postal_code: params[:customer][:address][:postal_code], customer_id: current_customer.id)
+      @address = Address.last
+      Address.create(id: @address.id + 1, address: params[:customer][:address][:address], postal_code: params[:customer][:address][:postal_code], customer_id: current_customer.id)
     end
     session[:name_kanji] = (params[:customer][:name_last_kanji] + params[:customer][:name_first_kanji])
     session[:name_kana] = (params[:customer][:name_last_kana] + params[:customer][:name_first_kana])

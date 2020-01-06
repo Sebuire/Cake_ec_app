@@ -1,17 +1,7 @@
 <%=render 'layouts/customer_header' %>
-<% if @address.errors.any? %>
-  <div class="alert alert-warning">
-    <ul>
-      <%= @address.errors.count %>件のエラー
-      <% @address.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
 <div class="container">
 	<h2 class="title"><strong>配送先を選択</strong></h2>
-	<%= form_with model: current_customer, url: new_order_path do |f| %>
+	<%= form_with model: current_customer, url: new_order_path,data: { remote: false } do |f| %>
 		<div class="col-xs-8 col-xs-offset-2">
 			<table class="table table-bordered">
 				<tr>
