@@ -1,3 +1,17 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.slideshow{
+	overflow: hidden;
+	position: relative;
+	height: 800px;
+	width: 100%;
+}
+.slideshow img{
+	display: none;
+	position: absolute;
+	width:100%;
+	left: 55.55%;
+	margin-left: -800px;
+}
