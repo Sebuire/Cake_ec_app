@@ -5,7 +5,7 @@
 				<%= current_customer.name_last_kanji %><%= current_customer.name_first_kanji %>
 			<% end %>
 			さん</span>
-			<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "logout" %>
+			<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"}, class: "logout" %>
 			<%= link_to "ご利用ガイド", guide_path, class: "guide" %>
 			<%= link_to (carts_path) do %>
 				<span class="cart">カート<%= fa_icon("shopping-cart") %></span>
