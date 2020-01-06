@@ -2,7 +2,7 @@ class Admin::ItemsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @items = Item.page(params[:page]).per(15)
+    @items = Item.search(params[:search]).page(params[:page]).per(15)
   end
 
   def show
