@@ -1,6 +1,6 @@
 <%= render 'layouts/customer_header' %>
 <%= form_for(@order, url:orders_show_path) do |f| %>
-	<div class="container">
+	<div class="container margintop">
 		<h2 class="title"><strong>支払い方法を選択</strong></h2>
 		<div class="col-xs-4 col-xs-offset-2 brown">
 			<span style="line-height: 50px;"><%= f.radio_button :payment, :クレジットカード %><strong style="font-size: 15px;"> クレジットカード</strong></span>

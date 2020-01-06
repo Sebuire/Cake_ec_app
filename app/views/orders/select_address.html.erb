@@ -1,5 +1,5 @@
 <%=render 'layouts/customer_header' %>
-<div class="container">
+<div class="container margintop">
 	<h2 class="title"><strong>配送先を選択</strong></h2>
 	<%= form_with model: current_customer, url: new_order_path,data: { remote: false } do |f| %>
 		<div class="col-xs-8 col-xs-offset-2">
