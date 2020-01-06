@@ -5,19 +5,20 @@
 		<div class="col-xs-8 col-xs-offset-2">
 			<table class="table table-bordered">
 				<tr>
-					<th class="table-color">名前(姓)</th><td><%= f.text_field :name_last_kanji %></td>
+					<th class="table-color">名前(姓)</th>
+					<td><%= f.text_field :name_last_kanji, class:"form-control", style:"width: 40%;" %></td>
 				</tr>
 				<tr>
 					<th class="table-color">名前(名)</th>
-					<td><%= f.text_field :name_first_kanji %></td>
+					<td><%= f.text_field :name_first_kanji, class:"form-control", style:"width: 40%;" %></td>
 				</tr>
 				<tr>
 					<th class="table-color">フリガナ(姓)</th>
-					<td><%= f.text_field :name_last_kana %></td>
+					<td><%= f.text_field :name_last_kana, class:"form-control", style:"width: 40%;" %></td>
 				</tr>
 				<tr>
 					<th class="table-color">フリガナ(名)</th>
-					<td><%= f.text_field :name_first_kana %></td>
+					<td><%= f.text_field :name_first_kana, class:"form-control", style:"width: 40%;" %></td>
 				</tr>
 			</table>
 		</div>

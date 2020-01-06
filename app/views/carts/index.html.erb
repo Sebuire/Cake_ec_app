@@ -31,9 +31,9 @@
 								<%= ca.item.price + ca.item.price / 10 %>円
 							</td>
 							<%= form_for ca do |g| %>
-								<td style="vertical-align: middle; text-align: center;">
-									<%= g.select :quantity, options_for_select(@quantity, {selected: ca.quantity}) %>
-								    <%= g.submit "数量変更", class: "btnbrown",style: "margin: 0 10px;" %>
+								<td class="form-group form-inline" style="vertical-align: middle; text-align: center;">
+									<%= g.select :quantity, options_for_select(@quantity, {selected: ca.quantity}), {}, class:"form-control" %>
+								    <%= g.submit "数量変更", class: "btnbrown" %>
 								    <% @total = ca.item.price + ca.item.price / 10 %>
 								    <td style="vertical-align: middle; text-align: center;">
 								    	<%= @total_all = ca.quantity * @total %>円
