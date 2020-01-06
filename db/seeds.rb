@@ -12,6 +12,7 @@
 # Genre.create(name: "キャンディ")
 # Address.create(customer_id: 1, address: "神奈川県川崎市川崎区8-1-1102", postal_code: 1802291)
 # Order.create(customer_id: 1, postage: 800, total_price: 3300, order_name: "伊東大輝", order_address: "神奈川県川崎市川崎区8-1-1102", order_postal_code: 1802291)
+# Item.create(genre_id: 1, name: "いちご生クリーム ケーキ", body: "3種類の生クリームを配合したオリジナル生クリームは、口当たりの良さがポイント。乳化剤使用しない、焼き上げのスポンジはフワフワ！生クリームとの組み合わせも抜群です。", price: 3000)
 # Item.create(genre_id: 2, name: "うれしいプリン 6個セット", body: "定番カスタードプリンの詰め合わせです。ほろにがカラメルの上は、濃厚カスタード味のプリンです。保存料を一切使用していません。長野県産「こだわり卵」を使って、毎朝手作りしています。「おいしい」や「うまい」の先にある「うれしい」をお届けします", price: 2000)
 # Item.create(genre_id: 3, name: "ラングドシャ", body: "可愛らしい猫の缶にぎっしり入っているのは、ごく薄く焼き上げた繊細なクッキー。「ラングドシャ」とはフランス語で「猫の舌」という意味です。", price: 1500)
 # Item.create(genre_id: 4, name: "お正月MIX", body: "金色に輝くのパッケージが目印の「お正月MIX」。お正月らしいデザイン、カラーのＭＩＸです。フレーバーも人気のフレーバーを揃えています。", price: 500)
