@@ -15,6 +15,17 @@
 						<% end %>
 					</td>
 				</tr>
+				<% if @customer.deleted_at.nil? %>
+				<tr>
+					<th>登録日</th>
+					<td><%= @customer.created_at.strftime("%Y年%m月%d日") %></td>
+				</tr>
+				<% else %>
+				<tr>
+					<th>退会日</th>
+					<td><%= @customer.deleted_at.strftime("%Y年%m月%d日") %></td>
+				</tr>
+				<% end %>
 				<tr>
 					<th>氏名</th>
 					<td>
@@ -29,7 +40,6 @@
 						<%= @customer.name_first_kana %>
 					</td>
 				</tr>
-				<% if @customer.deleted_at.nil? %>
 				<tr>
 					<th>郵便番号</th>
 					<td><%= @customer.addresses.first.postal_code %></td>
@@ -38,7 +48,6 @@
 					<th>住所</th>
 					<td><%= @customer.addresses.first.address %></td>
 				</tr>
-				<% end %>
 				<tr>
 					<th>電話番号</th>
 					<td><%= @customer.phone_number %></td>
