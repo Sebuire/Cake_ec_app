@@ -1,24 +1,22 @@
 <%= render 'layouts/customer_header' %>
 <div class="slideshow">
 	<img src="assets/cake222.jpeg">
-	<img src="assets/pudding.jpeg">
-	<img src="assets/candy.webp">
+	<img src="assets/puddingslide.jpeg">
+	<img src="assets/icecandy1.jpg">
 	<img src="assets/slide5.jpeg">
-
 </div>
-
-<div class="clearfix margintop" style="margin-right: 10px; margin-left: 10px;">
-	<div class="allitem">
-		<%= link_to "全ての商品を見る", items_path, class: "btn btnbrown top2-btn"%>
-	</div>
+<div class="clearfix margintop" style="margin-top: 40px;margin-right: 10px; margin-left: 10px;">
 	<div class="newsitem clearfix">
 		<h3 class="title"><strong>NEWS</strong></h3>
 		<p class="title" style="font-size: 10px; margin-top: -15px;">新着ニュース</p>
 		<br>
-		<div><span>2019 . 12 . 25</span></div>
-		<div class="second"><span>2019 . 01 . 01</span></div>
-		<div class="third"><span>2019 . 01 . 03</span></div>
 		<div><span>2019 . 01 . 05</span></div>
+		<div class="second"><span>2019 . 01 . 03</span></div>
+		<div class="third"><span>2019 . 01 . 01</span></div>
+		<div><span>2019 . 12 . 25</span></div>
+	</div>
+	<div class="allitem" style="margin-top: 80px;">
+		<%= link_to "全ての商品を見る", items_path, class: "btn btnbrown top2-btn"%>
 	</div>
 	<div class="blog clearfix">
 		<h3 class="title"><strong>Blog</strong></h3>
@@ -38,9 +36,9 @@
 	<p class="title" style="font-size: 10px; margin-top: -15px;">人気商品</p>
 	<br>
 	<div class="popularphoto">
-		<div><span>滑らかクリームのプリン</span></div>
-		<div><span>こだわりのクッキー(12種)</span></div>
-		<div><span>花の香るマカロンケーキ</span></div>
+		<div style="box-shadow: 0px 0px 0px; border: 1px solid #440000;"><span>滑らかクリームのプリン</span></div>
+		<div style="box-shadow: 0px 0px 0px; border: 1px solid #440000;"><span>こだわりのクッキー(12種)</span></div>
+		<div style="box-shadow: 0px 0px 0px; border: 1px solid #440000;"><span>花の香るマカロンケーキ</span></div>
 	</div>
 </div>
 <%= render 'layouts/customer_footer' %>
