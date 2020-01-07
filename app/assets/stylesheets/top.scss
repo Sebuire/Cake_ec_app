@@ -311,20 +311,6 @@
 		background-size: cover;
 	}
 }
-
-.slide-ku{
-	width: 800px;
-	height: 535px;
-	margin: 50px auto;
-	position: relative;
-	border: 1px solid palevioletred;
-	img{
-		width: 100%;
-		height: 533px;
-		display: none;
-		position: absolute;
-	}
-}
 .form-box{
 	width: 520px;
 	padding-top: 10px;
@@ -597,4 +583,28 @@
 	a:hover{
 		color: #440000;
 	}
+}
+.fadeIn{
+	opacity: 0;
+	text-align: center;
+	color: #440000;
+	font-size: 15px;
+	padding-top: 90px;
+	height: 233px;
+	background: rgba(256,256,256,0.4);
+	text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+              -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+              0px 1px 0 #FFF,  0-1px 0 #FFF,
+              -1px 0 0 #FFF, 1px 0 0 #FFF;
+}
+.slideshow{
+	overflow: hidden;
+	position: relative;
+	height: 800px;
+	width: 100%;
+}
+.slideshow img{
+	display: none;
+	position: absolute;
+	width:100%;
 }
