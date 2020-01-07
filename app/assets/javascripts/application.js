@@ -78,6 +78,17 @@ $(function(){
 	let $js = $('.js');
 
 	$js.on('mouseover', function(){
+		$(this).stop(true).animate({
+			opacity: 0.7
+		}, 300);
+	})
+	.on('mouseout', function(){
+		$(this).stop(true).animate({
+			opacity: 1
+		}, 300);
+	});
+
+	$js.on('mouseover', function(){
 		$(this).find('section').stop(true).animate({
 			opacity: 1
 		}, 500);
