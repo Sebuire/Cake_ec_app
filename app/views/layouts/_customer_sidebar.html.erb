@@ -1,0 +1,11 @@
+<div style="padding : 20px 40px;">
+	<p class="brown" style="border-left: 10px solid #440000; font-size: 18px; padding-left: 3px;">カテゴリーから探す</p>
+	<p style="border-bottom: 3px dotted #440000;"><%= link_to "全てのカテゴリー", items_path, class: "brown", style:"margin-left: 10px;" %></p>
+	<% @genres.each do |g| %>
+		<% if g.is_active %>
+			<p style="border-bottom: 3px dotted #440000;">
+				<%= link_to g.name, genre_path(g), class: " brown", style:"margin-left: 10px;" %>
+			</p>
+		<% end %>
+	<% end %>
+</div>

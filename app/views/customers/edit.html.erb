@@ -3,31 +3,31 @@
 	<div class="row">
 		<div class="col">
 			<div class="col-xs-6 col-xs-offset-3">
-                <h3 class="title"><strong>マイページ編集</strong></h3>
+                <h3 class="title brown"><strong>マイページ編集</strong></h3>
 				<%= form_for (@customer), url: customer_path(@customer) do |f| %>
-					<table class="table table-bordered">
+					<table class="table table-bordered brown">
 						<tr>
-							<th class="table-color">名前(姓)</th>
+							<th class="backgroundbrown">名前(姓)</th>
 							<td><%= f.text_field :name_last_kanji %></td>
 						</tr>
 						<tr>
-							<th class="table-color">名前(名)</th>
+							<th class="backgroundbrown">名前(名)</th>
 							<td><%= f.text_field :name_first_kanji %></td>
 						</tr>
 						<tr>
-							<th class="table-color">フリガナ(姓)</th>
+							<th class="backgroundbrown">フリガナ(姓)</th>
 							<td><%= f.text_field :name_last_kana %></td>
 						</tr>
 						<tr>
-							<th class="table-color">フリガナ(名)</th>
+							<th class="backgroundbrown">フリガナ(名)</th>
 							<td><%= f.text_field :name_first_kana %></td>
 						</tr>
 						<tr>
-							<th class="table-color">メールアドレス</th>
+							<th class="backgroundbrown">メールアドレス</th>
 							<td><%= f.text_field :email %></td>
 						</tr>
 						<tr>
-							<th class="table-color">電話番号(ハイフン不要)</th>
+							<th class="backgroundbrown">電話番号(ハイフン不要)</th>
 							<td><%= f.telephone_field :phone_number %></td>
 						</tr>
 					</table>

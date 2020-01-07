@@ -1,37 +1,37 @@
 <%= render 'layouts/customer_header' %>
 <div class="container margintop">
-	<h2 class="title"><strong>マイページ</strong></h2>
+	<h2 class="title brown"><strong>マイページ</strong></h2>
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-3">
 			<div style="text-align: right;">
 				<p style="margin-bottom: 10px;"><%= link_to "編集", edit_customer_path(@customer), class: "btnbrown" %>
 				<%= link_to "パスワード変更", "#", class: "btnbrown" %></p>
 			</div>
-			<table class="table table-bordered">
+			<table class="table table-bordered brown">
 				<tr>
-					<th class="table-color">氏名</th>
+					<th class="backgroundbrown">氏名</th>
 					<td><%= @customer.name_last_kanji %><%= @customer.name_first_kanji %></td>
 				</tr>
 				<tr>
-					<th class="table-color">フリガナ</th>
+					<th class="backgroundbrown">フリガナ</th>
 					<td><%= @customer.name_last_kana %><%= @customer.name_first_kana %></td>
 				</tr>
 				<% @address.first(1).each do |f| %>
 				<tr>
-					<th class="table-color">郵便番号</th>
+					<th class="backgroundbrown">郵便番号</th>
 					<td><%= f.postal_code %></td>
 				</tr>
 				<tr>
-					<th class="table-color">住所</th>
+					<th class="backgroundbrown">住所</th>
 					<td><%= f.address %></td>
 				</tr>
 				<% end %>
 				<tr>
-					<th class="table-color">電話番号</th>
+					<th class="backgroundbrown">電話番号</th>
 					<td><%= @customer.phone_number %></td>
 				</tr>
 				<tr>
-					<th class="table-color">メールアドレス</th>
+					<th class="backgroundbrown">メールアドレス</th>
 					<td><%= @customer.email %></td>
 				</tr>
 			</table>
