@@ -1,19 +1,18 @@
 <%= render 'layouts/admin_header' %>
-
 <div class="container">
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-3">
 		<% if flash[:notice] %>
   			<p style="color: lime"><%= flash[:notice] %></p>
 		<% end %>
-			<h2 class="title">ジャンル追加</h2>
+			<h2 class="title brown">ジャンル追加</h2>
 		        <% if @genre.errors.any? %>
-					<p style="color: red; text-align: center;"><%= @genre.errors.count %>件のERRORが発生しました</p>
+					<p class="title red"><%= @genre.errors.count %>件のERRORが発生しました</p>
 					<% @genre.errors.full_messages.each do |message| %>
-					<p style="color: red; text-align: center;"><%= message %></p>
+					<p class="title red"><%= message %></p>
 					<% end %>
 				<% end %>
-				<div class="clearfix" style="text-align: center;">
+				<div class="clearfix title">
 					<%= form_for @genre, url:admin_genres_path do |f| %>
 						<div class="form-group form-inline" style="float: left;">
 							<%= f.label :ジャンル名 %>
@@ -23,8 +22,8 @@
 						<div style="float: right;">	<%= f.submit "追加", class: "btn btn-default" %></div>
 					<% end %>
 				</div>
-			<h2 class="title">ジャンル一覧</h2>
-			<table class="table">
+			<h2 class="title brown">ジャンル一覧</h2>
+			<table class="table brown">
 				<thead>
 					<tr>
 						<th>ジャンル名</th>
@@ -49,10 +48,10 @@
 					<% end %>
 				</tbody>
 			</table>
-			<div style="text-align: center;">
+			<div class="title">
 				<%= paginate @genres, class: "paginate" %>
 			</div>
-			<div style="text-align: center;">
+			<div class="title">
 				<%= link_to "管理者TOP", admins_path, class: "btn btn-default", style: "margin: 30px;" %>
 			</div>
 		</div>

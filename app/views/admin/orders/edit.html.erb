@@ -1,10 +1,9 @@
 <%= render "layouts/admin_header" %>
-
 <div class="container">
 	<div class="row">
 		<div class="col-xs-4  col-xs-offset-4">
-			<h3 class="title">注文情報</h3>
-			<table class="table table table-bordered">
+			<h3 class="title brown">注文情報</h3>
+			<table class="table table-bordered brown">
 				<tr>
 					<th>注文ID</th><td><%= @order.id %></td>
 				</tr>
@@ -19,8 +18,8 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-6  col-xs-offset-3">
-			<h3 class="title">注文ステータス</h3>
-			<div style="text-align: center;">
+			<h3 class="title brown">注文ステータス</h3>
+			<div class="title">
 			<%= form_for @order, url:admin_order_path do |f| %>
 	    		<lavel class="status"><%= f.radio_button :order_status, :入金待ち %>
 	    		入金待ち</lavel>
@@ -39,5 +38,4 @@
 		</div>
 	</div>
 </div>
-
 <%= render "layouts/admin_footer" %>

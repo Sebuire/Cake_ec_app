@@ -2,7 +2,7 @@
 <div class="container clearfix margintop">
 	<div class="row">
 		<div class="col-xs-3">
-			<%= render 'layouts/sidebar' %>
+			<%= render 'layouts/customer_sidebar' %>
 		</div>
 		<div class="col-xs-9">
 			<h3 class="brown"><%= @genre.name %>
@@ -10,7 +10,7 @@
 			</h3>
 			<% if @genre.items.present? %>
 				<% @genre.items.each do |g| %>
-					<div class="item-image-c" style="float: left; margin: 20px 20px 20px 0; width: 180px;">
+					<div class="item-image" style="float: left; margin: 20px 20px 20px 0; width: 180px;">
 						<%= link_to item_path(g.id) do %>
 							<%= attachment_image_tag g, :image, fallback: "noimage.jpg", style:"max-width:100%;"%>
 						<% end %>

@@ -1,8 +1,10 @@
 <%= render 'layouts/admin_header' %>
 <div class="container" style="margin-bottom: 300px;">
-	<% if flash[:notice] %>
-		<p style="color: lime; text-align: center;"><%= flash[:notice] %></p>
-	<% end %>
+	<div class="title">
+		<% if flash[:notice] %>
+			<p style="color: lime;"><%= flash[:notice] %></p>
+		<% end %>
+	</div>
 	<h2 class="">管理者画面</h2>
 	<p style="font-size: 20px; margin-top: 50px;">本日の注文件数　<%= link_to @orderToday, admin_orders_path %>件</P>
 </div>

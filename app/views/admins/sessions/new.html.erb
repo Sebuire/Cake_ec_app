@@ -1,10 +1,10 @@
 <!-- deviseを使ったadminのログイン画面です -->
 <%= render 'layouts/admin_header' %>
 <div class="container">
-    <h2 class="title">ログイン</h2>
+    <h2 class="title brown">ログイン</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="col-xs-6 col-xs-offset-3 clearfix">
-            <table class="table">
+            <table class="table brown">
                 <tr>
                     <th>メールアドレス</th>
                     <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", style:"width: 70%;" %></td>
@@ -19,12 +19,12 @@
                 </tr>
             </table>
             <% if devise_mapping.rememberable? %>
-                <div class="field">
-                    <p style="text-align: center;"><%= f.check_box :remember_me %> 次回から入力を省略する</p>
+                <div class="field title">
+                    <%= f.check_box :remember_me %> 次回から入力を省略する</p>
                 </div>
             <% end %>
             <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-                <p style="text-align: center;">パスワードを忘れた方は
+                <p class="title">パスワードを忘れた方は
                 <%= link_to "こちら", new_password_path(resource_name) %></p><br />
             <% end %>
         </div>

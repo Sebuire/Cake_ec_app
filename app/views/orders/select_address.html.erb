@@ -1,23 +1,23 @@
 <%=render 'layouts/customer_header' %>
 <div class="container margintop">
-	<h2 class="title"><strong>配送先を選択</strong></h2>
+	<h2 class="title brown"><strong>配送先を選択</strong></h2>
 	<%= form_with model: current_customer, url: new_order_path,data: { remote: false } do |f| %>
 		<div class="col-xs-8 col-xs-offset-2">
-			<table class="table table-bordered">
+			<table class="table table-bordered brown">
 				<tr>
-					<th class="table-color">名前(姓)</th>
+					<th class="backgroundbrown">名前(姓)</th>
 					<td><%= f.text_field :name_last_kanji, class:"form-control", style:"width: 40%;" %></td>
 				</tr>
 				<tr>
-					<th class="table-color">名前(名)</th>
+					<th class="backgroundbrown">名前(名)</th>
 					<td><%= f.text_field :name_first_kanji, class:"form-control", style:"width: 40%;" %></td>
 				</tr>
 				<tr>
-					<th class="table-color">フリガナ(姓)</th>
+					<th class="backgroundbrown">フリガナ(姓)</th>
 					<td><%= f.text_field :name_last_kana, class:"form-control", style:"width: 40%;" %></td>
 				</tr>
 				<tr>
-					<th class="table-color">フリガナ(名)</th>
+					<th class="backgroundbrown">フリガナ(名)</th>
 					<td><%= f.text_field :name_first_kana, class:"form-control", style:"width: 40%;" %></td>
 				</tr>
 			</table>

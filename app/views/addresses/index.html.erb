@@ -1,34 +1,34 @@
 <%= render 'layouts/customer_header' %>
 <% if flash[:notice] %>
-  <p class="title"><%= flash[:notice] %></p>
+  <p class="title brown"><%= flash[:notice] %></p>
 <% end %>
 <div class="container margintop">
 	<div class="row">
 		<div class="col">
 			<div class="col-xs-6 col-xs-offset-3">
-				<div style="text-align: center;">
-					<h3 class="title"><strong>配送先登録</strong></h3>
+				<div class="title">
+					<h3 class="title brown"><strong>配送先登録</strong></h3>
 					<%= form_for @address, url: addresses_path do |a| %>
-						<table class="table table-bordered">
+						<table class="table table-bordered brown">
 							<tr>
-							<th class="table-color">郵便番号</th>
+							<th class="backgroundbrown">郵便番号</th>
 								<td><%= a.text_field :postal_code, style: "width: 70%;" %></td>
 							</tr>
 							<tr>
-							<th class="table-color">住所</th>
+							<th class="backgroundbrown">住所</th>
 								<td><%= a.text_field :address, style: "width: 70%;" %></td>
 							</tr>
 						</table>
-					    <div style="text-align: center; margin-bottom: 40px;"><%= a.submit "登録する", class: "btnbrown" %></div>
+					    <div class="title" style="margin-bottom: 40px;"><%= a.submit "登録する", class: "btnbrown" %></div>
 					<% end %>
-					<h3 class="title"><strong>配送先一覧</strong></h3>
+					<h3 class="title brown"><strong>配送先一覧</strong></h3>
 				</div>
 				<table style="margin-bottom: 40px;" class="table table-bordered">
 					<thead>
 						<tr>
-							<th class="table-color">郵便番号</th>
-							<th class="table-color">住所</th>
-							<th class="table-color"></th>
+							<th class="backgroundbrown">郵便番号</th>
+							<th class="backgroundbrown">住所</th>
+							<th class="backgroundbrown"></th>
 						</tr>
 					</thead>
 				<% @customer.addresses.each do |f| %>
@@ -36,7 +36,7 @@
 						<tr>
 							<td><%= f.postal_code %></td>
 							<td><%= f.address %></td>
-							<td  style="text-align: center;">
+							<td class="title">
 								<%= link_to "編集", edit_address_path(f.id), class: "btnbrown" %>
 
 								<%= link_to "削除", address_path(f.id), method: :delete, data: {confirm: "この登録住所が削除されます。よろしいですか？"}, class: "btnbrown" %>
@@ -45,7 +45,7 @@
 					</tbody>
 				<% end %>
 				</table>
-				<div style="text-align: center;">
+				<div class="title">
 					<%= link_to "マイページへ", customer_path(@customer), class: "btnbrown", style: "margin-bottom: 40px;" %>
 				</div>
 			</div>

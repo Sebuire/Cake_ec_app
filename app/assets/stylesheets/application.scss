@@ -17,3 +17,663 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'fontawesome-all';
+
+
+/* reset css*/
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+/**/
+
+.clearfix::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+
+
+/* 共通で使われているcss */
+
+.container{
+	margin: 40px;
+}
+
+.margintop{
+	margin-top: 100px;
+}
+
+.title{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.item-image{
+	a:hover{
+	  opacity: 0.7;
+	  filter: item-image(opacity=70);
+	  -ms-filter: "item-image(opacity=70)";
+	}
+}
+
+.itemlink:hover{
+	color: #440000;
+	a:hover{
+		color: #440000;
+	}
+}
+
+.red{
+	color: red;
+}
+
+.brown{
+	color: #440000;
+}
+
+.backgroundbrown{
+	background-color: #440000;
+	color: #fff;
+}
+
+.btnbrown{
+	background-color: white;
+	color: #440000;
+	border: 1px solid #440000;
+	padding: 5px 10px;
+	border-radius: 2px;
+	.btnbrown:hover{
+		background-color: #440000;
+		color: #fff;
+		text-decoration: none;
+	}
+}
+
+
+
+
+/* top/top.html.erb */
+
+.slideshow{
+	overflow: hidden;
+	position: relative;
+	height: 800px;
+	width: 100%;
+	img{
+		display: none;
+		position: absolute;
+		width:100%;
+	}
+}
+
+.newsitem{
+	width: 100%;
+	div{
+		float:left;
+		width: 22%;
+		height: 270px;
+		margin-right: 4%;
+		border: 1px solid #440000;
+		section{
+			opacity: 0;
+			text-align: center;
+			color: #440000;
+			font-size: 15px;
+			padding-top: 90px;
+			height: 233px;
+			background: rgba(256,256,256,0.4);
+			text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+		              -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+		              0px 1px 0 #FFF,  0-1px 0 #FFF,
+		              -1px 0 0 #FFF, 1px 0 0 #FFF;
+		}
+	}
+	.news1{
+		background-image: url(icecake1.jpg);
+		background-position: 50% 22px;
+		background-size: cover;
+	}
+	.news2{
+		background-image: url(candy3.jpeg);
+		background-position: center;
+		background-size: auto;
+	}
+	.news3{
+		background-image: url(newyear.jpg);
+		background-position: 50% 22px;
+		background-size: cover;
+	}
+	.news4{
+		margin-right: 0;
+		background-image: url(xmascake.jpg);
+		background-position: 50% 22px;
+		background-size: cover;
+	}
+	span{
+		width: 100%;
+		display: block;
+		background-color: #440000;
+		color: #fff;
+		padding: 7px;
+		font-size: 15px;
+		font-weight: 600;
+	}
+}
+
+.allitem{
+	background-image: url(cake.jpg);
+	background-position: center;
+	background-size: cover;
+	border: 1px solid #440000;
+	width: 100%;
+	height: 400px;
+	margin: 40px auto;
+	margin-top: 80px;
+	text-align: center;
+	z-index: -1;
+	a{
+		padding: 10px 20px;
+		margin-top: 178px;
+		border: 2px solid #440000;
+		box-shadow:0px 0px 10px;
+		z-index: 100;
+	}
+	a:hover{
+		background-color: #440000;
+		color: white;
+	}
+}
+
+.blog{
+	margin: 40px auto;
+	width: 100%;
+	div{
+		width: 32%;
+		height: 240px;
+		margin-right: 2%;
+		margin-bottom: 20px;
+		border: 1px solid #440000;
+		float:left;
+		span{
+			width: 100%;
+			display: block;
+			background-color: #440000;
+			color: #fff;
+			padding: 7px;
+			font-size: 15px;
+			font-weight: 600;
+		}
+	}
+	.marginnone{
+		margin-right: 0;
+	}
+	.blog1{
+		background-image: url(cafeblog.jpg);
+		background-position: center;
+		background-size: cover;
+	}
+	.blog2{
+		background-image: url(blogshop.jpg);
+		background-position: center;
+		background-size: cover;
+	}
+	.blog3{
+		background-image: url(blgo4.jpg);
+		background-position: center;
+		background-size: cover;
+	}
+	.blog4{
+		background-image: url(blog5.jpg);
+		background-position: center;
+		background-size: cover;
+	}
+	.blog5{
+		background-image: url(blog3.jpg);
+		background-position: center;
+		background-size: cover;
+	}
+	.blog6{
+		background-image: url(blog6.jpg);
+		background-position: center;
+		background-size: cover;
+	}
+	.blog7{
+		background-image: url(blog7.jpg);
+		background-position: center;
+		background-size: cover;
+	}
+	.blog8{
+		background-image: url(blog8.jpg);
+		background-position: center;
+		background-size: cover;
+	}
+	.blog9{
+		background-image: url(blog2.jpg);
+		background-position: center;
+		background-size: cover;
+	}
+}
+.popular{
+	.popularphoto{
+		width: 100%;
+		margin: 10px auto;
+		div{
+			width: 31%;
+			height: 240px;
+			margin-left: 3.3%;
+			float: left;
+			box-shadow:0px 0px 10px;
+			span{
+				position: absolute;
+				bottom: 0;
+				right: 140px;
+				color: white;
+				font-weight: 600;
+				text-shadow: 1px 1px 2px dimgray;
+			}
+	    }
+		.popular1{
+			margin-left: 0.3%;
+			background-image: url(pudding3.jpg);
+			background-position: center;
+			background-size: cover;
+			position: relative;
+		}
+		.popular2{
+			background-image: url(cookie1.jpg);
+			background-position: center;
+			background-size: cover;
+			position: relative;
+		}
+		.popular3{
+			background-image: url(cake_genre.jpg);
+			background-position: center;
+			background-size: cover;
+			position: relative;
+		}
+	}
+}
+
+
+
+/* top/thanks.html.erb */
+
+
+
+/* top/guide.html.erb */
+
+.guide-box{
+	text-align: left;
+	padding: 10px;
+	margin: 30px auto;
+	color: #440000;
+	a{
+		text-decoration: none;
+		text-decoration: underline;
+	}
+}
+
+
+
+/* top/about.html.erb */
+
+.about-shop{
+	text-align: center;
+	padding: 10px;
+	margin-bottom: 15px;
+	div{
+		width: 70%;
+		height: 500px;
+		padding: 20px;
+		margin: 0 auto;
+		background-image: url(shop.jpg);
+		background-size: cover;
+	}
+}
+
+
+
+/* orders/select_payment.html.erb */
+
+
+
+/* orders/select_address.html.erb */
+
+
+
+/* orders/confirm.html.erb*/
+
+
+
+/* orders/index.html.erb */
+
+
+
+/* order_items/show.html.erb */
+
+
+
+/* layouts/_customer_sidebar.html.erb */
+
+
+
+/* layouts/_customer_header.html.erb */
+
+.customer-header{
+	width: 100%;
+	border-bottom: 1px solid #440000;
+	padding: 10px 0;
+	position: absolute;
+	top: 0;
+	z-index: 100;
+	background-color: #fff;
+	opacity: 0.8;
+	.cutomer-header-nav{
+		width: 38%;
+		height: 50px;
+		line-height: 50px;
+		float: right;
+		margin-right: 80px;
+		.logout{
+			color: #440000;
+			margin: 0 5px;
+		}
+		.logout:hover{
+			color: #440000;
+		}
+		.guide{
+			color: #440000;
+			margin: 0 5px;
+		}
+		.guide:hover{
+			color: #440000;
+		}
+		.mypage{
+			color: #440000;
+			margin: 0 5px;
+		}
+		.mypage:hover{
+			color: #440000;
+		}
+		.about{
+			color: #440000;
+			margin: 0 5px;
+		}
+		.about:hover{
+			color: #440000;
+		}
+		.login{
+			color: #440000;
+			margin: 0 5px;
+		}
+		.login:hover{
+			color: #440000;
+		}
+		.signup{
+			color: #440000;
+			margin: 0 5px;
+		}
+		.signup:hover{
+			color: #440000;
+		}
+		.cart{
+			color: #440000;
+			margin: 0 5px;
+		}
+		.cart:hover{
+			color: #440000;
+		}
+		a{
+			text-decoration: none;
+		}
+		a:hover{
+			border-bottom: 1px solid #440000;
+		}
+		.logincustomer{
+			color: #440000;
+			padding: 6px 15px;
+		}
+	}
+	.site-title{
+		height: 50px;
+		margin-left: 15px;
+		line-height: 50px;
+		float: left;
+		a{
+			font-size: 30px;
+			color: #440000;
+			text-decoration: none;
+			text-shadow: 1px 1px 2px dimgray;
+			font-weight: 600;
+		}
+	}
+	.form-box{
+		width: 520px;
+		padding-top: 10px;
+		text-align: right;
+		display: inline-block;
+		text-aline: center;
+		input{
+			width: 50px;
+			margin-left: -5px;
+			height: 30px;
+			background-color: #440000;
+			color: white;
+			border-top-right-radius: 8px;
+			border-bottom-right-radius: 8px;
+		}
+		input:hover{
+			background-color: #fff;
+			color: #440000;
+		}
+		input#search{
+			width: 400px;
+			padding: 0;
+			height: 30px;
+			background-color: #fff;
+			border-top-right-radius: 0px;
+			border-bottom-right-radius: 0px;
+			border-top-left-radius: 8px;
+			border-bottom-left-radius: 8px;
+		}
+	}
+}
+
+.customer-header.sticky{
+	position: fixed;
+	top: 0;
+}
+
+.to-top{
+	position: fixed;
+	bottom: 60px;
+	right: 100px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	box-shadow:0px 0px 10px;
+	z-index: 100;
+	i{
+		font-size: 60px;
+		color: #440000;
+	}
+	i:hover{
+		color: #660000;
+	}
+}
+
+
+
+/* layouts/_customer_footer.html.erb */
+
+.customer-footer-nav{
+	width: 100%;
+	background-color: #fff;
+	margin: 20px 0;
+	.customer-footer-nav-inner{
+		text-align: center;
+		.footer-contact{
+			width: 100%;
+			padding: 10px;
+			color: #440000;
+			h4{
+				font-weight: 600;
+			}
+			.contact-title{
+				text-decoration: none;
+			}
+			p{
+				text-decoration: underline;
+			}
+		}
+		.footer-guide{
+			width: 100%;
+			padding: 10px;
+			color: #440000;
+			h4{
+				font-weight: 600;
+			}
+		}
+		.footer-question{
+			width: 100%;
+			padding: 10px;
+			color: #440000;
+			h4{
+				font-weight: 600;
+			}
+		}
+		.footer-about{
+			width: 100%;
+			padding: 10px;
+			color: #440000;
+			h4{
+				font-weight: 600;
+			}
+		}
+		.snsIcon{
+			color: #440000;
+		}
+	}
+}
+
+.customer-footer{
+	width: 100%;
+	height: 70px;
+	background-color: #FFE6EC;
+	line-height: 60px;
+	text-align: center;
+	border-top: 1px solid lightgrey;
+}
+
+
+/* layouts/_admin_header.html.erb */
+
+
+
+/* layouts/_admin_footer.html.erb */
+
+
+
+/* items/show.html.erb */
+
+
+
+
+/* items/index.html.erb */
+.form-item{
+	input#search{
+		width: 200px;
+	}
+}
+
+
+/* genres/show.html.erb */
+
+
+
+/* customers/show.html.erb */
+
+
+
+/* customers/edit.html.erb */
+
+
+
+/* customers/sessions/new.html.erb */
+
+
+
+/* customers/registrations/new.html.erb */
+
+
+
+/* carts/index.html.erb */
+
+
+
+/* admins/index.html.erb */
+
+
+
+/* admins/sessions/new.html.erb */
+
+
+
+/* admin/orders/show.html.erb */
+
+
+
+/* admin/orders/index.html.erb */
+
+
+
+/* admin/orders/edit.html.erb */
+
+
+
+/* admin/items/show.html.erb */
+
+
+
+/* admin/items/new.html.erb */
+
+
+
+/* admin/items/index.html.erb */
+
+
+
+/* admin/items/edit.html.erb */
+
+
+
+/* admin/genres/index.html.erb */
+
+
+
+/* admin/genres/edit.html.erb */
+
+
+
+/* admin/customers/show.html.erb */
+
+
+
+/* admin/customers/index.html.erb */
+
+
+
+/* admin/customers/edit.html.erb */
+
+
+
+/* addresses/index.html.erb */
+
+
+
+/* addresses/edit.html.erb */

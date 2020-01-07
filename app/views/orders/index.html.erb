@@ -2,16 +2,16 @@
 <div class="container margintop">
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1">
-			<h3 class="title"><strong>注文履歴一覧</strong></h3>
-			<table class="table table-bordered" style="text-align: center;">
+			<h3 class="title brown"><strong>注文履歴一覧</strong></h3>
+			<table class="table table-bordered brown" style="text-align: center;">
 				<tr>
-			 		<th class="table-color">注文ID</th>
-			 		<th class="table-color">注文日</th>
-			 		<th class="table-color">商品</th>
-			 		<th class="table-color">配送先</th>
-			 		<th class="table-color">注文ステータス</th>
-			 		<th class="table-color">支払い金額</th>
-			 		<th class="table-color"></th>
+			 		<th class="backgroundbrown">注文ID</th>
+			 		<th class="backgroundbrown">注文日</th>
+			 		<th class="backgroundbrown">商品</th>
+			 		<th class="backgroundbrown">配送先</th>
+			 		<th class="backgroundbrown">注文ステータス</th>
+			 		<th class="backgroundbrown">支払い金額</th>
+			 		<th class="backgroundbrown"></th>
 				</tr>
 				<% @customer.orders.each do |f| %>
 				 	<tr>
@@ -38,7 +38,7 @@
 				 	</tr>
 				<% end %>
 			</table>
-			<div style="text-align: center;">
+			<div class="title">
 				<br>
 				<%= link_to "マイページへ", customer_path(@customer), class: "btnbrown", style: "margin-bottom: 40px;" %>
 			</div>

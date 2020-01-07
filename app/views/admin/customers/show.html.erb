@@ -1,10 +1,9 @@
 <%= render 'layouts/admin_header' %>
-
 <div class="container">
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-3">
-			<h2 class="title">会員詳細</h2>
-			<table class="table">
+			<h2 class="title brown">会員詳細</h2>
+			<table class="table brown">
 				<tr>
 					<th>顧客ID</th>
 					<td><%= @customer.id %>
@@ -71,7 +70,7 @@
 					</span>
 				</div>
 			<% end %>
-			<div style="text-align: center">
+			<div class="title">
 				<%= link_to '顧客一覧に戻る', admin_customers_path, class: "btn btn-default", style: "margin: 30px 0;" %>
 			</div>
 		</div>
