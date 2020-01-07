@@ -73,6 +73,20 @@ $(function(){
 	});
 });
 
+$(function(){
 
+	let $js = $('.js');
+
+	$js.on('mouseover', function(){
+		$(this).find('section').stop(true).animate({
+			opacity: 1
+		}, 500);
+	})
+	.on('mouseout', function(){
+		$(this).find('section').stop(true).animate({
+			opacity: 0
+		}, 500);
+	});
+});
 
 
