@@ -6,7 +6,7 @@ class CartsController < ApplicationController
     @quantity = [*1..10]
     @total = 0
     @totalPrice = 0
-    @items = Item.last(3)
+    @newitems = Item.last(3)
     @carts.each do |c|
       @totalPrice += c.item.price * c.quantity
     end
@@ -24,9 +24,9 @@ class CartsController < ApplicationController
        flash[:danger] = "1度の注文の上限は10点です。"
        redirect_to item_path(cart.item_id)
     else
-      @cart.save!(cart_params)
-      redirect_to item_path(@cart.item_id)
-      flash[:success] = "カートに商品を追加しました。"
+       @cart.save!(cart_params)
+       redirect_to item_path(@cart.item_id)
+       flash[:success] = "カートに商品を追加しました。"
     end
   end
 

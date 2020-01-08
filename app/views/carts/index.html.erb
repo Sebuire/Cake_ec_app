@@ -65,7 +65,7 @@
 			<p class="title brown" style="margin-top: -18px; font-size: 10px;">新商品</p>
 			<div class="brown">
 				<div style="width: 100%; margin-left: 185px;">
-					<% @items.each do |i| %>
+					<% @newitems.each do |i| %>
 						<div style="float: left; width: 170px; margin: 10px 13px 10px 0;">
 							<%= link_to item_path(i.id) do %>
 								<%= attachment_image_tag i, :image, fallback: "noimage.jpg", style:"max-width:100%;" %>
@@ -89,7 +89,7 @@
 			<h4 class="title brown"><strong>NEW!</strong></h4>
 			<p class="title brown" style="margin-top: -18px; font-size: 10px;">新商品</p>
 			<div class="brown col-xs-8 col-xs-offset-3">
-				<% @items.each do |i| %>
+				<% @newitems.each do |i| %>
 					<div style="float: left; width: 170px; margin: 10px 13px 10px 0;">
 						<%= link_to item_path(i.id) do %>
 							<%= attachment_image_tag i, :image, fallback: "noimage.jpg", style:"max-width:100%;" %>
